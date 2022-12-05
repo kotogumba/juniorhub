@@ -1,12 +1,11 @@
 class JobsController < ApplicationController
-  validates :title, :description, :location, presence: true
+  before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
     @jobs = policy_scope(Job)
   end
-  
+
   def show
-    authorize @job
   end
 
   def new
@@ -26,11 +25,9 @@ class JobsController < ApplicationController
   end
 
   def edit
-    authorize @job
   end
 
   def update
-    authorize @job
     if @job.update(job_params)
       redirect_to job_path(@job)
     else
@@ -39,12 +36,16 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    authorize @job
     @job.destroy
-    redirect_to jobs_path
+    redirect_to jobs_path, status: :see_other
   end
 
   private
+
+  def set_job
+    @job = Job.find(params[:id])
+    authorize @job
+  end
 
   def job_params
     params.require(:job).permit(:title, :location, :content)
