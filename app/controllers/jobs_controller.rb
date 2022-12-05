@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
-  validates :title, :description, :location, presence: true
-  
+
+  def index
+    @jobs = Job.all
+  end
 end
