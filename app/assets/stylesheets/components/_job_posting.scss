@@ -1,4 +1,4 @@
-.job-image {
+.job-banner {
   background-repeat: no-repeat;
   height: 200px;
   width:100%;
@@ -8,11 +8,27 @@
 .job-posting {
   position: relative;
   left: 16px;
-  top: -20px;
-  width: 40px;
+  width: 100%;
 }
 
 .job-logo {
   position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: -55px;
 
+}
+
+.job-key-points {
+  top: -20px;
+}
+
+.apply-button {
+  position: absolute;
+
+}
+
+.job-posting-info {
+  display: flex;
 }
