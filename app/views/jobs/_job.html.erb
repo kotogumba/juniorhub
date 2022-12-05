@@ -1,0 +1,13 @@
+<div id="<%= dom_id job %>">
+  <p>
+      <%= link_to job.title, job_path(job) if policy(Job).show? do %>
+          <div class="content-container display-flex direction-col-reverse">
+            <div class="job-ad mb-3">
+              <%= job.title%>
+
+            </div>
+          </div> <%# class="content-container display-flex direction-col-reverse"> %>
+
+          <% end %>
+  </p>
+</div>

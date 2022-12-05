@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <div class="d-flex justify-content-between">
     <div class="home-bar-item">
@@ -14,11 +12,27 @@
   </div>
 
 
+  <div class="job-listings-container">
+    <div class="display-flex align-center new-opportunities-container justify-space-between margin-b-24">
+      <div>
+        <div class="new-opportunities-heading">New job opportunities</div>
+      </div>
+      <% if @query %>
+          <p>You searched for <strong><%= @query %></strong>. We found <%= @jobs.count %> jobs matching your search on our website.</p>
+      <% else %>
+          <p>Find your new job among our <strong><%= @jobs.count %></strong> job postings.</p>
+      <% end %>
+    </div> <%#class="display-flex align-center new-opportunities-container justify-space-between margin-b-24" %>
+      <div class="row">
+        <% @jobs.each do |job| %>
+        <%= render job%>
+          <% end %>
 
-
-<h1>New job opportunities</h1>
-  <% @jobs.each do |job| %>
-    <%= link_to job.title, job_path(job) if policy(Job).show? %>
-
-  <% end %>
-</div>
+      </div> <%#class="row" %>
+  </div> <%#class="job-listings-container" %>
+  <div class="search-filters-container">
+    <% @jobs.each do |job|%>
+      <%= render "filter", filter: job.location%>
+    <%end%>
+  </div> <%#class="search-filters-container"%>
+</div> <%# container %>
