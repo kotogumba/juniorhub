@@ -9,9 +9,9 @@
 require 'faker'
 
 # clear database
-# JobResponse.destroy_all
-# Job.destroy_all
-# User.destroy_all
+JobResponse.destroy_all
+Job.destroy_all
+User.destroy_all
 
 # Create 10 users
 10.times do

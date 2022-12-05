@@ -1,0 +1,14 @@
+<div class="container d-flex flex-column">
+  <% if @profile.avatar.attached? %>
+    <%= cl_image_tag @profile.avatar.key, class: "avatar-large" %>
+  <% end %>
+  <%=  @profile.first_name %>
+  <%=  @profile.last_name %>
+  <%=  @profile.address %>
+  <%=  @profile.city %>
+  <%=  @profile.state %>
+  <%=  @profile.zip_code %>
+  <%=  @profile.phone_number %>
+  <%= link_to "Back", :back %>
+  <%= link_to "Edit", edit_profile_path(@profile) %>
+</div>
