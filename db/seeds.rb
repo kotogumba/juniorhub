@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+# clear database
+# JobResponse.destroy_all
+# Job.destroy_all
+# User.destroy_all
+
+# Create 10 users
+10.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    admin: false
+  )
+end
+
+# create jobs
+20.times do
+  Job.create(
+    title: Faker::Job.title,
+    content: Faker::Lorem.paragraph,
+    location: Faker::Address.city,
+    user_id: User.all.sample.id
+  )
+end
