@@ -1,7 +1,6 @@
 <div class="container d-flex flex-column">
   <% if @profile.avatar.attached? %>
-    <%= cl_image_tag @profile.avatar.key, class: "avatar-profile" %>
-    <div class="avatar-profile"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @profile.avatar.key, height: 300, crop: :fill %>'></div>
+    <div class="avatar-profile"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @profile.avatar.key, height: 300, crop: :fill %>'"></div>
   <% end %>
   <%=  @profile.first_name %>
   <%=  @profile.last_name %>
