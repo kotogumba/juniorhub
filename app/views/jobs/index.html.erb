@@ -1,0 +1,6 @@
+<%= link_to "New job", new_job_path if policy(Job).new? %>
+
+<% @jobs.each do |job| %>
+  <%= link_to job.title, job_path(job) if policy(Job).show? %>
+
+<% end %>

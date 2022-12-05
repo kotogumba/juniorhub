@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <h2><%= @job.title %></h2>
   <p><%= @job.content %></p>
@@ -7,3 +8,10 @@
 
 
 </div>
+=======
+<% if policy(@job).edit? %>
+  <%= link_to "Edit this job", edit_job_path(@job) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this job", @job, method: :delete if policy(@job).destroy? %>
+>>>>>>> c021d575fd902a66f2e8372d9e63280a62646740
