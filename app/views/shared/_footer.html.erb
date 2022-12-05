@@ -1,0 +1,39 @@
+<div class="footer">
+  <div class="Brand">
+    <h2>JuniorHub</h2>
+  </div>
+  <div class="footer-menu">
+    <div class="fm">
+      <%= link_to "Home", "#", class: "footer-button" %>
+      <%= link_to "About", "#", class: "footer-button" %>
+      <%= link_to "Contact", "#", class: "footer-button" %>
+      <% if user_signed_in? %>
+        <%= link_to "Jobs", "#", class: "footer-button" %>
+        <%= link_to "Profile", "#", class: "footer-button" %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "footer-button" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="last_row">
+    <div class="footer-links">
+      <div>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+      <div>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      Copyright © 2022 <strong>JuniorHub</strong>
+    </div>
+  </div>
+</div>
