@@ -8,7 +8,9 @@
 
 require 'faker'
 
+
 # clear database
+
 JobResponse.destroy_all
 Job.destroy_all
 User.destroy_all
