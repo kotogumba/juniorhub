@@ -1,0 +1,17 @@
+<%= simple_form_for @profile do |f| %>
+  <%= f.input  :first_name %>
+  <%= f.input  :last_name %>
+  <%= f.input  :address %>
+  <%= f.input  :city %>
+  <%= f.input  :state %>
+  <%= f.input  :zip_code %>
+  <%= f.input  :phone_number %>
+  <%= f.input :bio, as: :text %>
+  <%= f.input :linkedin_url %>
+  <%= f.input :github_url %>
+  <%= f.input :personal_website_url %>
+
+
+  <%= f.input :avatar, as: :file %>
+  <%= f.button :submit, "Upload" %>
+<% end %>
