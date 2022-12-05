@@ -1,4 +1,4 @@
-class JobPolicy < ApplicationPolicy
+class ProfilePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -11,7 +11,7 @@ class JobPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    true
   end
 
   def update?
