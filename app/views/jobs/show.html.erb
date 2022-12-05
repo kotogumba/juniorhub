@@ -1,0 +1,5 @@
+<% if policy(@job).edit? %>
+  <%= link_to "Edit this job", edit_job_path(@job) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this job", @job, method: :delete if policy(@job).destroy? %>
