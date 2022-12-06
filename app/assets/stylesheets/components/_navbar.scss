@@ -1,9 +1,4 @@
 
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
 
 nav{
   display: flex;
@@ -105,10 +100,10 @@ nav{
 }
 
 .toggle .line1{
- transform: rotate(-45deg) translate(-5px,6px);
+  transform: rotate(-45deg) translate(-5px,6px);
 }
 .toggle .line2{
- opacity: 0;
+  opacity: 0;
 }
 .toggle .line3{
   transform: rotate(+45deg) translate(-5px,-6px);

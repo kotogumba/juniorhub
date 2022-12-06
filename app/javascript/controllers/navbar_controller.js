@@ -3,10 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    console.log(event)
+    // console.log(event)
     // this.element.textContent = "Hello World!"
   }
-  navSlide = () => {
+  navSlide() {
     // turn these into data-targets
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');

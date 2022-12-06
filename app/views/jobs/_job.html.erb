@@ -1,13 +1,11 @@
-<div id="<%= dom_id job %>">
-  <p>
-      <%= link_to job.title, job_path(job) if policy(Job).show? do %>
-          <div class="content-container display-flex direction-col-reverse">
-            <div class="job-ad mb-3">
-              <%= job.title%>
-
-            </div>
-          </div> <%# class="content-container display-flex direction-col-reverse"> %>
-
-          <% end %>
-  </p>
+<div class="job-card" id="<%= dom_id job %>">
+  <div class="card-contents">
+    <p class="job-card-heading"><%= job.title %></p>
+    <p class="job-card-content"><%= job.content %></p>
+    <p class="job-card-location"><i class="fa-solid fa-location-dot"> </i><%= job.location %></p>
+  </div>
+  <div class="card-buttons">
+    <p class="job-card-more-info row"><%= link_to "View Job", job_path(job) if policy(Job).show?  %></p>
+    <p class="job-card-apply row"><%= link_to "Apply", job_path(job) if policy(Job).show?  %></p>
+  </div>
 </div>
