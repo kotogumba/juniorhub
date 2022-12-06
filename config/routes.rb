@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   end
   get "dashboard", to: "pages#dashboard"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :jobs do
+    resources :job_responses, only: [:new, :create]
+  end
+  resources :job_responses, only: [:show, :new, :update, :destroy]
+  # Define your job_responses routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
