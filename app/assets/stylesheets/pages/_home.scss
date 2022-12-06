@@ -1,1 +1,221 @@
 // Specific CSS for your home-page
+
+.video-back{
+  height: 650px;
+  background: grey;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-action{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 200px;
+  color: $home-collor-normal;
+}
+
+.brand-action h1{
+  font-family: $Home-font-family;
+  font-weight: 900;
+  font-size: 100px;
+  letter-spacing: 5px;
+}
+
+.brand-action h4{
+  font-family: $Home-font-family;
+  font-weight: 300;
+  font-size: 40px;
+}
+
+.brand-action button{
+  font-family: $Home-font-family;
+  background: $home-collor-button;
+  padding: 20px;
+  border-radius: 50px;
+  border: none;
+  color: $home-collor-normal;
+  font-weight: bold;
+  margin-top: 20px;
+  box-shadow: 5px 5px 5px rgba(62,59,56,0.8228870738636364);
+  transition: 0.4 ease;
+}
+
+.button-text{
+  text-decoration: none;
+  font-family: $Home-font-family;
+  color: $home-collor-normal;
+  font-weight: bold;
+}
+
+.button-text:hover{
+  text-decoration: none;
+  font-family: $Home-font-family;
+  color: $home-collor-normal;
+  font-weight: bold;
+}
+
+.brand-action button:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+  box-shadow: 5px 5px 5px whitesmoke;
+}
+
+.job-teaser{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+  color: $home-collor-dark;
+  font-family: $Home-font-family;
+}
+
+.job-teaser h3{
+  font-weight: 900;
+  font-size: 60px;
+  font-family: $Home-font-family;
+}
+
+.job-card{
+  height: 400px;
+  width: 65%;
+  max-width: 1050px;
+  border-radius: 25px;
+  margin-top: 5%;
+  font-family: $Home-font-family;
+  color: $home-collor-normal;
+  box-shadow: 5px 5px 5px rgba(62,59,56,0.8228870738636364);
+  background-image: linear-gradient(90deg, rgba(10,5,112,0.7269459355828221) 0%, rgba(81,29,253,0.7361483895705521) 50%, rgba(110,65,2,0.4447373466257669) 100%), asset-url('job-card-background_1.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.job-card-text{
+  margin-top: 10px;
+  margin-left: 30px;;
+}
+
+.job-card-text div{
+  margin-top: 20px;
+}
+
+.company_details{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.company_details h6{
+  margin: 0;
+  margin-left: 10px;
+}
+
+.logo{
+  height: 60px;
+  width: 60px;
+}
+
+.job-card h4{
+  font-weight: bold;
+  font-size: 50px;
+  font-family: $Home-font-family;
+  margin: 0;
+}
+
+.job-card h5{
+  font-weight: bold;
+  font-size: 30px;
+  font-family: $Home-font-family;
+}
+
+.get-started{
+  background-color: grey;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.get-started h3{
+  font-weight: bold;
+  font-size: 50px;
+  font-family: $Home-font-family;
+  color: $home-collor-normal;
+  margin: 60px;
+}
+
+.flex-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 60%;
+  margin-bottom: 40px;
+}
+
+.card{
+  border-radius: 15px;
+  height: 600px;
+  width: 480px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.testamonial{
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testamonial-box{
+  width: 80%;
+  max-width: 1050px;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: linear-gradient(292deg, rgba(70,206,208,0.7269459355828221) 0%, rgba(29,126,253,0.7361483895705521) 50%, rgba(63,88,130,0.4447373466257669) 100%);
+  border-radius: 15px;
+  align-items: center;
+}
+
+.face{
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.testamonial-text{
+  margin: 30px;
+}
+.testamonial-text p{
+  margin: 10px;
+}
+
+.testamonial-text h6{
+  color: $home-collor-normal;
+  font-family: $Home-font-family;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 20px;
+  margin: 0;
+}
+
+.popular-blogs{
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: grey;
+}
+
+.blog-preview{
+  height: 60%;
+  width: 40%;
+  background: whitesmoke;
+  text-align: center;
+  align-items: center;
+}
