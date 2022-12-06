@@ -3,6 +3,11 @@ class JobsController < ApplicationController
 
   def index
     @jobs = policy_scope(Job)
+    if params[:query].present?
+      @jobs = Job.search_by_title_content_location(params[:query])
+    else
+      @jobs = Job.all
+    end
   end
 
   def show

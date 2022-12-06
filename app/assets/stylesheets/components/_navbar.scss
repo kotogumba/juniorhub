@@ -1,25 +1,27 @@
 
-*{
+nav{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-}
 
-nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
   // background-color: #5d4954;
-  background: $background-gradient;
-  font-family: 'Poppins', sans-serif;
+  background: $background-gradient-nav;
+  font-family: $Nav-font-family;
 }
 
 .logo{
-  color: $light-text-color;
+  color: $light-text-color-nav;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 20px;
+}
+
+.logo h4{
+  margin-top: 10px;
 }
 
 .nav-links{
@@ -30,7 +32,7 @@ nav{
 }
 
 .nav-link{
-  color: $light-text-color;
+  color: $light-text-color-nav;
   text-decoration: none;
   letter-spacing: 3px;
   font-size: 14px;
@@ -49,7 +51,7 @@ nav{
 .burger div{
   width: 25px;
   height: 3px;
-  background-color: $light-text-color;
+  background-color: $light-text-color-nav;
   margin: 5px;
   transition: all 0.3s ease;
 }
@@ -70,7 +72,7 @@ nav{
     height: 92vh;
     top: 8vh;
     // background-color: #5d4954;
-    background: $background-gradient;
+    background: $background-gradient-nav;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,10 +108,10 @@ nav{
 }
 
 .toggle .line1{
- transform: rotate(-45deg) translate(-5px,6px);
+  transform: rotate(-45deg) translate(-5px,6px);
 }
 .toggle .line2{
- opacity: 0;
+  opacity: 0;
 }
 .toggle .line3{
   transform: rotate(+45deg) translate(-5px,-6px);
