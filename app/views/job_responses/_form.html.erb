@@ -1,0 +1,5 @@
+<%= simple_form_for [job_response] do |f| %>
+  <%= f.input :cv, as: :file, label: "CV",
+              input_html: { multiple: false, class:"form-control my-2 p-3" } %>
+  <%= f.button :submit, "Submit Application", class:"btn1 mt-3 mb-3"%>
+<% end %>

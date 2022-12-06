@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :job_responses
   resources :profiles, only: [:show, :edit, :update]
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :jobs do
+    resources :job_responses, only: [:new, :create]
+  end
+  resources :job_responses, only: [:show, :new, :update, :destroy]
+  # Define your job_responses routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
