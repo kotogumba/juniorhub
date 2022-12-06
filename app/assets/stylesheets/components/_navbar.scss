@@ -1,19 +1,27 @@
 
-
 nav{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #5d4954;
-  font-family: 'Poppins', sans-serif;
+  // background-color: #5d4954;
+  background: $background-gradient-nav;
+  font-family: $Nav-font-family;
 }
 
 .logo{
-  color: rgb(226, 226, 226);
+  color: $light-text-color-nav;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 20px;
+}
+
+.logo h4{
+  margin-top: 10px;
 }
 
 .nav-links{
@@ -24,7 +32,7 @@ nav{
 }
 
 .nav-link{
-  color: rgb(226, 226, 226);
+  color: $light-text-color-nav;
   text-decoration: none;
   letter-spacing: 3px;
   font-weight: bold;
@@ -44,18 +52,18 @@ nav{
 .burger div{
   width: 25px;
   height: 3px;
-  background-color: rgb(226, 226, 226);
+  background-color: $light-text-color-nav;
   margin: 5px;
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1400px) {
   .nav-links{
     width: 60%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   body{
     overflow-x: hidden;
   }
@@ -64,7 +72,8 @@ nav{
     right: 0px;
     height: 92vh;
     top: 8vh;
-    background-color: #5d4954;
+    // background-color: #5d4954;
+    background: $background-gradient-nav;
     display: flex;
     flex-direction: column;
     align-items: center;

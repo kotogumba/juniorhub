@@ -1,5 +1,76 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="content">
+  <div class="video-back">
+    <div class="brand-action">
+      <h1>JuniorHub</h1>
+      <h4>Accelerate your career start in tech</h4>
+      <button>
+        <% if user_signed_in? %>
+          <%= link_to "Find the perfect job", jobs_path, class: "button-text" %>
+        <% else %>
+          <%= link_to "Find the perfect job", new_user_session_path, class: "button-text" %>
+        <% end %>
+      </button>
+    </div>
+  </div>
+  <div class="job-teaser">
+    <h3>Top 3 latest Jobs</h3>
+    <div class="job-card">
+      <div class="job-card-text">
+        <div class="company_details">
+          <%= image_tag "logo_placeholder", class:"logo", alt:"logo" %>
+          <h6>Company Name</h6>
+        </div>
+        <div>
+          <h4><%= Job.all.last.title %></h4>
+        </div>
+        <div>
+          <h5>Location: <%= Job.all.last.location %></h5>
+        </div>
+        <div>
+          <h5>Start Date: <%= Job.all.last.created_at.strftime("%m/%d/%Y") %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="get-started">
+    <h3>Get started</h3>
+    <div class="flex-box">
+      <div class="card">
+      </div>
+      <div class="card">
+      </div>
+    </div>
+  </div>
+  <div class="testamonial">
+    <div class="testamonial-box">
+      <div class="testamonial-image">
+        <%= image_tag "testamonial_img", class:"face", alt:"face" %>
+      </div>
+      <div class="testamonial-text">
+        <h6>
+          <p>"Joining JuniorHub was one of the best decicions</p>
+          <p>I made after graduating. It is super easy to join</p>
+          <p>and I was able to find my dream developer role</p>
+          <p>in a matter of minutes. I could contact the company</p>
+          <p>directly through the app and was contacted quickly."</p>
+        </h6>
+        <h6><strong>- Stacy Peterson -</strong></h6>
+      </div>
+    </div>
+  </div>
+  <div class="popular-blogs">
+    <div class="blog-preview">
+      <h3>Blog Title</h3>
+      <h6>Blog preview text</h6>
+      <h5>Blog author</h5>
+      <p>Publication Date</p>
+    </div>
+  </div>
+  <div class="spacer">
+  </div>
+</div>
+
+
 
 <%# show avatar if user logged in %>
 <%# if user_signed_in? %>
