@@ -7,10 +7,17 @@ class JobResponsesController < ApplicationController
   end
 
   def create
-    @job_response = JobResponse.new
+    @job_response = JobResponse.new(job_response_params)
     @job_response.job = @job
     @job_response.user = current_user
     authorize @job_response
+
+    if @job_response.save
+      redirect_to jobs_path, status: :see_other
+    else
+      flash[:alert] = "You did not fill all the required fields of your application"
+      redirect_to new_job_job_response_path(@job)
+    end
   end
 
   private
@@ -20,6 +27,6 @@ class JobResponsesController < ApplicationController
   end
 
   def job_response_params
-    params.require(:job_response).permit(:current_user.first_name)
+    params.require(:job_response).permit(:first_name, :last_name, :cv)
   end
 end

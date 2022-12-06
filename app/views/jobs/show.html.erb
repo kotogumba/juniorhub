@@ -48,14 +48,3 @@
   <%= button_to "Destroy this job", @job, method: :delete if policy(@job).destroy? %>
 
 </div>
-
-
-<h2><%= @job.title %></h2>
-<p><%= @job.content %></p>
-<p><%= @job.location %></p>
-
-<% if policy(@job).edit? %>
-  <%= link_to "Edit this job", edit_job_path(@job) %> |
-<% end %>
-<!-- [...] -->
-<%= button_to "Destroy this job", @job, method: :delete if policy(@job).destroy? %>

@@ -1,5 +1,13 @@
-<%= simple_form_for [job_response] do |f| %>
-  <%= f.input :cv, as: :file, label: "CV",
+<%= simple_form_for [@job, @job_response] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :cv, as: :file,
+              label: "CV",
+              required: true,
+              input_html: { multiple: false, class:"form-control my-2 p-3" } %>
+  <%= f.input :cover_letter, as: :file, label: "Cover letter",
               input_html: { multiple: false, class:"form-control my-2 p-3" } %>
   <%= f.button :submit, "Submit Application", class:"btn1 mt-3 mb-3"%>
+  </div>
 <% end %>
