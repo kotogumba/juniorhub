@@ -2,10 +2,8 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <%# show avatar if user logged in %>
-<% if user_signed_in? %>
-  <% if current_user.profile.avatar.attached? %>
-   <%= cl_image_tag current_user.profile.avatar.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-<% end %>
-
-<%= link_to "profile", profile_path(current_user) %>
+<%# if user_signed_in? %>
+  <%# if current_user.profile.avatar.attached? %>
+   <%#= cl_image_tag current_user.profile.avatar.key, height: 300, width: 400, crop: :fill %>
+  <%# end %>
+<%# end %>
