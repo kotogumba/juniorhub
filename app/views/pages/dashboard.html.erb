@@ -1,3 +1,4 @@
+<%# bootsrap tabs  %>
 <div class="d-flex align-items-start" id="dashboard">
   <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fa-solid fa-house"></i></button>
@@ -16,14 +17,50 @@
     <div class="tab-pane fade" id="v-pills-requests" role="tabpanel" aria-labelledby="v-pills-requests-tab" tabindex="0">
       <h3> My requests </h3>
     </div>
+    <%# CHATS TAB with nested TABS %>
     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">
-      <h3> My messages </h3>
-      <% @user.private_chatrooms_as_reciever.each do |chatroom| %>
-        <%= render "private_chatrooms/private_chatroom", private_chatroom: chatroom,  private_message: PrivateMessage.new %>
-      <% end %>
-      <% @user.private_chatrooms_as_sender.each do |chatroom| %>
-        <%= render "private_chatrooms/private_chatroom", private_chatroom: chatroom,  private_message: PrivateMessage.new %>
-      <% end %>
+      <%# <h3> My messages </h3> %>
+      <%# NEW TABS COMPONENT %>
+      <div class="d-flex align-items-start">
+        <%# chat names %>
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab-chat" role="tablist" aria-orientation="vertical">
+          <% if @user.private_chatrooms.first.user_sender_id == @user.id %>
+              <% friend = User.find(@user.private_chatrooms.first.user_reciever_id) %>
+          <% else %>
+              <% friend = User.find(@user.private_chatrooms.first.user_sender_id) %>
+          <% end %>
+          <button class="nav-link active" id="v-pills-first-tab" data-bs-toggle="pill" data-bs-target="#v-pills-first" type="button" role="tab" aria-controls="v-pills-first" aria-selected="true"><%= friend.nickname %></button>
+          <% @user.private_chatrooms[1..].each do |chatroom| %>
+            <% if chatroom.user_sender_id == @user.id %>
+              <% friend = User.find(chatroom.user_reciever_id) %>
+            <% else %>
+              <% friend = User.find(chatroom.user_sender_id) %>
+            <% end %>
+            <button class="nav-link" id="v-pills-<%=friend.nickname%>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%=friend.nickname%>" type="button" role="tab" aria-controls="v-pills-<%=friend.nickname%>" aria-selected="false"><%= friend.nickname %></button>
+          <% end %>
+        </div>
+        <%# chats content %>
+        <div class="tab-content" id="v-pills-tabContent">
+          <% if @user.private_chatrooms.first.user_sender_id == @user.id %>
+              <% friend = User.find(@user.private_chatrooms.first.user_reciever_id) %>
+          <% else %>
+              <% friend = User.find(@user.private_chatrooms.first.user_sender_id) %>
+          <% end %>
+          <div class="tab-pane fade show active" id="v-pills-first" role="tabpanel" aria-labelledby="v-pills-first-tab" tabindex="0">
+            <%= render "private_chatrooms/private_chatroom", private_chatroom: @user.private_chatrooms.first,  private_message: PrivateMessage.new %>
+          </div>
+          <% @user.private_chatrooms[1..].each do |chatroom| %>
+            <% if chatroom.user_sender_id == @user.id %>
+              <% friend = User.find(chatroom.user_reciever_id) %>
+            <% else %>
+              <% friend = User.find(chatroom.user_sender_id) %>
+            <% end %>
+            <div class="tab-pane fade" id="v-pills-<%=friend.nickname%>" role="tabpanel" aria-labelledby="v-pills-<%=friend.nickname%>-tab" tabindex="0">
+              <%= render "private_chatrooms/private_chatroom", private_chatroom: chatroom,  private_message: PrivateMessage.new %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

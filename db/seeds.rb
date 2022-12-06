@@ -11,10 +11,10 @@ require 'faker'
 
 # clear database
 puts "Clearing database..."
+User.destroy_all
 Profile.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
-User.destroy_all
 JobResponse.destroy_all
 Job.destroy_all
 puts "Database cleared."

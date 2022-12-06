@@ -2,8 +2,6 @@
   data-controller="private-chatroom-subscription"
   data-private-chatroom-subscription-private-chatroom-id-value="<%= private_chatroom.id %>"
 >
-  <h1>#<%= private_chatroom.user_sender_id %></h1>
-
   <div class="messages" data-private-chatroom-subscription-target="messages">
     <% private_chatroom.private_messages.each do |message| %>
       <%= render "messages/message", message: message %>
@@ -14,7 +12,7 @@
 %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message #",
+    placeholder: "Message ...",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
