@@ -9,5 +9,11 @@
   <%=  profile.state %>
   <%=  profile.zip_code %>
   <%=  profile.phone_number %>
+  <% chat = current_user.find_private_chat(profile.user) %>
+  <% if chat.nil? %>
+    <%= button_to "Send Message", private_chatrooms_path(user_sender_id: current_user.id, user_reciever_id: profile.user.id), method: :post %>
+  <% else %>
+    <%= link_to "Send Message", private_chatroom_path(chat) %>
+  <% end %>
   <%= link_to "Edit", edit_profile_path(profile) %>
 </div>

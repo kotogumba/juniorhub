@@ -1,4 +1,4 @@
-class ChatroomPolicy < ApplicationPolicy
+class PrivateMessagePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -11,7 +11,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def create?
-    # user.admin?
     true
   end
 

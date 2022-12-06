@@ -1,0 +1,22 @@
+<div class="container chatroom"
+  data-controller="private-chatroom-subscription"
+  data-private-chatroom-subscription-private-chatroom-id-value="<%= private_chatroom.id %>"
+>
+  <h1>#<%= private_chatroom.user_sender_id %></h1>
+
+  <div class="messages" data-private-chatroom-subscription-target="messages">
+    <% private_chatroom.private_messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+  <%= simple_form_for [private_chatroom, private_message],
+  html: { data: { action: "turbo:submit-end->private-chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+%>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message #",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>
+</div>

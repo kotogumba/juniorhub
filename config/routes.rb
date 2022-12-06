@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   resources :jobs
   resources :job_responses
   resources :profiles, only: [:show, :edit, :update]
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:show, :new, :create] do
     resources :messages, only: :create
   end
   get "dashboard", to: "pages#dashboard"
+  resources :private_chatrooms, only: [:show, :new, :create] do
+    resources :private_messages, only: :create
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
