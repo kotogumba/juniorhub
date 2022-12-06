@@ -12,7 +12,7 @@
   margin-bottom: 20px;
   padding-top: 20px;
   width: 70%;
-  border-top:rgb(226, 226, 226) 0.5px solid;
+  border-top: $light-text-color 0.5px solid;
 }
 
 .footer{
@@ -21,13 +21,14 @@
   justify-content: center;
   align-items: center;
   min-height: 8vh;
-  background-color: #5d4954;
-  color: rgb(226, 226, 226);
+  // background-color: #5d4954;
+  background: $background-gradient;
+  color: $light-text-color;
   height: 300px;
 }
 
 .footer-button{
-  color: rgb(226, 226, 226);
+  color: $light-text-color;
   text-decoration: none;
   letter-spacing: 3px;
   font-weight: bold;
@@ -46,7 +47,7 @@
 }
 
 .last_row{
-  border-top:rgb(226, 226, 226) 0.5px solid;
+  border-top:$light-text-color 0.5px solid;
   align-items: center;
   text-decoration: none;
   list-style: none;
@@ -58,7 +59,7 @@
 }
 
 .fab{
-  color: rgb(226, 226, 226);
+  color: $light-text-color;
   font-size: 20px;
   margin: 10px;
   margin-left: 20px;
@@ -88,7 +89,7 @@
 }
 
 h2{
-  color: rgb(226, 226, 226);
+  color: $light-text-color;
   letter-spacing: 3px;
   font-weight: bold;
   font-size: 30px;
