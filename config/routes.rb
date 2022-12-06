@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :jobs
   resources :job_responses
   resources :profiles, only: [:show, :edit, :update]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+  get "dashboard", to: "pages#dashboard"
 
   resources :jobs do
     resources :job_responses, only: [:new, :create]
