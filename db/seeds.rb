@@ -8,14 +8,21 @@
 
 require 'faker'
 
-#clear database
+
+# clear database
+puts "Clearing database..."
+Profile.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
+User.destroy_all
 JobResponse.destroy_all
 Job.destroy_all
-User.destroy_all
+puts "Database cleared."
 
 # Create 10 users
 10.times do
   User.create!(
+    nickname: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     admin: false
@@ -29,5 +36,11 @@ end
     content: Faker::Lorem.paragraph,
     location: Faker::Address.city,
     user_id: User.all.sample.id
+  )
+end
+
+1.times do
+  Chatroom.create(
+    name: "General"
   )
 end
