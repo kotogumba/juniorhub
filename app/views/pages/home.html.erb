@@ -1,5 +1,7 @@
 <div class="content">
+  <%# Banner with video %>
   <div class="video-back">
+    <%= video_tag "people.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
     <div class="brand-action">
       <h1>JuniorHub</h1>
       <h4>Accelerate your career start in tech</h4>
@@ -12,26 +14,91 @@
       </button>
     </div>
   </div>
-  <div class="job-teaser">
+  <%# Carousel %>
+  <div class="carousel-box">
     <h3>Top 3 latest Jobs</h3>
-    <div class="job-card">
-      <div class="job-card-text">
-        <div class="company_details">
-          <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
-          <h6>Company Name</h6>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+         <%# Job card start %>
+        <div class="job-cardA">
+          <div class="job-card-text">
+            <div class="company_details">
+              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <h6>Company Name</h6>
+            </div>
+            <div>
+              <h4><%= Job.all.last.title %></h4>
+            </div>
+            <div>
+              <h5>Location: <%= Job.all.last.location %></h5>
+            </div>
+            <div>
+              <h5>Start Date: <%= Job.all.last.created_at.strftime("%m/%d/%Y") %></h5>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4><%= Job.all.last.title %></h4>
+        <%# Job card end %>
+      </div>
+      <div class="carousel-item">
+        <%# Job card start %>
+        <div class="job-cardB">
+          <div class="job-card-text">
+            <div class="company_details">
+              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <h6>Company Name</h6>
+            </div>
+            <div>
+              <h4><%= Job.all[-2].title %></h4>
+            </div>
+            <div>
+              <h5>Location: <%= Job.all[-2].location %></h5>
+            </div>
+            <div>
+              <h5>Start Date: <%= Job.all[-2].created_at.strftime("%m/%d/%Y") %></h5>
+            </div>
+          </div>
         </div>
-        <div>
-          <h5>Location: <%= Job.all.last.location %></h5>
+        <%# Job card end %>
+      </div>
+      <div class="carousel-item">
+        <%# Job card start %>
+        <div class="job-cardC">
+          <div class="job-card-text">
+            <div class="company_details">
+              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <h6>Company Name</h6>
+            </div>
+            <div>
+              <h4><%= Job.all[-3].title %></h4>
+            </div>
+            <div>
+              <h5>Location: <%= Job.all[-3].location %></h5>
+            </div>
+            <div>
+              <h5>Start Date: <%= Job.all[-3].created_at.strftime("%m/%d/%Y") %></h5>
+            </div>
+          </div>
         </div>
-        <div>
-          <h5>Start Date: <%= Job.all.last.created_at.strftime("%m/%d/%Y") %></h5>
-        </div>
+        <%# Job card end %>
       </div>
     </div>
+    <button id="prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button id="next" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+  </div>
+  <%# Explaination cards %>
   <div class="get-started">
     <h3>Get started</h3>
     <div class="flex-box">
@@ -41,6 +108,7 @@
       </div>
     </div>
   </div>
+  <%# Testamonial section %>
   <div class="testamonial">
     <div class="testamonial-box">
       <div class="testamonial-image">
@@ -58,6 +126,7 @@
       </div>
     </div>
   </div>
+  <%# Popular blogs preview section %>
   <div class="popular-blogs">
     <div class="blog-preview">
       <h3>Blog Title</h3>
@@ -67,6 +136,23 @@
     </div>
   </div>
   <div class="spacer">
+    <!--Waves Container-->
+    <div class="wave-container">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(226,226,226,0.7" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(226,226,226,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(226,226,226,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+      </svg>
+    </div>
+    <!--Waves end-->
+    </div>
   </div>
 </div>
 
