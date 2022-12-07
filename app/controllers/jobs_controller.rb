@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   def index
     @jobs = policy_scope(Job)
     if params[:query].present?
+      @query = params[:query]
       @jobs = Job.search_by_title_content_location(params[:query])
     else
       @jobs = Job.all
@@ -16,6 +17,7 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     authorize @job
+
   end
 
   def create

@@ -1,17 +1,18 @@
 <div class="container">
 <div class="new-opportunities-heading">New job opportunities</div>
 
-
-  <div class="search-and-new-job">
-    <div class="search-job">
+  <div class="search-and-new-job row">
+    <div class="search-job col-10">
       <form class="input-group rounded">
         <input class="form-control rounded" name="query" type="search" placeholder="Search" autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
         <button class="input-group-text border-0" type="submit">Search</button>
       </form>
+
     </div>
-    <div class="new-job">
-      <button type="button" class="input-group-text border-0">
-      <i class="fa-solid fa-plus"></i><%= link_to "Post a job", new_job_path if policy(Job).new? %>
+    <div class="new-job col-2">
+      <button type="button" class="input-group-text border-0 new-job-button">
+        <i class="fa-solid fa-plus"></i>
+        <%= link_to "Post a job", new_job_path %> <%# if policy(Job).new?   %>
       </button>
     </div>
   </div>
@@ -24,7 +25,7 @@
   <% end %>
   </div>
 
-  <div class="container-list-and-filter d-flex">
+  <div class="container-list-and-filter">
     <div class="job-listings-container">
         <div class="row">
           <% @jobs.each do |job| %>

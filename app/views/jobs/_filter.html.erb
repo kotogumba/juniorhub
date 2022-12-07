@@ -1,3 +1,8 @@
 <div id="<%= filter %>">
-
+  <div class="search-job col-10">
+      <form class="input-group rounded">
+        <input class="form-control rounded" name="query" type="search" placeholder="Search" autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
+        <button class="input-group-text border-0" type="submit">Search</button>
+      </form>
+    </div>
 </div>
