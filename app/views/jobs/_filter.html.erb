@@ -1,8 +1,21 @@
-<div id="<%= filter %>">
-  <div class="search-job col-10">
-      <form class="input-group rounded">
-        <input class="form-control rounded" name="query" type="search" placeholder="Search" autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
-        <button class="input-group-text border-0" type="submit">Search</button>
-      </form>
+<div class="search-filters-container col-4">
+  <div>
+    <p class="filter-header">Filter</p>
+    <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @jobs.count %> jobs matching your search.</p>
+    <% else %>
+        <p>Search <strong><%= @jobs.count %></strong> job postings.</p>
+    <% end %>
     </div>
-</div>
+
+    <form class="input-group rounded">
+      <input class="form-control rounded input-field-search" name="query" type="search" placeholder="Company, skill ..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
+      <button class="input-group-text border-0" type="submit">Search</button>
+    </form>
+
+
+      <% Tag.all.each do |tag|%>
+        <%= link_to tag.name, jobs_path(tag_id: tag.id), class: 'job-tags'%>
+      <% end %>
+  </div>
+</div> <%#class="search-filters-container"%>

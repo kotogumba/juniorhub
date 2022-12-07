@@ -9,6 +9,9 @@ class Job < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_title_content_location,
     against: [:title, :content, :location],
+    associated_against: {
+      tags: [:name]
+    },
     using: {
       tsearch: { prefix: true }
     }

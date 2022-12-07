@@ -1,34 +1,4 @@
 // Import page-specific CSS files here.
 @import "home";
 
-body {
-  background-color: white;
-  font-family: 'Poppins', sans-serif; ;
-}
-
-.new-opportunities-heading {
-  font-size: 30px;
-  font-weight: 600;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.search-and-new-job {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.search-job {
-  margin-right: 15px;
-}
-
-.search-and-new-job {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.container-list-and-fliter {
-  display: flex;
-}
-
 
