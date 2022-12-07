@@ -18,9 +18,28 @@ $background-gradient-foot: linear-gradient(137deg, rgba(3,8,73,0.769826680672268
 $light-text-color-foot: rgb(226, 226, 226);
 
 // Home collors:
-// Text light
+
+// Font text light
 $home-collor-normal: rgb(226, 226, 226);
-// Text dark
+// Font text dark
 $home-collor-dark: rgba(38,35,32,1);
-// Button
+
+// Action button in banner
 $home-collor-button: linear-gradient(137deg, rgba(3,8,73,1) 27%, rgba(63,16,210,1) 73%, rgba(255,112,0,1) 100%);
+// Action button shadow on hover
+$button-hover:whitesmoke;
+
+// video transparent overlay dark
+$video-overlay:rgba(0,2,6,0.35);
+// box-shadow color
+$box-shadow: rgba(62,59,56,0.8228870738636364);
+// image overlay job card
+$image-overlay-job: linear-gradient(90deg, rgba(10,5,112,0.7269459355828221) 0%, rgba(81,29,253,0.7361483895705521) 50%, rgba(110,65,2,0.4447373466257669) 100%);
+
+// background color for none white sections
+$background-color-sections: rgba(226,226,226,1);
+$background-spacer: rgba(28,4,43,1);
+$background-spacer2: rgba(226,226,226,1);
+$background-color-sections-reverse: rgba(226,226,226,1);
+// testamonial card background
+$testamonial-background: linear-gradient(292deg, rgba(70,206,208,0.7269459355828221) 0%, rgba(29,126,253,0.7361483895705521) 50%, rgba(63,88,130,0.4447373466257669) 100%);
