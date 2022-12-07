@@ -11,13 +11,23 @@ class JobPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    true
+    # TODO delete line above and uncomment line below
+    # user.admin?
   end
 
   def update?
-    record.user == user
+    true
+    # TODO delete line above and uncomment line below
+    # record.user == user
     # record: the restaurant passed to the `authorize` method in controller
     # user: the `current_user` signed in with Devise
+  end
+
+  def new?
+    true
+    # only for test purpose for now.
+    # need to create new job to see if I can update
   end
 
   def destroy?

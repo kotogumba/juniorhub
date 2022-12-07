@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["description", "form"]
 
   displayForm() {
-    this.infosTarget.classList.add("d-none")
+    this.descriptionTarget.classList.add("d-none")
     this.formTarget.classList.remove("d-none")
   }
 
@@ -22,4 +22,20 @@ export default class extends Controller {
         console.log(data)
       })
   }
+
+  static targets = ["description", "form", "descriptionbox"] // Add the new target
+
+  update(event) {
+    event.preventDefault()
+    const url = this.formTarget.action
+    fetch(url, {
+      method: "PATCH",
+      headers: { "Accept": "text/plain" },
+      body: new FormData(this.formTarget)
+    })
+      .then(response => response.text())
+      .then((data) => {
+        this.descriptionboxTarget.outerHTML = data
+      })
+}
 }

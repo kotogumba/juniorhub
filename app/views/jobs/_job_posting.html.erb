@@ -1,9 +1,3 @@
-
-<div class="job-container">
-      <div class="job-header"><%=image_tag 'https://static.wixstatic.com/media/b650ce_4b783c50755742a786f38e91b5028a41~mv2_d_7929_2408_s_4_2.png/v1/fill/w_980,h_298,al_c,usm_0.66_1.00_0.01/b650ce_4b783c50755742a786f38e91b5028a41~mv2_d_7929_2408_s_4_2.png', class:"job-banner" %>
-        <div type="button" class="apply-button"><%= link_to "Apply", new_job_job_response_path(@job) %>
-        </div>
-      </div>
   <div class="job-posting" data-controller="edit-job-posting" data-edit-job-posting-target="descriptionbox">
 
       <img src="https://miro.medium.com/max/640/1*0Rjja_-J-ci27SgPLJ7niQ.webp" class="job-logo">
@@ -56,14 +50,3 @@
       </div>
 
   </div>
-
-
-
-
-  <% if policy(@job).edit? %>
-    <%= link_to "Edit this job", edit_job_path(@job) %>
-  <% end %>
-  <!-- [...] -->
-  <%= button_to "Destroy this job", @job, method: :delete if policy(@job).destroy? %>
-
-</div>

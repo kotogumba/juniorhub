@@ -13,8 +13,5 @@ application.register("edit-job-posting", EditJobPostingController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import JobPostingController from "./job_posting_controller"
-application.register("job-posting", JobPostingController)
-
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
