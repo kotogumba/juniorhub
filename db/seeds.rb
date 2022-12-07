@@ -37,6 +37,7 @@ Message.destroy_all
 Chatroom.destroy_all
 JobResponse.destroy_all
 Job.destroy_all
+Tag.destroy_all
 puts "Database cleared."
 
 # Create 10 users
