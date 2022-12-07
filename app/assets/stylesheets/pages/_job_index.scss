@@ -1,0 +1,26 @@
+body {
+  background-color: white;
+}
+
+.new-opportunities-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.new-job-button {
+  background-color: white;
+  border-radius: 30px;
+}
+
+.search-and-new-job {
+  margin-bottom: 30px;
+}
+
+.container-list-and-filter {
+  display: flex;
+}
