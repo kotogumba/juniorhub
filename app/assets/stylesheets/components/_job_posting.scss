@@ -1,3 +1,4 @@
+//* JOB HEADER *//
 .job-banner {
   background-repeat: no-repeat;
   height: 200px;
@@ -5,6 +6,29 @@
   object-fit: cover;
 }
 
+.job-header {
+  position: relative;
+}
+
+.job-header .apply-button {
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+
+  /*style button*/
+  background-color: purple;
+  border-radius: 50px;
+  text-align: center;
+  width: 100px;
+
+  a {
+    text-decoration: none;
+    color: white;
+
+  }
+}
+
+//* JOB POSTING *//
 .job-posting {
   position: relative;
   top: 20px;
@@ -18,8 +42,9 @@
   height: 100px;
   border-radius: 50%;
   top: -55px;
-
 }
+
+// .job-posting .job-posting-info
 
 .job-key-points {
   top: -20px;
