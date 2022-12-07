@@ -16,10 +16,11 @@
   right: 50px;
 
   /*style button*/
-  background-color: purple;
+  background-color: #00ADB5;
   border-radius: 50px;
   text-align: center;
   width: 100px;
+  padding: 5px 20px;
 
   a {
     text-decoration: none;
@@ -47,11 +48,12 @@
 
 .job-posting-info {
   display: flex;
+  justify-content: center;
 }
 
 //* JOB KEY POINTS *//
 .job-key-points {
-  width: 300px;
+  width: 150px;
   text-align: center;
 
   h5 {
