@@ -5,7 +5,7 @@
         </div>
       </div>
 
-  <div class="job-posting">
+  <div class="job-posting" data-controller="edit-job-posting" data-edit-job-posting-target="description-box">
 
       <img src="https://miro.medium.com/max/640/1*0Rjja_-J-ci27SgPLJ7niQ.webp" class="job-logo">
 
@@ -18,7 +18,7 @@
           <h5>Languages</h5>
             <p>English</p>
           <h5>Location</h5>
-            <p>NYC</p>
+            <p><%= @job.location %></p>
           <h5>Start-Date</h5>
             <p>05/01/2023</p>
         </div>
@@ -31,7 +31,19 @@
             </p>
           </div>
 
-          <div class="job-description">
+          <div class="job-description" data-edit-job-posting-target="description">
+          <button aria-label="Edit job description">
+                <i class="fa-solid fa-pen fa-xs ml-2" data-action="click->edit-job-posting#displayForm"></i>
+                </button>
+                <%= simple_form_for job,
+                html: {
+                  class: "d-none",
+                  data: {
+                    edit_job_posting_target: "form",
+                    action: "submit->edit-job-posting#update"
+                    }
+                  } do |f|
+                %>
             <h2><%= @job.title %></h2>
             <p><%= @job.content %></p>
             <p><%= @job.location %></p>
