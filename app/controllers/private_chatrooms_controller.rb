@@ -16,7 +16,7 @@ class PrivateChatroomsController < ApplicationController
 
     authorize @private_chatroom
     @private_chatroom.save
-    redirect_to private_chatroom_path(@private_chatroom)
+    redirect_to "/dashboard?tab=messages&id=#{params[:user_reciever_id]}"
   end
 
   # private

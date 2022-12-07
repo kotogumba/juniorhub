@@ -2,6 +2,8 @@ class Job < ApplicationRecord
   validates :title, :content, :location, presence: true
   belongs_to :user
   has_many :job_responses, dependent: :destroy
+  has_many :job_tags, dependent: :destroy
+  has_many :tags, through: :job_tags
   validates :title, :content, :location, presence: true
 
   include PgSearch::Model
