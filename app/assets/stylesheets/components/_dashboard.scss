@@ -5,11 +5,17 @@
 
 #dashboard {
   height: 800px;
-
 }
 
 #v-pills-tab {
   height: 100%;
-
   background-color: #393E46;
+}
+
+#v-pills-messages #v-pills-tab-chat {
+
+}
+
+.tab-pane {
+  padding: 20px;
 }

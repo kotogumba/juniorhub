@@ -1,5 +1,4 @@
-<%# bootsrap tabs  %>
-
+<%# DASHBOARD %>
 <div class="d-flex align-items-start" id="dashboard" data-controller="new-message">
   <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <button class="nav-link <%= params[:tab] != 'messages' ? 'active' : nil %>" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>"><i class="fa-solid fa-house"></i></button>
