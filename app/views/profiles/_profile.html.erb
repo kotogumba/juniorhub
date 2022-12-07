@@ -10,12 +10,12 @@
   <%=  profile.zip_code %>
   <%=  profile.phone_number %>
   <% chat = current_user.find_private_chat(profile.user) %>
-  <%# if current_user is user hide %>
+  <%# SEND MESSAGE BLOCK %>
   <% if current_user != profile.user %>
     <% if chat.nil? %>
       <%= button_to "Send Message", private_chatrooms_path(user_sender_id: current_user.id, user_reciever_id: profile.user.id), method: :post %>
     <% else %>
-      <%= link_to "Send Message", private_chatroom_path(chat) %>
+      <%= link_to "Send Message", "/dashboard?tab=messages&id=#{profile.user.id}" %>
     <% end %>
   <% else %>
     <%= link_to "Edit", edit_profile_path(profile) %>
