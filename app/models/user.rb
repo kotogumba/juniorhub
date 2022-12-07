@@ -18,4 +18,12 @@ class User < ApplicationRecord
   def private_chatrooms
     (private_chatrooms_as_sender + private_chatrooms_as_reciever).uniq
   end
+
+  def new_messages
+    my_chats = private_chatrooms
+    # get all message where user is not current_user and message new is true
+    my_chats.map do |chat|
+      chat.private_messages.where.not(user: self).where(new: true)
+    end
+  end
 end
