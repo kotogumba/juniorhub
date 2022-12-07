@@ -14,6 +14,10 @@ class PrivateMessagePolicy < ApplicationPolicy
     true
   end
 
+  def new_messages?
+    true
+  end
+
   def update?
     record.user == user
     # record: the restaurant passed to the `authorize` method in controller

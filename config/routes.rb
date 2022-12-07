@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :job_responses, only: [:show, :new, :update, :destroy]
 
   resources :tags
+
+  get "new_messages", to: "private_messages#new_messages"
+  get "read_messages", to: "private_messages#read_messages"
+  post "read_messages", to: "private_messages#read_messages"
   # Define your job_responses routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

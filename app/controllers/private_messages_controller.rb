@@ -16,6 +16,26 @@ class PrivateMessagesController < ApplicationController
     end
   end
 
+  def new_messages
+    skip_authorization
+    @new_messages = current_user.new_messages
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @new_messages }
+    end
+  end
+
+  def read_messages
+    skip_authorization
+
+    @private_chatroom = PrivateChatroom.find(params[:chat])
+    @private_messages = @private_chatroom.private_messages.where(user_id: params[:id])
+    @private_messages.each do |message|
+      message.update(new: false)
+    end
+  end
+
   private
 
   def message_params
