@@ -13,7 +13,7 @@ class JobResponsesController < ApplicationController
     authorize @job_response
 
     if @job_response.save
-      redirect_to jobs_path, status: :see_other
+      redirect_to "/dashboard", status: :see_other
     else
       flash[:alert] = "You did not fill all the required fields of your application"
       redirect_to new_job_job_response_path(@job)
