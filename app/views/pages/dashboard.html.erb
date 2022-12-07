@@ -7,8 +7,8 @@
     <button class="nav-link" id="v-pills-requests-tab" data-bs-toggle="pill" data-bs-target="#v-pills-requests" type="button" role="tab" aria-controls="v-pills-requests" aria-selected="false"><i class="fa-solid fa-briefcase"></i></button>
     <button class="nav-link <%= params[:tab] == 'messages' ? 'active' : nil %> position-relative" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>">
       <i class="fa-solid fa-inbox"></i>
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" >
-        <span data-new-message-target="badge">99+</span>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none" data-new-message-target="container" >
+        <span data-new-message-target="badge" >0</span>
         <span class="visually-hidden">unread messages</span>
       </span>
     </button>
