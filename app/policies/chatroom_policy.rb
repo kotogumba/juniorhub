@@ -11,7 +11,8 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    # user.admin?
+    true
   end
 
   def update?

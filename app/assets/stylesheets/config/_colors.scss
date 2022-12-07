@@ -2,7 +2,7 @@
 
 // For example:
 $red: #FD1015;
-$blue: #0D6EFD;
+$blue: #222831;
 $yellow: #FFC65A;
 $orange: #E67E22;
 $green: #1EDD88;
@@ -16,3 +16,11 @@ $light-text-color-nav: rgb(226, 226, 226);
 // Current collors footer
 $background-gradient-foot: linear-gradient(137deg, rgba(3,8,73,0.7698266806722689) 27%, rgba(63,16,210,0.6633841036414565) 73%, rgba(255,112,0,0.6213672969187676) 100%);
 $light-text-color-foot: rgb(226, 226, 226);
+
+// Home collors:
+// Text light
+$home-collor-normal: rgb(226, 226, 226);
+// Text dark
+$home-collor-dark: rgba(38,35,32,1);
+// Button
+$home-collor-button: linear-gradient(137deg, rgba(3,8,73,1) 27%, rgba(63,16,210,1) 73%, rgba(255,112,0,1) 100%);

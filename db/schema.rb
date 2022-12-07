@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_144503) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_110518) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +62,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_144503) do
     t.index ["user_id"], name: "index_job_responses_on_user_id"
   end
 
+  create_table "job_tags", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_job_tags_on_job_id"
+    t.index ["tag_id"], name: "index_job_tags_on_tag_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -76,8 +87,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_144503) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "private_chatroom_id"
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["private_chatroom_id"], name: "index_messages_on_private_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "private_chatrooms", force: :cascade do |t|
+    t.bigint "user_sender_id"
+    t.bigint "user_reciever_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_reciever_id"], name: "index_private_chatrooms_on_user_reciever_id"
+    t.index ["user_sender_id"], name: "index_private_chatrooms_on_user_sender_id"
+  end
+
+  create_table "private_messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "private_chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "new", default: true
+    t.index ["private_chatroom_id"], name: "index_private_messages_on_private_chatroom_id"
+    t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -101,6 +134,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_144503) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -119,8 +158,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_144503) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "job_responses", "jobs"
   add_foreign_key "job_responses", "users"
+  add_foreign_key "job_tags", "jobs"
+  add_foreign_key "job_tags", "tags"
   add_foreign_key "jobs", "users"
   add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "private_chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "private_chatrooms", "users", column: "user_reciever_id"
+  add_foreign_key "private_chatrooms", "users", column: "user_sender_id"
+  add_foreign_key "private_messages", "private_chatrooms"
+  add_foreign_key "private_messages", "users"
   add_foreign_key "profiles", "users"
 end

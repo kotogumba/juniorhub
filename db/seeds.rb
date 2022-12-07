@@ -11,13 +11,22 @@ require 'faker'
 
 # clear database
 puts "Clearing database..."
+User.destroy_all
 Profile.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
-User.destroy_all
 JobResponse.destroy_all
 Job.destroy_all
+Tag.destroy_all
 puts "Database cleared."
+
+# array of tags to seed
+
+tags = ["Remote", "On-site", "Full-time", "Part-time", "Internship", "Freelance", "Contract", "Apprenticeship", "Front-end", "Back-end", "Full-stack", "Ruby", "JavaScript", "Python", "Java", "HTML", "CSS"]
+
+tags.each do |tag|
+  Tag.create(name: tag)
+end
 
 # Create 10 users
 10.times do
@@ -37,6 +46,9 @@ end
     location: Faker::Address.city,
     user_id: User.all.sample.id
   )
+
+  # add tags to jobs
+  Job.last.tags << Tag.all.sample(rand(1..5))
 end
 
 1.times do

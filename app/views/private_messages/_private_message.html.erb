@@ -1,0 +1,8 @@
+<div id="message-<%= message.id %>">
+  <small>
+    <strong><%= link_to "#{message.user.nickname}", profile_path(message.user) %></strong>
+
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p><%= message.content %></p>
+</div>

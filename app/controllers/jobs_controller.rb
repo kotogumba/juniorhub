@@ -3,6 +3,14 @@ class JobsController < ApplicationController
 
   def index
     @jobs = policy_scope(Job)
+    if params[:query].present?
+      @query = params[:query]
+      @jobs = Job.search_by_title_content_location(params[:query])
+    else
+      @jobs = Job.all
+      @jobs = tagged_jobs(@jobs) if params[:tag_id]
+    end
+
   end
 
   def show
@@ -11,6 +19,7 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     authorize @job
+
   end
 
   def create
@@ -55,5 +64,11 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :location, :content)
+  end
+
+  def tagged_jobs(jobs)
+    jobs.joins(:job_tags)
+        .joins(:tags)
+        .where('tags.id = ?', params[:tag_id])
   end
 end

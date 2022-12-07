@@ -15,3 +15,12 @@ application.register("hello", HelloController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import NewMessageController from "./new_message_controller"
+application.register("new-message", NewMessageController)
+
+import PrivateChatroomSubscriptionController from "./private_chatroom_subscription_controller"
+application.register("private-chatroom-subscription", PrivateChatroomSubscriptionController)
+
+import ReadMessageController from "./read_message_controller"
+application.register("read-message", ReadMessageController)
