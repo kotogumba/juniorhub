@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
+
+import EditJobPostingController from "./edit_job_posting_controller"
+application.register("edit-job-posting", EditJobPostingController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

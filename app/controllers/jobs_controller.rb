@@ -37,11 +37,17 @@ class JobsController < ApplicationController
   end
 
   def update
-    if @job.update(job_params)
-      redirect_to job_path(@job)
-    else
-      render :edit
+    @job.update(job_params)
+
+    respond_to do |format|
+      format.html { redirect_to job_path(@job) }
+      # format.text { render "jobs/show", locals: {job: @job}, formats: [:html] }
     end
+    # if @job.update(job_params)
+    #   redirect_to job_path(@job)
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy
