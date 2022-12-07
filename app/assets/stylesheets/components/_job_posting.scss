@@ -24,7 +24,6 @@
   a {
     text-decoration: none;
     color: white;
-
   }
 }
 
@@ -36,7 +35,7 @@
   width: 100%;
 }
 
-.job-logo {
+.job-posting .job-logo {
   position: absolute;
   width: 100px;
   height: 100px;
@@ -46,16 +45,30 @@
 
 // .job-posting .job-posting-info
 
-.job-key-points {
-  top: -20px;
-}
-
-
-.apply-button {
-  position: absolute;
-
-}
-
 .job-posting-info {
   display: flex;
+}
+
+//* JOB KEY POINTS *//
+.job-key-points {
+  width: 300px;
+  text-align: center;
+
+  h5 {
+    font-size: 13px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+}
+
+.job-summary {
+  border: solid;
+  border-radius: 50px;
+  background-color: rgb(238, 237, 237);
+  padding: 10px;
+  width: 800px;
+  margin: 0 auto;
+  padding: 16px 16px 0px 16px;
 }
