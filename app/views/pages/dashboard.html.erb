@@ -35,7 +35,7 @@
       <div class="chat-container">
         <div class="d-flex align-items-start">
           <%# chat names %>
-          <div class="nav flex-column nav-pills me-3" id="v-pills-tab-chat" role="tablist" aria-orientation="vertical">
+          <div class="nav flex-column nav-pills" id="v-pills-tab-chat" role="tablist" aria-orientation="vertical">
             <div class="chat-sidebar">
               <h3>Online users</h3>
               <ul>
@@ -48,8 +48,16 @@
                     <% else %>
                       <% friend = User.find(chatroom.user_sender_id) %>
                     <% end %>
+                    <%# USERS LIST %>
                     <li>
-                      <button class="nav-link <%= friend.id == params[:id].to_i ? 'active' : nil %>" data-controller="read-message" data-read-message-target="name" data-read-message-id-value="<%=friend.id%>" data-read-message-private-chatroom-id-value="<%=chatroom.id%>" data-action="read-message#readMessage" id="v-pills-<%=friend.id%>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%=friend.id%>" type="button" role="tab" aria-controls="v-pills-<%=friend.id%>" aria-selected="<%= friend.id == params[:id] ? 'true' : 'false' %>"><%= friend.nickname %></button>
+                      <button class="nav-link d-flex flex-row align-items-center <%= friend.id == params[:id].to_i ? 'active' : nil %>" data-controller="read-message" data-read-message-target="name" data-read-message-id-value="<%=friend.id%>" data-read-message-private-chatroom-id-value="<%=chatroom.id%>" data-action="read-message#readMessage" id="v-pills-<%=friend.id%>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%=friend.id%>" type="button" role="tab" aria-controls="v-pills-<%=friend.id%>" aria-selected="<%= friend.id == params[:id] ? 'true' : 'false' %>">
+                        <% if friend.profile.avatar.attached? %>
+                          <div class="avatar-message flex-shrink-0"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path friend.profile.avatar.key %>'"></div>
+                        <% end %>
+                        <div>
+                          <%= friend.nickname %>
+                        </div>
+                      </button>
                     </li>
                   <% end %>
                 <% end %>
@@ -70,7 +78,7 @@
                 <% else %>
                   <% friend = User.find(chatroom.user_sender_id) %>
                 <% end %>
-                <div class="tab-pane fade <%= params[:id].to_i == friend.id ? 'show active' : nil %>" id="v-pills-<%=friend.id%>" role="tabpanel" aria-labelledby="v-pills-<%=friend.id%>-tab" tabindex="0">
+                <div class="tab-pane fade chat-window <%= params[:id].to_i == friend.id ? 'show active' : nil %>" id="v-pills-<%=friend.id%>" role="tabpanel" aria-labelledby="v-pills-<%=friend.id%>-tab" tabindex="0">
                   <%= render "private_chatrooms/private_chatroom", private_chatroom: chatroom,  private_message: PrivateMessage.new %>
                 </div>
               <% end %>
@@ -78,37 +86,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="chat-container">
-  <div class="chat-sidebar">
-    <h3>Online users</h3>
-    <ul>
-      <li>User 1</li>
-      <li>User 2</li>
-      <li>User 3</li>
-      <li>User 4</li>
-      <li>User 5</li>
-    </ul>
-  </div>
-  <div class="chat-main">
-    <div class="chat-header">
-      <h3>Chat with a friend</h3>
-    </div>
-    <div class="chat-messages">
-      <div class="message-container">
-        <div class="message-sent">
-          <p>Hey there! How's it going?</p>
-        </div>
-        <div class="message-received">
-          <p>Good, thanks for asking! What have you been up to?</p>
-        </div>
-      </div>
-    </div>
-    <div class="message-form">
-      <input type="text" placeholder="Type your message here">
-      <button >Send</button>
     </div>
   </div>
 </div>
