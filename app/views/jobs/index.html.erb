@@ -12,7 +12,7 @@
       <div class="job-listings-container col-8">
           <div class="row">
             <% @jobs.each do |job| %>
-            <%= render "job", job: job %>
+            <%= render "job", job: job, job_response: nil %>
             <% end %>
           </div> <%#class="row" %>
       </div> <%#class="job-listings-container" %>

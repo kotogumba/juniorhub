@@ -13,8 +13,7 @@ class PrivateMessagesController < ApplicationController
       )
       head :ok
       NotificationsChannel.broadcast_to(@target, render_to_string(partial: "notification"))
-      MessageBadgeChannel.broadcast_to(@target, @target.new_messages.last.count)
-
+      MessageBadgeChannel.broadcast_to(@target, @target.new_messages.count)
     else
       render "private_chatrooms/show", status: :unprocessable_entity
     end
@@ -24,7 +23,7 @@ class PrivateMessagesController < ApplicationController
     skip_authorization
     @new_messages = current_user.new_messages
 
-    MessageBadgeChannel.broadcast_to(current_user, current_user.new_messages.last.count)
+    MessageBadgeChannel.broadcast_to(current_user, current_user.new_messages.count)
 
     respond_to do |format|
       format.html
@@ -40,7 +39,7 @@ class PrivateMessagesController < ApplicationController
     @private_messages.each do |message|
       message.update(new: false)
     end
-    MessageBadgeChannel.broadcast_to(current_user, current_user.new_messages.last.count)
+    MessageBadgeChannel.broadcast_to(current_user, current_user.new_messages.count)
   end
 
   private

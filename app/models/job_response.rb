@@ -4,7 +4,7 @@ class JobResponse < ApplicationRecord
   validates :last_name, presence: true
   has_one_attached :cv
   validates :cv, presence: true
-  enum :status, { draft: 0, accepted: 1, declined: 2 }
+  enum status: [ :draft, :pending, :accepted, :declined ]
   belongs_to :user
   belongs_to :job
 end
