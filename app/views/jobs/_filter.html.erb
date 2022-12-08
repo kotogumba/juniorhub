@@ -7,15 +7,19 @@
         <p>Search <strong><%= @jobs.count %></strong> job postings.</p>
     <% end %>
     </div>
-
-    <form class="input-group rounded">
-      <input class="form-control rounded input-field-search" name="query" type="search" placeholder="Company, skill ..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
-      <button class="input-group-text border-0" type="submit">Search</button>
-    </form>
-
-
-      <% Tag.all.each do |tag|%>
-        <p class="job-tags"> <%= link_to tag.name, jobs_path(tag_id: tag.id), class: 'job-tags'%></p>
-      <% end %>
+    <div class="search-form>
+      <form class="input-group rounded">
+        <input class="form-control rounded input-field-search" name="query" type="search" placeholder="Company, skill ..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
+        <button class="input-group-text border-0 search-button" type="submit">Search</button>
+      </form>
+    </div>
+    <% Tag.all.each do |tag|%>
+    <div class="form-check tags">
+      <input class="form-check-input tag-button" type="radio" name="exampleRadios" id= "<%= tag.name %>" value="option1" checked>
+      <label class="form-check-label" for="<%= tag.name %>" style="<%= 'background-color: #7E73FF; color: white;' if params[:tag_id].to_i == tag.id %>">
+          <%= link_to tag.name, jobs_path(tag_id: tag.id) %>
+      </label>
+    </div>
+    <% end %>
   </div>
-</div> <%#class="search-filters-container"%>
+</div> 

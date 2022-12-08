@@ -10,6 +10,50 @@
   font-weight: 600;
 }
 
+.search-form {
+  margin-bottom: 30px;
+}
+
 .input-field-search {
   background-color: white;
+}
+
+.search-button {
+  border-radius: 30px;
+}
+
+.search-button:hover {
+  background-color: #7E73FF;
+}
+
+.tags {
+  display: inline-block;
+}
+
+
+.tag-button {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-button + label {
+  cursor: pointer;
+  color: white;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 30px;
+  padding: 0.1rem 0.5rem;
+  background-color: #ECEAFF;
+  color: #7E73FF;
+  border: 1px solid #7E73FF;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.form-check {
+  padding : 0;
+}
+
+.form-check-label a {
+  all: unset;
 }
