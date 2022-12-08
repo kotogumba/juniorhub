@@ -100,12 +100,29 @@
   </div>
   <%# Explaination cards %>
   <div class="get-started">
-    <h3>Get started</h3>
+    <h3>How it works</h3>
+    <div class="explain-text">
+      JuniorHub is the best one-stop destination for junior developers to find their first role in the tech industry and to advance their carrer.
+      We offer a convinient way to look and apply for jobs specifically for junior developers. Beyond this we provide a platform for junior developers to connect with each other and to learn from each others experience.
+    </div>
     <div class="flex-box">
-      <div class="card">
-        <div></div>
+      <div class="cardA">
+        <button>
+          <% if user_signed_in? %>
+            <%= link_to "Find the perfect job", jobs_path, class: "button-text" %>
+          <% else %>
+            <%= link_to "Find the perfect job", new_user_session_path, class: "button-text" %>
+          <% end %>
+        </button>
       </div>
-      <div class="card">
+      <div class="cardB">
+          <button>
+            <% if user_signed_in? %>
+              <%= link_to "Make a new job post", jobs_path, class: "button-text" %>
+            <% else %>
+              <%= link_to "Make a new job post", new_user_session_path, class: "button-text" %>
+            <% end %>
+          </button>
       </div>
     </div>
   </div>
@@ -129,11 +146,17 @@
   </div>
   <%# Popular blogs preview section %>
   <div class="popular-blogs">
+    <div class="headline">
+      <h3>Popular Blogs</h3>
+    </div>
     <div class="blog-preview">
-      <h3>Blog Title</h3>
-      <h6>Blog preview text</h6>
-      <h5>Blog author</h5>
-      <p>Publication Date</p>
+      <%= video_tag "AI.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "blog_video" %>
+      <div class="blog-text">
+      <h3>Using AI to create a blog post</h3>
+      <h6>Can AI write better blogs than humans?</h6>
+      <h5>by Chatbot GPT</h5>
+      <p>08/12/2022</p>
+      </div>
     </div>
   </div>
   <div class="spacer">
