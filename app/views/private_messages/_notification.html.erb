@@ -1,4 +1,5 @@
-<div class="alert alert-primary" role="alert" id="new-message-alert">
+<div class="alert alert-primary alert-dismissible fade show" role="alert" id="new-message-alert">
   You have a new
   <%= link_to "message!", "/dashboard?tab=messages" %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
