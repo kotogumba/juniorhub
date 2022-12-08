@@ -1,0 +1,30 @@
+.apply-button {
+  text-align: center;
+  background-color: #245C7C;
+  border-radius: 50px;
+  text-align: center;
+  width: 100px;
+  padding: 5px 20px;
+  transition: background-color .2s,
+  background-position .2s;
+  box-shadow: rgba(36, 92, 124, 10%) 0 0 0 .125em;
+  text-decoration: none;
+  color: white;
+}
+
+.apply-button:hover {
+    background: #6C868F;
+    text-decoration: none;
+    color: white;
+  }
+
+  .simple_form.new_job_response {
+    background-color: #302B2F;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 40%;
+    margin: 0 auto;
+    color: white;
+  }
