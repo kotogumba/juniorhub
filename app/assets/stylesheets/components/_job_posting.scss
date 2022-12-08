@@ -1,26 +1,53 @@
-//* JOB HEADER *//
-.job-banner {
-  background-repeat: no-repeat;
-  height: 200px;
-  width:100%;
-  object-fit: cover;
+.job-posting {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
 }
 
-.job-header {
+/* job-posting is divided in 2 parts: side and main */
+.side {
+  flex: 20%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.main {
+  flex: 80%;
+  background-color: white;
+  padding: 20px;
+}
+
+
+.job-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/* Apply Button */
+
+.main {
   position: relative;
 }
-
-.job-header .apply-button {
+.main .apply-button {
   position: absolute;
-  bottom: 10px;
-  right: 50px;
+  right: 20px;
+  top: 10px;
 
   /*style button*/
-  background-color: #00ADB5;
+  background-color: #245C7C;
   border-radius: 50px;
   text-align: center;
   width: 100px;
   padding: 5px 20px;
+  transition: background-color .2s,
+  background-position .2s;
+  box-shadow: rgba(36, 92, 124, 10%) 0 0 0 .125em;
 
   a {
     text-decoration: none;
@@ -28,49 +55,35 @@
   }
 }
 
-//* JOB POSTING *//
-.job-posting {
-  position: relative;
-  top: 20px;
-  left: 16px;
-  width: 100%;
-}
+.main .apply-button:hover {
+    background: #6C868F;
+    text-decoration: none;
+    color: white;
+  }
 
-.job-posting .job-logo {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  top: -55px;
-}
-
-// .job-posting .job-posting-info
-
-.job-posting-info {
-  display: flex;
-  justify-content: center;
-}
 
 //* JOB KEY POINTS *//
 .job-key-points {
-  width: 150px;
+  width: 90%;
+  height: fit-content;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 10px 10px 0px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
 
   h5 {
     font-size: 13px;
+    font-weight: bold;
   }
 
   p {
-    font-size: 10px;
+    font-size: 13px;
+    font-family: Montserrat, sans-serif;
+    transform: scaleY(1.3);
+    font-weight: bold;
+    color: #00ADB5;
   }
-}
-
-.job-summary {
-  border: solid;
-  border-radius: 50px;
-  background-color: rgb(238, 237, 237);
-  padding: 10px;
-  width: 800px;
-  margin: 0 auto;
-  padding: 16px 16px 0px 16px;
 }

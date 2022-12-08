@@ -1,62 +1,62 @@
 
-<div class="job-container">
-      <div class="job-header"><%=image_tag 'https://static.wixstatic.com/media/b650ce_4b783c50755742a786f38e91b5028a41~mv2_d_7929_2408_s_4_2.png/v1/fill/w_980,h_298,al_c,usm_0.66_1.00_0.01/b650ce_4b783c50755742a786f38e91b5028a41~mv2_d_7929_2408_s_4_2.png', class:"job-banner" %>
-        <div type="button" class="apply-button"><%= link_to "Apply", new_job_job_response_path(@job) %>
-        </div>
-      </div>
-  <div class="job-posting" data-controller="edit-job-posting" data-edit-job-posting-target="descriptionbox">
+<div class="job-posting" data-controller="edit-job-posting" data-edit-job-posting-target="descriptionbox">
+<%# row is divided in 2 parts: side and main %>
 
-      <img src="https://miro.medium.com/max/640/1*0Rjja_-J-ci27SgPLJ7niQ.webp" class="job-logo">
+  <div class="side">
+    <img src="https://miro.medium.com/max/640/1*0Rjja_-J-ci27SgPLJ7niQ.webp" class="job-logo">
 
-
-      <div class="job-posting-info">
-        <div class="job-key-points">
-          <h6>Key Points</h6>
-          <h5>Total Compensation</h5>
-            <p>1,000 euros</p>
-          <h5>Languages</h5>
-            <p>English</p>
-          <h5>Location</h5>
-            <p><%= @job.location %></p>
-        </div>
-
-
-        <div class="job-details">
-          <div class="job-summary">
-            <h5>Summary</h5>
-            <p>Under the guidance of the Director of University Web Services, the Web Developer is responsible for web programming to create pages, layouts, and templates for web content providers and editors of the university's internet websites, both inside and outside of the CMS.
-            </p>
-          </div>
-
-          <div class="job-description" data-edit-job-posting-target="description">
-          <h5>Test</h5>
-          <button aria-label="Edit job description" data-action="click->edit-job-posting#displayForm">
-                <i class="fa-solid fa-pen fa-xs ml-2"></i>
-                </button>
-                <%= simple_form_for @job,
-                html: {
-                  # class: "d-none",
-                  data: {
-                    edit_job_posting_target: "form",
-                    action: "submit->edit-job-posting#update"
-                    }
-                  } do |f|
-                %>
-                <%= f.input :title %>
-                 <%= f.input :content %>
-                 <%= f.input :location %>
-                 <%= f.submit "Update job description" %>
-
-                 <% end %>
-            <h2><%= @job.title %></h2>
-            <p><%= @job.content %></p>
-            <p><%= @job.location %></p>
-          </div>
-        </div>
-      </div>
-
+    <div class="job-key-points">
+      <h5>Salary</h5>
+        <p>1,000 euros</p>
+      <h5>Languages</h5>
+        <p>English</p>
+      <h5>Location</h5>
+        <p><%= @job.location %></p>
+    </div>
   </div>
 
+  <div class="main">
+
+    <div type="button" class="apply-button"><%= link_to "Apply", new_job_job_response_path(@job) %>
+    </div>
+
+          <div class="job-details">
+            <div class="job-summary">
+              <h5>Summary</h5>
+              <p>Under the guidance of the Director of University Web Services, the Web Developer is responsible for web programming to create pages, layouts, and templates for web content providers and editors of the university's internet websites, both inside and outside of the CMS.
+              </p>
+            </div>
+
+            <div class="job-description" data-edit-job-posting-target="description">
+
+            <% if policy(@job).edit? %>
+            <button aria-label="Edit job description" data-action="click->edit-job-posting#displayForm">
+                  <i class="fa-solid fa-pen fa-xs ml-2"></i>
+                  </button>
+                  <%= simple_form_for @job,
+                  html: {
+                    class: "d-none",
+                    data: {
+                      edit_job_posting_target: "form",
+                      action: "submit->edit-job-posting#update"
+                      }
+                    } do |f|
+                  %>
+                  <%= f.input :title %>
+                  <%= f.input :content %>
+                  <%= f.input :location %>
+                  <%= f.submit "Update job description" %>
+
+                  <% end %>
+                    <% end %>
+              <h2><%= @job.title %></h2>
+              <p><%= @job.content %></p>
+              <p><%= @job.location %></p>
+            </div>
+          </div>
+        </div>
+
+    </div>
 
 
 
