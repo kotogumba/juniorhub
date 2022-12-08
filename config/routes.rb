@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :jobs
   resources :job_responses
-  resources :profiles, only: [:show, :edit, :update]
+  resources :profiles, only: [:index,:show, :edit, :update]
   resources :chatrooms, only: [:show, :new, :create] do
     resources :messages, only: :create
   end
