@@ -1,6 +1,7 @@
 <div class="job-card-index" id="<%= dom_id job %>">
   <div class="job-card-image-and-contents">
-    <img class="job-card-logo" alt="logo" src="/assets/logo_placeholder-c7c60a6d1a473197b91b4be9dc89f71b2fcc132219fd83708de2fcc91fe40cb6.png">
+    <%= cl_image_tag job.image.key, class: "job-card-logo" %>
+    <%# <img class="job-card-logo" alt="logo" src="/assets/logo_placeholder-c7c60a6d1a473197b91b4be9dc89f71b2fcc132219fd83708de2fcc91fe40cb6.png"> %>
     <div class="index-card-contents">
       <p class="job-card-index-heading"><%= job.title %></p>
       <p class="job-card-index-content"><%= job.content %></p>

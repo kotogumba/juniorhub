@@ -1,5 +1,4 @@
-<%# bootsrap tabs  %>
-
+<%# DASHBOARD %>
 <div class="d-flex align-items-start" id="dashboard" data-controller="new-message">
   <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <button class="nav-link <%= params[:tab] != 'messages' ? 'active' : nil %>" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>"><i class="fa-solid fa-house"></i></button>
@@ -7,8 +6,9 @@
     <button class="nav-link" id="v-pills-requests-tab" data-bs-toggle="pill" data-bs-target="#v-pills-requests" type="button" role="tab" aria-controls="v-pills-requests" aria-selected="false"><i class="fa-solid fa-briefcase"></i></button>
     <button class="nav-link <%= params[:tab] == 'messages' ? 'active' : nil %> position-relative" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>">
       <i class="fa-solid fa-inbox"></i>
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none" data-new-message-target="container" >
-        <span data-new-message-target="badge" >0</span>
+      <% new_messages =  current_user.new_messages.last.nil? ? 0 : current_user.new_messages.last.count  %>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <%= new_messages > 0 ? nil: 'd-none'%>" data-new-message-target="container" >
+        <span data-new-message-target="badge" ><%= new_messages %></span>
         <span class="visually-hidden">unread messages</span>
       </span>
     </button>
@@ -32,54 +32,58 @@
     <div class="tab-pane fade <%= params[:tab] == 'messages' ? 'show active' : nil %>" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">
       <%# <h3> My messages </h3> %>
       <%# NEW TABS COMPONENT %>
-      <div class="d-flex align-items-start">
-        <%# chat names %>
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab-chat" role="tablist" aria-orientation="vertical">
-          <% if @user.private_chatrooms.empty? %>
-            <button class="nav-link active" id="v-pills-first-tab" data-bs-toggle="pill" data-bs-target="#v-pills-first" type="button" role="tab" aria-controls="v-pills-first" aria-selected="true">No chats yet</button>
-          <% else %>
-            <% if @user.private_chatrooms.first.user_sender_id == @user.id %>
-                <% friend = User.find(@user.private_chatrooms.first.user_reciever_id) %>
-            <% else %>
-                <% friend = User.find(@user.private_chatrooms.first.user_sender_id) %>
-            <% end %>
-            <%# <button class="nav-link active" id="v-pills-first-tab" data-bs-toggle="pill" data-bs-target="#v-pills-first" type="button" role="tab" aria-controls="v-pills-first" aria-selected="true"><%= friend.nickname %></button>
-            <% @user.private_chatrooms.each do |chatroom| %>
-              <% if chatroom.user_sender_id == @user.id %>
-                <% friend = User.find(chatroom.user_reciever_id) %>
-              <% else %>
-                <% friend = User.find(chatroom.user_sender_id) %>
-              <% end %>
-              <button class="nav-link <%= friend.id == params[:id].to_i ? 'active' : nil %>" data-controller="read-message" data-read-message-target="name" data-read-message-id-value="<%=friend.id%>" data-read-message-private-chatroom-id-value="<%=chatroom.id%>" data-action="read-message#readMessage" id="v-pills-<%=friend.id%>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%=friend.id%>" type="button" role="tab" aria-controls="v-pills-<%=friend.id%>" aria-selected="<%= friend.id == params[:id] ? 'true' : 'false' %>"><%= friend.nickname %></button>
-            <% end %>
-          <% end %>
-        </div>
-        <%# chats content %>
-        <div class="tab-content" id="v-pills-tabContent">
-          <% if @user.private_chatrooms.empty? %>
-            <div class="tab-pane fade show active" id="v-pills-first" role="tabpanel" aria-labelledby="v-pills-first-tab" tabindex="0">
-              <h3> No chats yet </h3>
+      <div class="chat-container">
+        <div class="d-flex align-items-start">
+          <%# chat names %>
+          <div class="nav flex-column nav-pills" id="v-pills-tab-chat" role="tablist" aria-orientation="vertical">
+            <div class="chat-sidebar">
+              <h3>Online users</h3>
+              <ul>
+                <% if @user.private_chatrooms.empty? %>
+                  <button class="nav-link active" id="pills-first-tab" data-bs-toggle="pill" data-bs-target="#pills-first" type="button" role="tab" aria-controls="pills-first" aria-selected="true"><h3> No chats yet </h3></button>
+                <% else %>
+                  <% @user.private_chatrooms.each do |chatroom| %>
+                    <% if chatroom.user_sender_id == @user.id %>
+                      <% friend = User.find(chatroom.user_reciever_id) %>
+                    <% else %>
+                      <% friend = User.find(chatroom.user_sender_id) %>
+                    <% end %>
+                    <%# USERS LIST %>
+                    <li>
+                      <button class="nav-link d-flex flex-row align-items-center <%= friend.id == params[:id].to_i ? 'active' : nil %>" data-controller="read-message" data-read-message-target="name" data-read-message-id-value="<%=friend.id%>" data-read-message-private-chatroom-id-value="<%=chatroom.id%>" data-action="read-message#readMessage" id="v-pills-<%=friend.id%>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%=friend.id%>" type="button" role="tab" aria-controls="v-pills-<%=friend.id%>" aria-selected="<%= friend.id == params[:id] ? 'true' : 'false' %>">
+                        <% if friend.profile.avatar.attached? %>
+                          <div class="avatar-message flex-shrink-0"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path friend.profile.avatar.key %>'"></div>
+                        <% end %>
+                        <div>
+                          <%= friend.nickname %>
+                        </div>
+                      </button>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
             </div>
-          <% else %>
-            <% if @user.private_chatrooms.first.user_sender_id == @user.id %>
-                <% friend = User.find(@user.private_chatrooms.first.user_reciever_id) %>
-            <% else %>
-                <% friend = User.find(@user.private_chatrooms.first.user_sender_id) %>
-            <% end %>
-            <%# <div class="tab-pane fade show active" id="v-pills-first" role="tabpanel" aria-labelledby="v-pills-first-tab" tabindex="0">
-              <%= render "private_chatrooms/private_chatroom", private_chatroom: @user.private_chatrooms.first,  private_message: PrivateMessage.new %>
-            <%# </div> %>
-            <% @user.private_chatrooms.each do |chatroom| %>
-              <% if chatroom.user_sender_id == @user.id %>
-                <% friend = User.find(chatroom.user_reciever_id) %>
-              <% else %>
-                <% friend = User.find(chatroom.user_sender_id) %>
-              <% end %>
-              <div class="tab-pane fade <%= params[:id].to_i == friend.id ? 'show active' : nil %>" id="v-pills-<%=friend.id%>" role="tabpanel" aria-labelledby="v-pills-<%=friend.id%>-tab" tabindex="0">
-                <%= render "private_chatrooms/private_chatroom", private_chatroom: chatroom,  private_message: PrivateMessage.new %>
+          </div>
+
+          <%# chats content %>
+          <div class="tab-content" id="v-pills-tabContent-chat">
+            <% if @user.private_chatrooms.empty? %>
+              <div class="tab-pane fade show active" id="v-pills-first" role="tabpanel" aria-labelledby="v-pills-first-tab" tabindex="0">
+                <h3> No chats yet </h3>
               </div>
+            <% else %>
+              <% @user.private_chatrooms.each do |chatroom| %>
+                <% if chatroom.user_sender_id == @user.id %>
+                  <% friend = User.find(chatroom.user_reciever_id) %>
+                <% else %>
+                  <% friend = User.find(chatroom.user_sender_id) %>
+                <% end %>
+                <div class="tab-pane fade chat-window <%= params[:id].to_i == friend.id ? 'show active' : nil %>" id="v-pills-<%=friend.id%>" role="tabpanel" aria-labelledby="v-pills-<%=friend.id%>-tab" tabindex="0">
+                  <%= render "private_chatrooms/private_chatroom", private_chatroom: chatroom,  private_message: PrivateMessage.new %>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>

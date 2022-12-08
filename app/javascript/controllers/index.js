@@ -22,6 +22,9 @@ application.register("navbar", NavbarController)
 import NewMessageController from "./new_message_controller"
 application.register("new-message", NewMessageController)
 
+import NotificationsController from "./notifications_controller"
+application.register("notifications", NotificationsController)
+
 import PrivateChatroomSubscriptionController from "./private_chatroom_subscription_controller"
 application.register("private-chatroom-subscription", PrivateChatroomSubscriptionController)
 
