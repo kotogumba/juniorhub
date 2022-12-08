@@ -28,14 +28,14 @@
             </div>
 
             <div class="job-description" data-edit-job-posting-target="description">
-            <h5>Test</h5>
+
             <% if policy(@job).edit? %>
             <button aria-label="Edit job description" data-action="click->edit-job-posting#displayForm">
                   <i class="fa-solid fa-pen fa-xs ml-2"></i>
                   </button>
                   <%= simple_form_for @job,
                   html: {
-                    # class: "d-none",
+                    class: "d-none",
                     data: {
                       edit_job_posting_target: "form",
                       action: "submit->edit-job-posting#update"
