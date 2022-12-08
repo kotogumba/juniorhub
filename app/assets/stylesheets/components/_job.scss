@@ -1,11 +1,18 @@
 .job-card-index {
-  border-bottom: 1px solid #f3f3f4;
+  border-bottom: 1px solid hsla(240, 4%, 95%, 0.863);;
   background-color: #fff;
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: 24px;
+}
+.job-card-logo-index {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.08);
+  border: 1px solid grey;
 }
 
 .index-card-contents {
@@ -68,6 +75,20 @@
   margin-top: 10px;
 }
 
+.job-card-index-more-info:hover {
+  background-color: #7E73FF;
+  color: white
+}
+
+.job-card-index-apply:hover {
+  background-color: #7E73FF;
+  color: white
+}
+
 a {
   text-decoration: none;
+}
+
+a:hover {
+  color: white;
 }

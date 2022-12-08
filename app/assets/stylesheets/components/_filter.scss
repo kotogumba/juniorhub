@@ -1,5 +1,5 @@
 .search-filters-container {
-  border: 1px solid lightgray;
+  border:  1px solid hsla(240, 4%, 95%, 0.863);
   margin-bottom: 24px;
   padding: 32px;
   border-radius: 10px;
@@ -14,6 +14,10 @@
   margin-bottom: 30px;
 }
 
+.search-form.location {
+  margin-top: 30px;
+}
+
 .input-field-search {
   background-color: white;
 }
@@ -24,6 +28,7 @@
 
 .search-button:hover {
   background-color: #7E73FF;
+  color: white
 }
 
 .tags {

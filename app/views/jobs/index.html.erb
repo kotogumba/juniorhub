@@ -9,13 +9,13 @@
     </div>
   </div>
   <div class="container-list-and-filter row">
-      <div class="job-listings-container col-8">
+      <div class="job-listings-container col-9">
           <div class="row">
             <% @jobs.each do |job| %>
             <%= render "job", job: job %>
             <% end %>
-          </div> <%#class="row" %>
-      </div> <%#class="job-listings-container" %>
+          </div>
+      </div>
     <%= render "filter" %>
-  </div> <%#class="container-list-and-filter d-flex"%>
-</div> <%# container %>
+  </div>
+</div>

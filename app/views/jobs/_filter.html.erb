@@ -1,4 +1,4 @@
-<div class="search-filters-container col-4">
+<div class="search-filters-container col-3">
   <div>
     <p class="filter-header">Filter</p>
     <% if @query %>
@@ -7,7 +7,7 @@
         <p>Search <strong><%= @jobs.count %></strong> job postings.</p>
     <% end %>
     </div>
-    <div class="search-form>
+    <div class="search-form">
       <form class="input-group rounded">
         <input class="form-control rounded input-field-search" name="query" type="search" placeholder="Company, skill ..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
         <button class="input-group-text border-0 search-button" type="submit">Search</button>
@@ -21,5 +21,11 @@
       </label>
     </div>
     <% end %>
+    <div class="search-form-location">
+      <form class="input-group rounded">
+        <input class="form-control rounded input-field-search" name="query" type="search" placeholder="Company, skill ..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
+        <button class="input-group-text border-0 search-button" type="submit">Location</button>
+      </form>
+    </div>
   </div>
-</div> 
+</div>

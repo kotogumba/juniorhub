@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_142721) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "summary"
+    t.integer "salary"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
