@@ -1,9 +1,9 @@
 <%# DASHBOARD %>
 <div class="d-flex align-items-start" id="dashboard" data-controller="new-message">
   <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <button class="nav-link <%= params[:tab] != 'messages' ? 'active' : nil %>" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>"><i class="fa-solid fa-house"></i></button>
+    <button class="nav-link <%= params[:tab].nil? ? 'active' : nil %>" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>"><i class="fa-solid fa-house"></i></button>
     <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa-regular fa-user"></i></button>
-    <button class="nav-link" id="v-pills-requests-tab" data-bs-toggle="pill" data-bs-target="#v-pills-requests" type="button" role="tab" aria-controls="v-pills-requests" aria-selected="false"><i class="fa-solid fa-briefcase"></i></button>
+    <button class="nav-link <%= params[:tab] == 'responses' ? 'active' : nil %>" id="v-pills-requests-tab" data-bs-toggle="pill" data-bs-target="#v-pills-requests" type="button" role="tab" aria-controls="v-pills-requests" aria-selected="<%= params[:tab] == 'responses' ? 'true' : 'false' %>"><i class="fa-solid fa-briefcase"></i></button>
     <button class="nav-link <%= current_user.company ? nil : 'd-none'%>" id="v-pills-response-tab" data-bs-toggle="pill" data-bs-target="#v-pills-response" type="button" role="tab" aria-controls="v-pills-response" aria-selected="false"><i class="fa-solid fa-inbox"></i></button>
     <button class="nav-link <%= params[:tab] == 'messages' ? 'active' : nil %> position-relative" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>">
       <i class="fa-regular fa-message"></i>
@@ -15,7 +15,7 @@
     </button>
   </div>
   <div class="tab-content" id="v-pills-tabContent">
-    <div class="tab-pane fade <%= params[:tab] != 'messages' ? 'show active' : nil %>" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+    <div class="tab-pane fade <%= params[:tab].nil? ? 'show active' : nil %>" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
       <h1>Hello</h1>
       <p> <%= @user.profile.first_name %> ! </p>
     </div>
@@ -23,7 +23,7 @@
       <%= render "/profiles/profile", profile: @user.profile %>
     </div>
     <%# JOB RESPONSE %>
-    <div class="tab-pane fade" id="v-pills-requests" role="tabpanel" aria-labelledby="v-pills-requests-tab" tabindex="0">
+    <div class="tab-pane fade <%= params[:tab] == 'responses' ? 'show active' : nil %>" id="v-pills-requests" role="tabpanel" aria-labelledby="v-pills-requests-tab" tabindex="0">
       <h3> My requests </h3>
       <% @user.job_responses.each do |job_response| %>
         <%= render "jobs/job", job: job_response.job, job_response: job_response %>

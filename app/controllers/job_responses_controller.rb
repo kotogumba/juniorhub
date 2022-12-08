@@ -29,6 +29,7 @@ class JobResponsesController < ApplicationController
       @job_response.declined!
     end
     @job_response.save
+    NotificationsChannel.broadcast_to(@job_response.user, render_to_string(partial: "notification"))
     redirect_to "/dashboard", status: :see_other
   end
 
