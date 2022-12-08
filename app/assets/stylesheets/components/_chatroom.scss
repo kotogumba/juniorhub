@@ -64,6 +64,18 @@
   border-bottom: none;
 }
 
+.chat-sidebar button {
+  color: black;
+  text-align: left;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.chat-sidebar .nav-link:hover {
+  font-size: 14px;
+}
+
 .chat-main {
   flex: 1;
   display: flex;
@@ -127,7 +139,7 @@
 }
 
 .message-form .send {
-  width: 100px;
+  width: 50px;
   height: 40px;
   background: #333;
   color: #fff;
