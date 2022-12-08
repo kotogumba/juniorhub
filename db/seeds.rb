@@ -70,7 +70,9 @@ end
     title: Faker::Job.title,
     content: Faker::Lorem.paragraph,
     location: Faker::Address.city,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    summary: Faker::Lorem.paragraph,
+    salary: Faker::Number.number(digits: 5)
   )
 
   # add tags to jobs
