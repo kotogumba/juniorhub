@@ -1,0 +1,11 @@
+<div class="wrapper-profiles">
+  <%= form_with url: profiles_path, method: :get do |form| %>
+      <%= form.text_field :search, placeholder: "Search profiles..." %>
+      <%= form.submit "Search" %>
+    <% end %>
+  <div class="profiles-container">
+    <% @profiles.each do |profile| %>
+      <%= render "profiles/profile_card", profile: profile %>
+    <% end %>
+  </div>
+</div>

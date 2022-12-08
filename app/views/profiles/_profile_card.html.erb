@@ -1,0 +1,16 @@
+
+<div class="profile-card">
+  <div class="profile-img">
+    <% if profile.avatar.attached? %>
+      <%= cl_image_tag profile.avatar.key %>
+    <% else %>
+      <img src="https://via.placeholder.com/150" alt="Profile picture">
+    <% end %>
+  </div>
+  <div class="profile-info">
+    <h1> <%= profile.first_name %> <%= profile.last_name %> </h1>
+    <p> <%= profile.address %> </p>
+    <p> <%= profile.bio %> </p>
+    <%= link_to "View profile", profile_path(profile.user), class: "btn btn-primary" %>
+  </div>
+</div>
