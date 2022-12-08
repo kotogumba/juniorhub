@@ -16,19 +16,5 @@ export default class extends Controller {
       method: "GET",
       headers: { "Accept": "application/json"}
     })
-    // .then(response => response.json())
-    // .then((data) => {
-    //   console.log(data)
-    // })
-
   }
-
-  // unreadMessage() {
-  //   fetch(`/read_messages?id=${idValue}&chat=${privateChatroomIdValue}`)
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //     })
-  //   }
-
 }

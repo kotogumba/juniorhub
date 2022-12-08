@@ -7,12 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
-
+require "open-uri"
 
 # clear database
 puts "Clearing database..."
-User.destroy_all
 Profile.destroy_all
+User.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 JobResponse.destroy_all
@@ -38,9 +38,35 @@ end
   )
 end
 
+User.all.each do |user|
+  profile = user.build_profile(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip_code: Faker::Address.zip_code,
+    country: Faker::Address.country,
+    linkedin_url: Faker::Internet.url,
+    github_url: Faker::Internet.url,
+    personal_website_url: Faker::Internet.url,
+    resume_url: Faker::Internet.url,
+    other_url: Faker::Internet.url,
+    bio: Faker::Lorem.paragraph
+  )
+
+
+  # https://loremflickr.com/320/240/avatar
+  # add avatar to profile
+  file = URI.open("https://loremflickr.com/320/240/face")
+  profile.avatar.attach(io: file, filename: "nes.png", content_type: "image/png")
+  profile.save
+end
+
 # create jobs
 20.times do
-  Job.create(
+  job = Job.create(
     title: Faker::Job.title,
     content: Faker::Lorem.paragraph,
     location: Faker::Address.city,
@@ -49,6 +75,9 @@ end
 
   # add tags to jobs
   Job.last.tags << Tag.all.sample(rand(1..5))
+  file = URI.open("https://loremflickr.com/320/240/logo")
+  job.image.attach(io: file, filename: "nes.png", content_type: "image/png")
+  job.save
 end
 
 1.times do

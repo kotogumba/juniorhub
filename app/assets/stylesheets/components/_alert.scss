@@ -4,3 +4,12 @@
   right: 16px;
   z-index: 1000;
 }
+
+#new-message-alert {
+  background-color: lightyellow;
+  opacity: 0.8;
+}
+
+#new-message-alert a {
+  text-decoration: underline;
+}

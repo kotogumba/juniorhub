@@ -12,8 +12,8 @@
 
   <body>
     <%= render "shared/navbar" %>
+    <div class="wrapper" data-controller="notifications" data-notifications-target="wrapper">
     <%= render "shared/flashes" %>
-    <div class="wrapper">
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
