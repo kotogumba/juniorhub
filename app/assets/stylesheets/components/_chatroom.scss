@@ -73,7 +73,7 @@
 }
 
 .chat-sidebar .nav-link:hover {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .chat-main {
@@ -146,4 +146,13 @@
   border: none;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+}
+
+.avatar-message {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: center;
 }
