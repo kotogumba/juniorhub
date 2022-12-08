@@ -5,12 +5,16 @@ class PrivateMessagesController < ApplicationController
     authorize @message
     @message.private_chatroom = @private_chatroom
     @message.user = current_user
+    @target = @private_chatroom.user_reciever == current_user ? @private_chatroom.user_sender : @private_chatroom.user_reciever
     if @message.save
       PrivateChatroomChannel.broadcast_to(
         @private_chatroom,
         render_to_string(partial: "private_message", locals: {message: @message})
       )
       head :ok
+      NotificationsChannel.broadcast_to(@target, render_to_string(partial: "notification"))
+      MessageBadgeChannel.broadcast_to(@target, @target.new_messages.last.count)
+
     else
       render "private_chatrooms/show", status: :unprocessable_entity
     end
@@ -19,6 +23,8 @@ class PrivateMessagesController < ApplicationController
   def new_messages
     skip_authorization
     @new_messages = current_user.new_messages
+
+    MessageBadgeChannel.broadcast_to(current_user, current_user.new_messages.last.count)
 
     respond_to do |format|
       format.html
@@ -34,6 +40,7 @@ class PrivateMessagesController < ApplicationController
     @private_messages.each do |message|
       message.update(new: false)
     end
+    MessageBadgeChannel.broadcast_to(current_user, current_user.new_messages.last.count)
   end
 
   private
