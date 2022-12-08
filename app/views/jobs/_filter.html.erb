@@ -15,7 +15,7 @@
 
 
       <% Tag.all.each do |tag|%>
-        <%= link_to tag.name, jobs_path(tag_id: tag.id), class: 'job-tags'%>
+        <p class="job-tags"> <%= link_to tag.name, jobs_path(tag_id: tag.id), class: 'job-tags'%></p>
       <% end %>
   </div>
 </div> <%#class="search-filters-container"%>
