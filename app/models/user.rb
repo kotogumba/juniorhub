@@ -21,9 +21,13 @@ class User < ApplicationRecord
 
   def new_messages
     my_chats = private_chatrooms
-    # get all message where user is not current_user and message new is true
-    my_chats.map do |chat|
-      chat.private_messages.where.not(user: self).where(new: true)
+    # array of messages where user is not current_user and message new is true
+    new_messages = []
+    my_chats.each do |chat|
+      chat.private_messages.each do |message|
+        new_messages << message if message.user != self && message.new
+      end
     end
+    new_messages
   end
 end

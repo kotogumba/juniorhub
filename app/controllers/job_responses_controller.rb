@@ -20,6 +20,18 @@ class JobResponsesController < ApplicationController
     end
   end
 
+  def update
+    @job_response = JobResponse.find(params[:id])
+    authorize @job_response
+    if params[:status] == "accepted"
+      @job_response.accepted!
+    elsif params[:status] == "declined"
+      @job_response.declined!
+    end
+    @job_response.save
+    redirect_to "/dashboard", status: :see_other
+  end
+
   private
 
   def set_job
@@ -27,6 +39,6 @@ class JobResponsesController < ApplicationController
   end
 
   def job_response_params
-    params.require(:job_response).permit(:first_name, :last_name, :cv)
+    params.require(:job_response).permit(:first_name, :last_name, :cv, :status)
   end
 end

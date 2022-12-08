@@ -1,3 +1,9 @@
-<h1><%=  job_response.job.title %></h1>
-<p><%=  job_response.job.content %></p>
-<p><%=  job_response.job.location %></p>
+
+<%= render  "jobs/job", job: job_response.job, job_response: job_response %>
+
+<%= render "profiles/profile_card", profile: job_response.user.profile %>
+
+<div class="contrainer d-flex flex-row">
+  <%= button_to "Accept", job_response_path(job_response, status: 'accepted'), method: :patch, class: "btn btn-success" %>
+  <%= button_to "Decline", job_response_path(job_response, status: 'declined'), method: :patch, class: "btn btn-danger" %>
+</div>

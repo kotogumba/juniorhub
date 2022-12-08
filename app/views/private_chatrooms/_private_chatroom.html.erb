@@ -1,26 +1,24 @@
-
-<div class="chat-header">
-  <h3>Chat with a friend</h3>
-</div>
-<div class="chat-messages">
-  <div class="message-container" data-controller="private-chatroom-subscription" data-private-chatroom-subscription-private-chatroom-id-value="<%= private_chatroom.id %>" data-private-chatroom-subscription-target="messages">
-    <% private_chatroom.private_messages.each do |message| %>
-      <%= render "private_messages/private_message", message: message %>
-    <% end %>
-    <div class="message-received">
-      <%# <p>Good, thanks for asking! What have you been up to?</p> %>
+<div data-controller="private-chatroom-subscription" data-private-chatroom-subscription-private-chatroom-id-value="<%= private_chatroom.id %>">
+  <div class="chat-header">
+    <h3>Chat with a friend</h3>
+  </div>
+  <div class="chat-messages" data-private-chatroom-subscription-target="scroll">
+    <div class="message-container"  data-private-chatroom-subscription-target="messages">
+      <% private_chatroom.private_messages.each do |message| %>
+        <%= render "private_messages/private_message", message: message %>
+      <% end %>
     </div>
   </div>
-</div>
-<div class="message-form">
-  <%= simple_form_for [private_chatroom, private_message],
-    html: { data: { action: "turbo:submit-end->private-chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message ...",
-      wrapper_html: {class: "flex-grow-1"}
+  <div class="message-form">
+    <%= simple_form_for [private_chatroom, private_message],
+      html: { data: { action: "turbo:submit-end->private-chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
     %>
-    <%= f.submit "Send", class: "send" %>
-  <% end %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ...",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Send", class: "send" %>
+    <% end %>
+  </div>
 </div>
