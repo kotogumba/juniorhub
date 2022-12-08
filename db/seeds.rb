@@ -59,7 +59,7 @@ User.all.each do |user|
 
   # https://loremflickr.com/320/240/avatar
   # add avatar to profile
-  file = URI.open("https://loremflickr.com/320/240/face")
+  file = URI.open("https://source.unsplash.com/random/?portrait")
   profile.avatar.attach(io: file, filename: "nes.png", content_type: "image/png")
   profile.save
 end

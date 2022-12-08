@@ -1,6 +1,14 @@
 class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!
 
+  def index
+    @profiles = policy_scope(Profile)
+
+    if params[:search].present?
+      @profiles = @profiles.where("first_name ILIKE ?", "%#{params[:search]}%")
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     @profile = @user.profile

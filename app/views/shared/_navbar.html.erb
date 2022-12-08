@@ -1,8 +1,10 @@
 
     <nav>
-      <div class="logo">
-        <h4>JuniorHub</h4>
-      </div>
+      <a href="/">
+        <div class="logo">
+            <h4>JuniorHub</h4>
+        </div>
+      </a>
       <ul class="nav-links">
         <% if user_signed_in? %>
           <li>
@@ -12,7 +14,7 @@
             <%= link_to "Jobs", jobs_path, class: "nav-link" %>
           </li>
           <li>
-            <%= link_to "Profile", profile_path(current_user), class: "nav-link" %>
+            <%= link_to "Profiles", profiles_path, class: "nav-link" %>
           </li>
           <li>
             <%= link_to "Chat", chatroom_path(Chatroom.all.first), class: "nav-link" %>
