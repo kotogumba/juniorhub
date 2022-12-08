@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  validates :title, :content, :location, presence: true
+  validates :title, :content, :location, :summary, :salary, presence: true
   belongs_to :user
   has_many :job_responses, dependent: :destroy
   has_many :job_tags, dependent: :destroy

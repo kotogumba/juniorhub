@@ -11,9 +11,13 @@
 
 /* job-posting is divided in 2 parts: side and main */
 .side {
+
+  align-items: center;
   flex: 20%;
   background-color: #f1f1f1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
