@@ -1,3 +1,4 @@
-<h1><%=  job_response.job.title %></h1>
-<p><%=  job_response.job.content %></p>
-<p><%=  job_response.job.location %></p>
+
+<%= render  "jobs/job", job: job_response.job, job_response: job_response %>
+
+<%= render "profiles/flat_profile_card", profile: job_response.user.profile, job_response: job_response %>

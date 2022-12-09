@@ -11,6 +11,7 @@ require "open-uri"
 
 # clear database
 puts "Clearing database..."
+JobResponse.destroy_all
 Profile.destroy_all
 User.destroy_all
 Message.destroy_all
@@ -53,9 +54,11 @@ User.all.each do |user|
     personal_website_url: Faker::Internet.url,
     resume_url: Faker::Internet.url,
     other_url: Faker::Internet.url,
-    bio: Faker::Lorem.paragraph
+    bio: Faker::Lorem.paragraph,
+    education: Faker::Lorem.paragraph,
+    experience: Faker::Lorem.paragraph,
+    skills: Faker::Lorem.paragraph
   )
-
 
   # https://loremflickr.com/320/240/avatar
   # add avatar to profile
@@ -70,7 +73,10 @@ end
     title: Faker::Job.title,
     content: Faker::Lorem.paragraph,
     location: Faker::Address.city,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    summary: Faker::Lorem.paragraph,
+    salary: Faker::Number.number(digits: 5),
+    company_name: Faker::Company.name
   )
 
   # add tags to jobs

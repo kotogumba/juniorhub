@@ -92,3 +92,20 @@ a {
 a:hover {
   color: white;
 }
+
+
+// form for job
+
+.form-check .form-check-input {
+  margin: 0 !important;
+}
+
+// show job contacts
+
+.job-show-contacts a {
+  text-decoration: underline;
+}
+
+.job-show-contacts a:hover {
+  color: black;
+}

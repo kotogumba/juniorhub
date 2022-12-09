@@ -159,21 +159,21 @@ body{
   border-radius: 25px;
 }
 
-.job-card-A{
-  height: 400px;
-  width: 65%;
-  max-width: 1050px;
-  border-radius: 25px;
-  margin-top: 5%;
-  font-family: $Home-font-family;
-  color: $home-collor-normal;
-  box-shadow: 5px 5px 5px $box-shadow;
-  background-image: $image-overlay-job, asset-url('job-card-background_1.jpg');
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-}
+// .job-card-A{
+//   height: 400px;
+//   width: 65%;
+//   max-width: 1050px;
+//   border-radius: 25px;
+//   margin-top: 5%;
+//   font-family: $Home-font-family;
+//   color: $home-collor-normal;
+//   box-shadow: 5px 5px 5px $box-shadow;
+//   background-image: $image-overlay-job, asset-url('job-card-background_1.jpg');
+//   background-size: cover;
+//   display: flex;
+//   flex-direction: column;
+//   margin-bottom: 40px;
+// }
 
 .carousel-item{
   background:none;
@@ -206,12 +206,14 @@ body{
 
 .company_details h6{
   margin: 0;
-  margin-left: 10px;
+  margin-left: 25px;
+  font-weight: 100;
 }
 
 .logo{
   height: 60px;
   width: 60px;
+  border-radius: 50%;
 }
 
 .job-card-text h4{

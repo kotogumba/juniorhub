@@ -1,24 +1,69 @@
-<div class="container d-flex flex-column">
-  <% if profile.avatar.attached? %>
-    <div class="avatar-profile"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path profile.avatar.key, height: 300, crop: :fill %>'"></div>
+<div class="profile-container">
+  <div class="first-row">
+    <div class="name">
+      <h4>Hello! I am</h4>
+      <h2><%=  profile.first_name %> <%=  profile.last_name %></h2>
+    </div>
+   <% if profile.avatar.attached? %>
+    <div class="avatar-profile-custom"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path profile.avatar.key, height: 300, width: 300, crop: :fill %>'"></div>
   <% end %>
-  <%=  profile.first_name %>
-  <%=  profile.last_name %>
-  <%=  profile.address %>
-  <%=  profile.city %>
-  <%=  profile.state %>
-  <%=  profile.zip_code %>
-  <%=  profile.phone_number %>
-  <% chat = current_user.find_private_chat(profile.user) %>
+  </div>
+  <div class="second-row">
+    <div class="column-left">
+      <div class="info top">
+        <h4>About me</h4>
+        <p><%= profile.bio %></p>
+      </div>
+      <div class="info 2">
+        <h4>Position</h4>
+        <p>Junior Developer at LeWagon</p>
+      </div>
+      <div class="info 3">
+        <h4>Location</h4>
+        <p><%=  profile.city %> <%=  profile.state %></p>
+      </div>
+      <div class="info 4">
+        <h4>Experience</h4>
+        <p><%= profile.experience %></p>
+      </div>
+      <div class="info bottom">
+        <h4>Education</h4>
+        <p><%= profile.education %></p>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="socials">
+        <div>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-window-maximize"></i></a>
+        </div>
+      </div>
+      <div class="skills">
+        <div>
+          Skills:
+        </div>
+        <div class="skill-list">
+         <%= profile.skills %>
+        </div>
+      </div>
+      <div class="actions">
+      <% chat = current_user.find_private_chat(profile.user) %>
+      <% if current_user != profile.user %>
+        <% if chat.nil? %>
+        <div class="clickable">
+          <%= button_to "Send Message", private_chatrooms_path(user_sender_id: current_user.id, user_reciever_id: profile.user.id), method: :post, class: "edit-button" %>
+        <% else %>
+            <%= link_to "Send Message", "/dashboard?tab=messages&id=#{profile.user.id}", class: "edit-button" %>
+        <% end %>
+        </div>
+      <% else %>
+        <div class="clickable">
+          <%= link_to " Edit Profile", edit_profile_path(profile), class: "edit-button" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
   <%# SEND MESSAGE BLOCK %>
-  <% if current_user != profile.user %>
-    <% if chat.nil? %>
-      <%= button_to "Send Message", private_chatrooms_path(user_sender_id: current_user.id, user_reciever_id: profile.user.id), method: :post %>
-    <% else %>
-      <%= link_to "Send Message", "/dashboard?tab=messages&id=#{profile.user.id}" %>
-    <% end %>
-  <% else %>
-    <%= link_to "Edit", edit_profile_path(profile) %>
-  <% end %>
-
 </div>

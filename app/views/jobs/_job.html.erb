@@ -13,10 +13,27 @@
   </div>
   <div class="card-buttons ">
     <button type="button" class="btn btn-light job-card-index-more-info "><%= link_to "View Job", job_path(job) if policy(Job).show? %></button>
+    <%# Logic for buttons %>
+    <%# job_response = current_user.job_responses.where(job: job).first %>
     <% if current_user.job_responses.where(job: job).empty? %>
-      <button type="button" class="btn btn-light job-card-index-apply row"><%= link_to "Apply", job_path(job) if policy(Job).show? %></button>
-    <% else %>
-      <span class="badge text-bg-info m-1">Already applied</span>
+      <% if current_user.jobs.where(id: job.id).empty? %>
+        <%# Apply button %>
+        <button type="button" class="btn btn-light job-card-index-apply row"><%= link_to "Apply", job_path(job) if policy(Job).show? %></button>
+      <% else %>
+        <%# Your ad badge %>
+        <span class="badge text-bg-warning m-1">Your ad</span>
+      <% end %>
+    <% end %>
+    <%# Logic for badges for applicant%>
+    <% job_response = current_user.job_responses.where(job: job).first %>
+    <% if job_response.nil? == false %>
+      <% if job_response.status == "accepted" %>
+        <span class="badge text bg-success m-1">Accepted</span>
+      <% elsif job_response.status == "declined" %>
+        <span class="badge text bg-danger m-1">Declined</span>
+      <% else %>
+        <span class="badge text bg-warning m-1">Pending</span>
+      <% end %>
     <% end %>
   </div>
 </div>

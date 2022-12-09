@@ -9,6 +9,7 @@ class JobsController < ApplicationController
     else
       @jobs = Job.all
       @jobs = tagged_jobs(@jobs) if params[:tag_id]
+
     end
 
   end
@@ -26,6 +27,11 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     authorize @job
+    if params[:job][:tags].present?
+      params[:job][:tags].each do |tag|
+        @job.tags << Tag.find(tag)
+      end
+    end
     if @job.save
       redirect_to job_path(@job)
     else
@@ -39,10 +45,13 @@ class JobsController < ApplicationController
   def update
     @job.update(job_params)
 
-    respond_to do |format|
-      format.html { redirect_to job_path(@job) }
-      # format.text { render "jobs/show", locals: {job: @job}, formats: [:html] }
+    if @job.update(job_params)
+       redirect_to job_path(@job)
+    else
+       render :edit
     end
+
+    # format.text { render "jobs/show", locals: {job: @job}, formats: [:html] }
     # if @job.update(job_params)
     #   redirect_to job_path(@job)
     # else
@@ -63,7 +72,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :location, :content)
+    params.require(:job).permit(:title, :location, :content, :salary, :summary, :company_name, :image)
   end
 
   def tagged_jobs(jobs)
