@@ -1,0 +1,60 @@
+.flat-card {
+  width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.flat-card-profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 20px;
+}
+
+.flat-card-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.flat-card-bio {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.flat-card-social {
+  margin: 10px 0;
+}
+
+.flat-card-social a {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #666;
+}
+
+.flat-card-social i {
+  font-size: 16px;
+}
+
+.flat-card-contact {
+  margin: 0;
+  font-size: 14px;
+  color: #666
+}
+
+.flat-card-actions {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.flat-card-actions button {
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}

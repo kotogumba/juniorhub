@@ -1,0 +1,21 @@
+<div class="flat-card">
+  <% if profile.avatar.attached? %>
+    <%= cl_image_tag profile.avatar.key, class: "flat-card-profile-picture" %>
+  <% else %>
+    <img src="https://via.placeholder.com/150" class="flat-card-profile-picture" alt="Profile picture">
+  <% end %>
+  <div class="wrapper-card-profile-content d-flex flex-row justify-content-between">
+    <div class="info">
+      <h1 class="flat-card-name"><%= profile.name %></h1>
+      <div class="flat-card-social">
+        <a href="<%= profile.linkedin_url %>"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="<%= profile.github_url %>"><i class="fa-brands fa-github"></i></a>
+      </div>
+      <p class="flat-card-contact">Email: <%= profile.user.email %></p>
+    </div>
+    <div class="flat-card-actions d-flex flex-row align-self-end m-0">
+      <%= button_to "Accept", job_response_path(job_response, status: 'accepted'), method: :patch, class: "btn btn-success" %>
+      <%= button_to "Decline", job_response_path(job_response, status: 'declined'), method: :patch, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>
