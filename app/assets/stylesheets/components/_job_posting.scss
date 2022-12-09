@@ -1,13 +1,13 @@
 .job-posting {
-  background-color: #5F7487;
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
   padding: 10px 10px 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
+  // border-radius: 10px;
+  // box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* job-posting is divided in 2 parts: side and main */
@@ -31,8 +31,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.6);
-
+  box-shadow:  rgba(0, 0, 0, 8%) 10px 10px 5px -6px;
 }
 
 /* Apply Button */
@@ -40,8 +39,7 @@
 .main {
   position: relative;
   border-radius: 10px;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
-
+  border: 1px solid lightgray;
 }
 .main .apply-button {
   position: absolute;
@@ -83,7 +81,8 @@
   padding: 10px 10px 0px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid lightgray;
+  // box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
 
   h5 {
     font-size: 13px;
@@ -114,5 +113,9 @@
 
   p {
     font-size: 16px;
+  }
+
+  a {
+    text-decoration: none;
   }
 }
