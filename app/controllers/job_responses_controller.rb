@@ -33,6 +33,13 @@ class JobResponsesController < ApplicationController
     redirect_to "/dashboard", status: :see_other
   end
 
+  def destroy
+    @job_response = JobResponse.find(params[:id])
+    authorize @job_response
+    @job_response.destroy
+    redirect_to "/dashboard", status: :see_other
+  end
+
   private
 
   def set_job
