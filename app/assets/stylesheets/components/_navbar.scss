@@ -20,7 +20,8 @@ nav{
 }
 
 .logo h4{
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 
 .nav-links{
@@ -39,7 +40,7 @@ nav{
 }
 
 .nav-link:hover{
-  color: black;
+  color: $backgrund-blue;
   font-size: 16px;
 }
 
