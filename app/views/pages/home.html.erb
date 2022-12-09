@@ -29,12 +29,11 @@
         <div class="job-cardA">
           <div class="job-card-text">
             <div class="company_details">
-              <%# <%  if Job.image.attached? %>
-              <%# <%= cl_image_tag Job.image.key, class: "logo" %>
-              <%# <% else %>
-              <%# <img class="logo" alt="logo" src="/assets/logo_placeholder-c7c60a6d1a473197b91b4be9dc89f71b2fcc132219fd83708de2fcc91fe40cb6.png">
+              <%  if Job.all.first.image.attached? %>
+                <%= cl_image_tag Job.all.first.image.key, class: "logo" %>
+              <% else %>
+                <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <% end %>
-              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <h6>Company Name</h6>
             </div>
             <div>
