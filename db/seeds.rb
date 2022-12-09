@@ -23,7 +23,7 @@ puts "Database cleared."
 
 # array of tags to seed
 
-tags = ["Remote", "On-site", "Full-time", "Part-time", "Internship", "Freelance", "Contract", "Apprenticeship", "Front-end", "Back-end", "Full-stack", "Ruby", "JavaScript", "Python", "Java", "HTML", "CSS"]
+tags = ["Remote", "Apprenticeship", "CSS", "On-site", "JavaScript", "HTML", "Full-time", "Part-time", "Internship", "Freelance", "Java", "Contract", "Front-end", "Back-end", "Ruby", "Full-stack", "Python"]
 
 tags.each do |tag|
   Tag.create(name: tag)

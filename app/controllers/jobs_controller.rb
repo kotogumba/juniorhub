@@ -5,7 +5,7 @@ class JobsController < ApplicationController
     @jobs = policy_scope(Job)
     if params[:query].present?
       @query = params[:query]
-      @jobs = Job.search_by_title_content_location(params[:query])
+      @jobs = Job.search_by_title_content_location(@query)
     else
       @jobs = Job.all
       @jobs = tagged_jobs(@jobs) if params[:tag_id]

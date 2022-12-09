@@ -1,8 +1,9 @@
 .search-filters-container {
-  border:  1px solid hsla(240, 4%, 95%, 0.863);
-  margin-bottom: 24px;
+  border:  1px solid lightgray;
   padding: 32px;
   border-radius: 10px;
+  height: 50%;
+  margin-bottom: 30px;
 }
 
 .filter-header {
@@ -10,20 +11,22 @@
   font-weight: 600;
 }
 
-.search-form {
+.search-form.location {
   margin-bottom: 30px;
 }
 
-.search-form.location {
-  margin-top: 30px;
+.search-form-and-filter-buttons{
+  display: flex;
 }
 
 .input-field-search {
   background-color: white;
+  margin: 20px 0;
 }
 
 .search-button {
   border-radius: 30px;
+  width: 100%;
 }
 
 .search-button:hover {
@@ -34,7 +37,6 @@
 .tags {
   display: inline-block;
 }
-
 
 .tag-button {
   position: absolute;
@@ -61,4 +63,12 @@
 
 .form-check-label a {
   all: unset;
+}
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  margin-left: 0 !important;
+  border-radius: 30px !important;
+  margin-top: 10px;
 }
