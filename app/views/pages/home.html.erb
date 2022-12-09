@@ -29,11 +29,12 @@
         <div class="job-cardA">
           <div class="job-card-text">
             <div class="company_details">
-              <%  if Job.all.first.image.attached? %>
-                <%= cl_image_tag Job.all.first.image.key, class: "logo" %>
+              <% if Job.all.last.image.attached? %>
+                <%= cl_image_tag Job.all.last.image.key, class: "logo" %>
               <% else %>
                 <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <% end %>
+              <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <h6>Company Name</h6>
             </div>
             <div>
@@ -54,7 +55,12 @@
         <div class="job-cardB">
           <div class="job-card-text">
             <div class="company_details">
-              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% if Job.all[-2].image.attached? %>
+                <%= cl_image_tag Job.all[-2].image.key, class: "logo" %>
+              <% else %>
+                <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% end %>
+              <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <h6>Company Name</h6>
             </div>
             <div>
@@ -75,7 +81,11 @@
         <div class="job-cardC">
           <div class="job-card-text">
             <div class="company_details">
-              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% if Job.all[-3].image.attached? %>
+                <%= cl_image_tag Job.all[-3].image.key, class: "logo" %>
+              <% else %>
+                <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% end %>
               <h6>Company Name</h6>
             </div>
             <div>
