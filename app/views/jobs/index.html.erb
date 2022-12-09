@@ -4,7 +4,9 @@
     <div class="post-a-job">
       <button type="button" class="btn btn-light
       input-group-text border-0 new-job-button">
-        <%= link_to "+ Post a job", new_job_path if policy(Job).new?  %>
+        <% if current_user.company == true %>
+          <%= link_to "+ Post a job", new_job_path if policy(Job).new? %>
+        <% end %>
       </button>
     </div>
   </div>

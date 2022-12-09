@@ -17,6 +17,11 @@
     <div class="flat-card-actions d-flex flex-row align-self-end m-0">
       <%= button_to "Accept", job_response_path(job_response, status: 'accepted'), method: :patch, class: "btn btn-success" %>
       <%= button_to "Decline", job_response_path(job_response, status: 'declined'), method: :patch, class: "btn btn-danger"%>
+      <%# button_to delete with awesome font icon %>
+      <%= button_to job_response_path(job_response), method: :delete, class: "btn btn-warning" do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+
     </div>
   </div>
 </div>
