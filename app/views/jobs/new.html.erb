@@ -1,9 +1,13 @@
-<%= simple_form_for @job do |f| %>
-  <%= f.input :title %>
-  <%= f.input :location %>
-  <%= f.input :summary %>
-  <%= f.input :content %>
-  <%= f.input :salary %>
-  <%= f.button :submit, "Submit", class:"btn1 mt-3 mb-3"%>
+<div class="container">
+  <%= simple_form_for @job do |f| %>
+    <%= f.input :company_name %>
+    <%= f.input :title %>
+    <%= f.input :location %>
+    <%= f.input :summary %>
+    <%= f.input :content %>
+    <%= f.input :salary %>
+    <%= f.input :tags, as: :check_boxes, collection: Tag.all, label: "Tags", include_hidden: false %>
+    <%= f.button :submit, "Submit", class:"btn1 mt-3 mb-3"%>
 
-<% end %>
+  <% end %>
+</div>

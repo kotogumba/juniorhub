@@ -10,6 +10,7 @@
       <div class="flat-card-social">
         <a href="<%= profile.linkedin_url %>"><i class="fa-brands fa-linkedin"></i></a>
         <a href="<%= profile.github_url %>"><i class="fa-brands fa-github"></i></a>
+        <%= link_to "View profile", profile_path(profile.user), class: "btn btn-light btn-sm" %>
       </div>
       <p class="flat-card-contact">Email: <%= profile.user.email %></p>
     </div>
