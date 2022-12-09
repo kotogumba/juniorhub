@@ -29,12 +29,12 @@
         <div class="job-cardA">
           <div class="job-card-text">
             <div class="company_details">
-              <%# <%  if Job.image.attached? %>
-              <%# <%= cl_image_tag Job.image.key, class: "logo" %>
-              <%# <% else %>
-              <%# <img class="logo" alt="logo" src="/assets/logo_placeholder-c7c60a6d1a473197b91b4be9dc89f71b2fcc132219fd83708de2fcc91fe40cb6.png">
+              <% if Job.all.last.image.attached? %>
+                <%= cl_image_tag Job.all.last.image.key, class: "logo" %>
+              <% else %>
+                <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <% end %>
-              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <h6>Company Name</h6>
             </div>
             <div>
@@ -55,7 +55,12 @@
         <div class="job-cardB">
           <div class="job-card-text">
             <div class="company_details">
-              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% if Job.all[-2].image.attached? %>
+                <%= cl_image_tag Job.all[-2].image.key, class: "logo" %>
+              <% else %>
+                <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% end %>
+              <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <h6>Company Name</h6>
             </div>
             <div>
@@ -76,7 +81,11 @@
         <div class="job-cardC">
           <div class="job-card-text">
             <div class="company_details">
-              <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% if Job.all[-3].image.attached? %>
+                <%= cl_image_tag Job.all[-3].image.key, class: "logo" %>
+              <% else %>
+                <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+              <% end %>
               <h6>Company Name</h6>
             </div>
             <div>
