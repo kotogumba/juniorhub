@@ -26,6 +26,11 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     authorize @job
+    if params[:job][:tags].present?
+      params[:job][:tags].each do |tag|
+        @job.tags << Tag.find(tag)
+      end
+    end
     if @job.save
       redirect_to job_path(@job)
     else
