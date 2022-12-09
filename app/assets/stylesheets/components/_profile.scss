@@ -21,7 +21,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  //align-items: center;
+  margin-right: 315px;
 }
 
 .name h2{
@@ -62,26 +63,30 @@
 .second-row{
   display: flex;
   flex-direction: row;
-  max-width: 1400px;
+  max-width: 1180px;
   height: 700px;
   margin-left: 80px;
   margin-top: 50px;
-  border-radius: 15px;
+  margin-bottom: 30px;
+  //border-radius: 15px;
   // border: $home-collor-normal solid 1px;
   padding: 30px;
-  box-shadow: 0px 0px 5px $box-shadow;
+  //box-shadow: 0px 0px 5px $box-shadow;
+  border-left: $background-dark-2 solid 3px;
 }
 
 .column-left{
   width: 75%;
   display: flex;
   flex-direction: column;
-  box-shadow: inset 0px 5px 5px $box-shadow;
+  //box-shadow: inset 0px 5px 5px $box-shadow;
   padding: 10px;
   border-radius: 15px;
   margin-right: 20px;
-  align-items: center;
-  text-align: center;
+  //align-items: center;
+  //text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .column-right{
@@ -94,6 +99,7 @@
   padding: 20px;
   color: $text-light;
   text-align: center;
+  box-shadow: 0px 0px 5px $box-shadow;
 }
 
 .info{
@@ -112,8 +118,8 @@
 }
 
 .info h4{
-  font-weight: bold;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 25px;
 }
 
 .info p{
