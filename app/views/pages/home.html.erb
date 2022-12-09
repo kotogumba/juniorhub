@@ -35,7 +35,7 @@
                 <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <% end %>
               <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
-              <h6>Company Name</h6>
+              <h6><%= Job.all[-1].company_name %></h6>
             </div>
             <div>
               <h4><%= Job.all.last.title %></h4>
@@ -61,7 +61,7 @@
                 <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <% end %>
               <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
-              <h6>Company Name</h6>
+              <h6><%= Job.all[-2].company_name %></h6>
             </div>
             <div>
               <h4><%= Job.all[-2].title %></h4>
@@ -86,7 +86,7 @@
               <% else %>
                 <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
               <% end %>
-              <h6>Company Name</h6>
+              <h6><%= Job.all[-3].company_name %></h6>
             </div>
             <div>
               <h4><%= Job.all[-3].title %></h4>
