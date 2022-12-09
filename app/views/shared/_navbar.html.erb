@@ -17,7 +17,10 @@
             <%= link_to "Profiles", profiles_path, class: "nav-link" %>
           </li>
           <li>
-            <%= link_to "Chat", chatroom_path(Chatroom.all.first), class: "nav-link" %>
+            <button type="button" class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Chat
+            </button>
+            <%#= link_to "Chat", chatroom_path(Chatroom.all.first), class: "nav-link" %>
           </li>
           <li>
             <%= link_to "Blog", "#", class: "nav-link" %>
@@ -43,3 +46,20 @@
         <div class="line3"></div>
       </div>
     </nav>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Chat</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "chatrooms/chatroom", chatroom: Chatroom.all.first, message: Message.new %>
+      </div>
+    </div>
+  </div>
+</div>
