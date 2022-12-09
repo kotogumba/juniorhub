@@ -7,6 +7,7 @@
     <%= f.input :content %>
     <%= f.input :salary %>
     <%= f.input :tags, as: :check_boxes, collection: Tag.all, label: "Tags", include_hidden: false %>
+    <%= f.input :image, as: :file %>
     <%= f.button :submit, "Submit", class:"btn1 mt-3 mb-3"%>
 
   <% end %>
