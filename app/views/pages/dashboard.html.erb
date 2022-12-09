@@ -17,7 +17,24 @@
   <div class="tab-content" id="v-pills-tabContent">
     <div class="tab-pane fade <%= params[:tab].nil? ? 'show active' : nil %>" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
       <h1>Hello</h1>
-      <p> <%= @user.profile.first_name %> ! </p>
+      <h3> Welcome to your dashboard <%= @user.profile.first_name %> ! </h3>
+      <p> Here are some tips for junior developers: </p>
+      <div class="tip">
+        <p>1. Learn the basics of software development, such as algorithms, data structures, and design patterns, before diving into a specific programming language or framework.</p>
+      </div>
+      <div class="tip">
+        <p>2. Practice writing code on a regular basis, whether by working on personal projects or contributing to open source projects. This will help you improve your skills and gain experience.</p>
+      </div>
+      <div class="tip">
+        <p>3. Collaborate with other developers, whether through online communities or in-person meetups. This will help you learn from others and get feedback on your work.</p>
+      </div>
+      <div class="tip">
+        <p>4. Stay up to date with the latest developments in the tech industry. This can help you understand the direction the industry is heading and identify opportunities for growth.</p>
+      </div>
+      <div class="tip">
+        <p>5. Don't be afraid to ask questions. There's no such thing as a stupid question, and asking for help or clarification can save you a lot of time and frustration in the long run.</p>
+      </div>
+
     </div>
     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
       <%= render "/profiles/profile", profile: @user.profile %>
