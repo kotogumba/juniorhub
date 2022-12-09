@@ -72,7 +72,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :location, :content, :salary, :summary, :company_name)
+    params.require(:job).permit(:title, :location, :content, :salary, :summary, :company_name, :image)
   end
 
   def tagged_jobs(jobs)
