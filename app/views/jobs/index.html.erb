@@ -11,7 +11,7 @@
   <div class="container-list-and-filter row">
       <div class="job-listings-container col-9">
           <div class="row">
-            <% @jobs.each do |job| %>
+            <% @jobs.uniq.each do |job| %>
             <%= render "job", job: job %>
             <% end %>
           </div>
