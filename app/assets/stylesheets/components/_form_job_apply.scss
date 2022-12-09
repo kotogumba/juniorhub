@@ -19,12 +19,24 @@
   }
 
   .simple_form.new_job_response {
-    background-color: #302B2F;
+    background-color: rgba(74, 76, 79, 0.50);
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height: 80%;
     padding: 20px;
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
     color: white;
+    box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.6);
+
+  }
+
+  .apply-form {
+    text-align: center;
+    h1 {
+      font-size: 32px;}
+  }
+
+  .form-container {
+    background-image: linear-gradient(black, grey);
   }
