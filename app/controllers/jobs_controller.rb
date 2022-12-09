@@ -9,6 +9,7 @@ class JobsController < ApplicationController
     else
       @jobs = Job.all
       @jobs = tagged_jobs(@jobs) if params[:tag_id]
+
     end
 
   end
