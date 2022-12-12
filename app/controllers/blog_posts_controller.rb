@@ -2,8 +2,9 @@ class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blog_posts = policy_scope(BlogPost)
     @blog = Blog.find(params[:blog_id])
+    @blog_posts = policy_scope(BlogPost)
+    @blog_posts = @blog_posts.where(blog: @blog)
   end
 
   def show
