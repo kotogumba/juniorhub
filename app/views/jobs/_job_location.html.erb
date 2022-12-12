@@ -1,0 +1,21 @@
+<div data-edit-job-posting-target="location">
+  <div data-edit-job-posting-target="locationinfos">
+   <p class="job-card-index-location"><i class="fa-solid fa-location-dot"> </i><%= @job.location %><button aria-label="Edit location"><i class="fa-solid fa-pen" data-action="click->edit-job-posting#displayFormLocation"></i>
+  </button></p>
+  </div>
+
+<%= simple_form_for job,
+  html: {
+    class: "d-none",
+    data: {
+      edit_job_posting_target: "formlocation",
+      action: "submit->edit-job-posting#updateLocation"
+    }
+
+  } do |f| %>
+
+    <%= f.input :location %>
+    <%= f.button :submit, "Submit", class:"btn1 mt-3 mb-3"%>
+  <% end %>
+
+</div>

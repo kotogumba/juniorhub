@@ -2,6 +2,7 @@
   <div data-edit-job-posting-target="infos"><h5>Summary <button aria-label="Edit summary"><i class="fa-solid fa-pen" data-action="click->edit-job-posting#displayForm"></i>
   </button></h5>
   <p><%= job.summary %></p>
+  <%# cannot use @job inside partial %>
   </div>
 
   <%= simple_form_for job,

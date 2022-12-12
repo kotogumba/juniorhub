@@ -10,11 +10,11 @@
     <% end %>
     <div class="job-key-points">
       <h5>Annual Salary</h5>
-        <p><%= @job.salary %> €</p>
+        <%= render "job_salary", job: @job %>
       <h5>Languages</h5>
         <p>English</p>
       <h5>Location</h5>
-      <p class="job-card-index-location"><i class="fa-solid fa-location-dot"> </i><%= @job.location %></p>
+        <%= render "job_location", job: @job %>
     </div>
   </div>
 
@@ -28,9 +28,8 @@
 
             <div class="job-description">
 
-
-              <h2><%= @job.title %></h2>
-              <p><%= @job.content %></p>
+              <%= render "job_title", job: @job %>
+              <%= render "job_content", job: @job %>
 
               <div class="job-show-contacts">
               <h6> Recruiter:
