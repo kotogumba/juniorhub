@@ -1,9 +1,9 @@
 // Specific CSS for your home-page
-body{
+body {
   overflow-x: hidden;
 }
 
-.video-back{
+.video-back {
   height: 650px;
   display: flex;
   flex-direction: column;
@@ -18,63 +18,63 @@ body{
   justify-content: center;
   object-fit: cover;
   z-index: -1;
- }
+}
 
-.brand-action{
+.brand-action {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 200px;
   color: $home-collor-normal;
 }
 
-.brand-action h1{
+.brand-action h1 {
   font-family: $Home-font-family;
   font-weight: 900;
-  font-size: 100px;
+  font-size: 60px;
   letter-spacing: 5px;
 }
 
-.brand-action h4{
+.brand-action h4 {
   font-family: $Home-font-family;
   font-weight: 300;
-  font-size: 40px;
+  font-size: 24px;
 }
 
-.brand-action button{
+.brand-action button {
   font-family: $Home-font-family;
-  background: $home-collor-button;
-  padding: 20px;
+  background: transparent;
+  padding: 13px;
   border-radius: 50px;
-  border: none;
+  border: 1px white solid;
   color: $home-collor-normal;
   font-weight: bold;
   margin-top: 20px;
-  box-shadow: 5px 5px 5px $box-shadow;
-  transition: 0.4 ease;
+  transition: 0.4s ease;
 }
 
-.button-text{
+.button-text {
   text-decoration: none;
   font-family: $Home-font-family;
   color: $home-collor-normal;
   font-weight: bold;
 }
 
-.button-text:hover{
+.button-text:hover {
   text-decoration: none;
-  font-family: $Home-font-family;
-  color: $home-collor-normal;
+  color: white;
   font-weight: bold;
 }
 
-.brand-action button:hover{
-  transform: scale(1.2);
+.brand-action button:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  font-family: $Home-font-family;
   cursor: pointer;
-  box-shadow: 5px 5px 5px $button-hover;
+  transition: 0.4s ease-in-out;
 }
 
-.carousel-box{
-  height: 700px;
+.carousel-box {
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,10 +83,10 @@ body{
   padding: 5%;
   color: $home-collor-dark;
   font-family: $Home-font-family;
-  background: $background-color-sections-reverse;
+  background: white;
 }
 
-.job-teaser{
+.job-teaser {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,15 +95,15 @@ body{
   font-family: $Home-font-family;
 }
 
-.carousel-box h3{
+.carousel-box h3 {
   font-weight: 900;
-  font-size: 60px;
+  font-size: 40px;
   font-family: $Home-font-family;
 }
 
-.job-cardA{
-  height: 500px;
-  width: 800px;
+.job-cardA {
+  height: 350px;
+  width: 650px;
   max-width: 1050px;
   border-radius: 25px;
   font-family: $Home-font-family;
@@ -117,9 +117,9 @@ body{
   justify-content: center;
 }
 
-.job-cardB{
-  height: 500px;
-  width: 800px;
+.job-cardB {
+  height: 350px;
+  width: 650px;
   max-width: 1050px;
   border-radius: 25px;
   font-family: $Home-font-family;
@@ -133,9 +133,9 @@ body{
   justify-content: center;
 }
 
-.job-cardC{
-  height: 500px;
-  width: 800px;
+.job-cardC {
+  height: 350px;
+  width: 650px;
   max-width: 1050px;
   border-radius: 25px;
   font-family: $Home-font-family;
@@ -149,12 +149,12 @@ body{
   justify-content: center;
 }
 
-#next{
+#next {
   background: none;
   border-radius: 25px;
 }
 
-#prev{
+#prev {
   background: none;
   border-radius: 25px;
 }
@@ -175,61 +175,62 @@ body{
 //   margin-bottom: 40px;
 // }
 
-.carousel-item{
+.carousel-item {
   background:none;
   border-radius: 25px;
   padding: 10px;
 }
 
-.carousel-inner{
+.carousel-inner {
   background:none;
   border-radius: 25px;
   padding: 10px;
 }
 
-.job-card-text{
- padding: 30px, 0px;
- margin-left: 100px;
- margin-right: 100px;
+.job-card-text {
+  padding: 30px, 0px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
-.job-card-text div{
+.job-card-text div {
   margin-top: 20px;
 }
 
-.company_details{
+.company_details {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
 
-.company_details h6{
+.company_details h6 {
+  font-size: 24px;
   margin: 0;
   margin-left: 25px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
-.logo{
-  height: 60px;
-  width: 60px;
+.logo {
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
 }
 
-.job-card-text h4{
+.job-card-text h4 {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 30px;
   font-family: $Home-font-family;
   margin: 0;
 }
 
-.job-card-text h5{
+.job-card-text h5 {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 18px;
   font-family: $Home-font-family;
 }
 
-.get-started{
+.get-started {
   background: $background-spacer;
   height: 1200px;
   display: flex;
@@ -237,29 +238,28 @@ body{
   align-items: center;
 }
 
-.get-started h3{
+.get-started h3 {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 40px;
   font-family: $Home-font-family;
   color: $home-collor-normal;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-bottom: 30px;
 }
 
-.explain-text{
+.explain-text {
   position: relative;
   height: 300px;
   width: 65%;
   font-family: $Home-font-family;
   color: $home-collor-normal;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 300;
-  margin-bottom: 30px;
   text-align: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
-.flex-box{
+.flex-box {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -267,7 +267,7 @@ body{
   margin-bottom: 40px;
 }
 
-.flex-box button{
+.flex-box button {
   height: 100px;
   width: 200px;
   padding: 20px;
@@ -285,17 +285,18 @@ body{
   box-shadow: 5px 5px 5px $box-shadow;
 }
 
-.flex-box button .button-text{
+.flex-box button .button-text {
   margin: 0;
+  font-size: 22px;
 }
 
-.flex-box button:hover{
-  transform: scale(1.2);
+.flex-box button:hover {
+  transform: scale(1.1);
+  transition: 0.4s ease-in-out;
   cursor: pointer;
-  box-shadow: 5px 5px 5px $button-hover;
 }
 
-.cardA{
+.cardA {
   border-radius: 15px;
   height: 600px;
   width: 480px;
@@ -309,7 +310,7 @@ body{
   align-items: center;
 }
 
-.cardB{
+.cardB {
   border-radius: 15px;
   height: 600px;
   width: 480px;
@@ -323,15 +324,15 @@ body{
   align-items: center;
 }
 
-.testamonial{
-  height: 800px;
+.testamonial {
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $background-color-sections-reverse;
+  background: white;
 }
 
-.testamonial-box{
+.testamonial-box {
   width: 80%;
   max-width: 1050px;
   height: 350px;
@@ -342,24 +343,24 @@ body{
   border-radius: 15px;
   align-items: center;
   box-shadow: 5px 5px 5px $box-shadow;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
-.face{
+.face {
   height: 250px;
   width: 250px;
   border-radius: 50%;
   margin: 20px;
 }
 
-.testamonial-text{
+.testamonial-text {
   margin: 30px;
 }
-.testamonial-text p{
+.testamonial-text p {
   margin: 10px;
 }
 
-.testamonial-text h6{
+.testamonial-text h6 {
   color: $home-collor-normal;
   font-family: $Home-font-family;
   font-weight: 300;
@@ -368,8 +369,8 @@ body{
   margin: 0;
 }
 
-.popular-blogs{
-  height: 900px;
+.popular-blogs {
+  height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -378,25 +379,24 @@ body{
   flex-direction: column;
 }
 
-.headline h3{
+.headline h3 {
   font-weight: bold;
-  font-size: 70px;
+  font-size: 40px;
   font-family: $Home-font-family;
   color: $home-collor-normal;
-  margin-top: 60px;
   margin-bottom: 50px;
 }
 
 .blog_video {
   width: 100%;
-  height: 700px;
+  height: 500px;
   justify-content: center;
   object-fit: cover;
   border-radius: 15px;
 }
 
-.blog-preview{
-  height: 700px;
+.blog-preview {
+  height: 500px;
   width: 60%;
   max-width: 1200px;
   background: $video-overlay;
@@ -405,7 +405,7 @@ body{
   position: relative;
 }
 
-.blog-text{
+.blog-text {
   position: absolute;
   font-family: $Home-font-family;
   color: $home-collor-normal;
@@ -414,30 +414,30 @@ body{
   left: 10%;
 }
 
-.blog-text h3{
+.blog-text h3 {
   font-weight: 600;
-  font-size: 35px;
+  font-size: 28px;
   border-bottom: $home-collor-normal solid 0.5px;
 }
 
-.blog-text h5{
+.blog-text h5 {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-.blog-text h6{
+.blog-text h6 {
   font-weight: 200;
-  font-size: 18px;
+  font-size: 16px;
 }
 
-.blog-text p{
+.blog-text p {
   font-weight: 100;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 // Waves effect
 
-.wave-container{
+.wave-container {
   background: $background-spacer;
 }
 
@@ -473,7 +473,7 @@ body{
 }
 @keyframes move-forever {
   0% {
-   transform: translate3d(-90px,0,0);
+    transform: translate3d(-90px,0,0);
   }
   100% {
     transform: translate3d(85px,0,0);
