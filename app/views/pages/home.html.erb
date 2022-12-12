@@ -4,7 +4,7 @@
     <%= video_tag "people.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
     <div class="brand-action">
       <h1>JuniorHub</h1>
-      <h4>Accelerate your career start in tech</h4>
+      <h4>Accelerate the start of your career in tech</h4>
       <button>
         <% if user_signed_in? %>
           <%= link_to "Find the perfect job", jobs_path, class: "button-text" %>
@@ -25,7 +25,7 @@
       </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-         <%# Job card start %>
+        <%# Job card start %>
         <div class="job-cardA">
           <div class="job-card-text">
             <div class="company_details">
@@ -44,7 +44,7 @@
               <h5>Location: <%= Job.all.last.location %></h5>
             </div>
             <div>
-              <h5>Start Date: <%= Job.all.last.created_at.strftime("%m/%d/%Y") %></h5>
+              <h5>Start Date: <%= Job.all.last.created_at.strftime(" %B %e %Y") %></h5>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
               <h5>Location: <%= Job.all[-2].location %></h5>
             </div>
             <div>
-              <h5>Start Date: <%= Job.all[-2].created_at.strftime("%m/%d/%Y") %></h5>
+              <h5>Start Date: <%= Job.all[-2].created_at.strftime(" %B %e, %Y") %></h5>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
               <h5>Location: <%= Job.all[-3].location %></h5>
             </div>
             <div>
-              <h5>Start Date: <%= Job.all[-3].created_at.strftime("%m/%d/%Y") %></h5>
+              <h5>Start Date: <%= Job.all[-3].created_at.strftime(" %B %e, %Y") %></h5>
             </div>
           </div>
         </div>
@@ -116,8 +116,8 @@
   <div class="get-started">
     <h3>How it works</h3>
     <div class="explain-text">
-      JuniorHub is the best one-stop destination for junior developers to find their first role in the tech industry and to advance their carrer.
-      We offer a convinient way to look and apply for jobs specifically for junior developers. Beyond this we provide a platform for junior developers to connect with each other and to learn from each others experience.
+      JuniorHub is the best one-stop destination for junior developers to find their first role in the tech industry and  advance their carreer.
+      We offer a convenient way to look and apply for jobs specifically for junior developers. Besides this we provide a platform for junior developers to connect and learn from each others experience.
     </div>
     <div class="flex-box">
       <div class="cardA">
@@ -169,7 +169,7 @@
       <h3>Using AI to create a blog post</h3>
       <h6>Can AI write better blogs than humans?</h6>
       <h5>by Chatbot GPT</h5>
-      <p>08/12/2022</p>
+      <p>8 December, 2022</p>
       </div>
     </div>
   </div>
@@ -199,6 +199,6 @@
 <%# show avatar if user logged in %>
 <%# if user_signed_in? %>
   <%# if current_user.profile.avatar.attached? %>
-   <%#= cl_image_tag current_user.profile.avatar.key, height: 300, width: 400, crop: :fill %>
+  <%#= cl_image_tag current_user.profile.avatar.key, height: 300, width: 400, crop: :fill %>
   <%# end %>
 <%# end %>
