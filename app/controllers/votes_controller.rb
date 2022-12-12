@@ -19,7 +19,10 @@ class VotesController < ApplicationController
 
   def update
     @vote = Vote.find(params[:id])
-    @vote.update(vote_params)
+    authorize @vote
+    @vote.value = params[:value]
+    @vote.save
+    redirect_to blog_blog_post_path(@vote.blog_post.blog, @vote.blog_post)
   end
 
   def destroy

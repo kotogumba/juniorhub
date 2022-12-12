@@ -6,10 +6,19 @@
   <%=  link_to "Back", blog_blog_posts_path(@blog), class: "btn btn-primary" %>
 </div>
 <div class="container ">
-  <p> Votes: <%=  @blog_post.votes.size %></p>
+  <p> Votes total: <%=  @blog_post.votes.size %></p>
+  <p> Likes: <%=  @blog_post.votes.where(value: 1).size %></p>
+  <p> Dislikes: <%=  @blog_post.votes.where(value: -1).size %></p>
+  <p> User vote: <%=  @blog_post.votes.where(user: current_user).first.value %></p>
   <div class="d-flex flex-row">
-    <%=  button_to "vote", blog_blog_post_votes_path(@blog, @blog_post, value: 1), method: :post, class: "btn btn-success" %>
-    <%=  button_to "vote", blog_blog_post_votes_path(@blog, @blog_post, value: -1), method: :post, class: "btn btn-danger" %>
+    <% if @blog_post.votes.where(user: current_user).size == 0 %>
+      <%=  button_to "like", blog_blog_post_votes_path(@blog, @blog_post, value: 1), method: :post, class: "btn btn-success" %>
+      <%=  button_to "dislike", blog_blog_post_votes_path(@blog, @blog_post, value: -1), method: :post, class: "btn btn-danger" %>
+    <% else %>
+      <%# user can update vote  with merthod patch %>
+      <%=  button_to "like", blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: 1), method: :patch, class: "btn btn-success" %>
+      <%=  button_to "dislike", blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: -1), method: :patch, class: "btn btn-danger" %>
+    <% end %>
   </div>
 </div>
 
