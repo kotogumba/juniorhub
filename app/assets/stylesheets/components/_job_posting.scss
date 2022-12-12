@@ -1,13 +1,13 @@
 .job-posting {
-  background-color: #5F7487;
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
   padding: 10px 10px 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
+  // border-radius: 10px;
+  // box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* job-posting is divided in 2 parts: side and main */
@@ -26,13 +26,11 @@
   padding: 20px;
 }
 
-
 .job-logo {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.6);
-
+  box-shadow:  rgba(0, 0, 0, 8%) 10px 10px 5px -6px;
 }
 
 /* Apply Button */
@@ -40,13 +38,12 @@
 .main {
   position: relative;
   border-radius: 10px;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
-
+  border: 1px solid lightgray;
 }
 .main .apply-button {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 15px;
 
   /*style button*/
   background-color: $button-dark;
@@ -83,7 +80,8 @@
   padding: 10px 10px 0px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid lightgray;
+  // box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
 
   h5 {
     font-size: 13px;
@@ -101,6 +99,11 @@
 }
 
 /* Job Summary */
+
+.job-summary {
+  border-bottom: solid 1px lightgray;
+}
+
 .job-summary, .job-content, .job-description {
   font-family: 'Poppins', sans-serif;
   h5 {
@@ -115,4 +118,39 @@
   p {
     font-size: 16px;
   }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.job-description {
+  margin-top: 15px;
+}
+
+.job-show-contacts a {
+  text-decoration: none !important;
+}
+
+.job-show-contacts h6 {
+  font-weight: bold;
+}
+
+.fa-eye:before {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.fa-pen:before {
+  font-size: 10px;
+}
+
+.fa-pen:hover {
+  color: black;
+}
+
+button {
+  color: lightgrey;
+  border: 0px;
+  background-color: white;
 }

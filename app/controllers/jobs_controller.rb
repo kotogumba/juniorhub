@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :edit_summary, :update_summary]
 
   def index
     @jobs = policy_scope(Job)
@@ -20,7 +20,6 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     authorize @job
-
   end
 
   def create
@@ -44,19 +43,18 @@ class JobsController < ApplicationController
 
   def update
     @job.update(job_params)
+  end
 
-    if @job.update(job_params)
-       redirect_to job_path(@job)
-    else
-       render :edit
+  def edit_summary
+  end
+
+  def update_summary
+    @job.update(job_params_summary)
+    # render :show
+    respond_to do |format|
+      format.html { redirect_to job_path(@job) }
+      format.text { render partial: "job_summary", formats: [:html] }
     end
-
-    # format.text { render "jobs/show", locals: {job: @job}, formats: [:html] }
-    # if @job.update(job_params)
-    #   redirect_to job_path(@job)
-    # else
-    #   render :edit
-    # end
   end
 
   def destroy
@@ -73,6 +71,10 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :location, :content, :salary, :summary, :company_name, :image)
+  end
+
+  def job_params_summary
+    params.require(:job).permit(:summary)
   end
 
   def tagged_jobs(jobs)
