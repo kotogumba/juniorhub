@@ -49,6 +49,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:job).permit(:title)
+    params.require(:blog).permit(:title)
   end
 end
