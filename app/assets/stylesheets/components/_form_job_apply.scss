@@ -19,26 +19,58 @@
   }
 
   .simple_form.new_job_response {
-    background-color: rgba(74, 76, 79, 0.50);
-    border-radius: 20px;
     box-sizing: border-box;
     height: 80%;
     padding: 20px;
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
-    color: white;
-    box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.6);
-
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: solid 1px lightgray;
   }
 
   .apply-form {
     text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
   }
 
-  .form-container {
-    background-image: linear-gradient(black, grey);
-  }
+
 
 h1 {
   font-size: 32px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px lightgray;
+}
+
+.form-header-text {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form-header .job-logo {
+  width: 60px;
+  height: 60px;
+}
+.fullname {
+  display: flex;
+  column-gap: 5px;
+}
+
+.firstname, .lastname {
+  flex: 50%;
 }

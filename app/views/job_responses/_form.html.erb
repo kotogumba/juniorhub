@@ -1,11 +1,27 @@
 <div class="form-container">
+
+
 <%= simple_form_for [@job, @job_response] do |f| %>
   <h1 class="apply-form">Skyrocket your career 🚀</h1>
-  <%= f.error_notification %>
-  <%# input with value first name %>
-  <%= f.input :first_name, input_html: {value: current_user.profile.first_name} %>
-  <%# input with value last name %>
-  <%= f.input :last_name, input_html: {value: current_user.profile.last_name} %>
+
+  <div class="form-header">
+    <div class="form-header-text">You are applying to:</div>
+    <% if @job.image.attached? %>
+      <%= cl_image_tag @job.image.key, class: "job-logo" %>
+    <% else %>
+      <img class="job-logo" alt="logo" src="/assets/logo_placeholder-c7c60a6d1a473197b91b4be9dc89f71b2fcc132219fd83708de2fcc91fe40cb6.png">
+    <% end %>
+
+    <div class="form-header-text"><%= @job.title %></div>
+  </div>
+
+
+  <div class="fullname">
+    <%= f.error_notification %>
+    <div class="firstname"><%= f.input :first_name, label: "First name", input_html: {value: current_user.profile.first_name} %></div>
+    <div class="lastname"><%= f.input :last_name, label: "Last name", input_html: {value: current_user.profile.last_name} %></div>
+  </div>
+
   <%= f.input :cv, as: :file,
               label: "CV",
               required: true,
