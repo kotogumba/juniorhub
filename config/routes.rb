@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :blog_posts do
       resources :comments
+      resources :votes
     end
   end
 
