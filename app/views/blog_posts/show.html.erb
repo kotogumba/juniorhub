@@ -9,7 +9,7 @@
   <p> Votes total: <%=  @blog_post.votes.size %></p>
   <p> Likes: <%=  @blog_post.votes.where(value: 1).size %></p>
   <p> Dislikes: <%=  @blog_post.votes.where(value: -1).size %></p>
-  <p> User vote: <%=  @blog_post.votes.where(user: current_user).first.value %></p>
+  <p> User vote: <%=  @blog_post.votes.where(user: current_user).first.value if @blog_post.votes.where(user: current_user).size > 0 %></p>
   <div class="d-flex flex-row" id="likes">
     <% if @blog_post.votes.where(user: current_user).size == 0 %>
       <%=  button_to blog_blog_post_votes_path(@blog, @blog_post, value: 1), method: :post, class: "like" do %>
