@@ -31,9 +31,8 @@
 
               <h2><%= @job.title %></h2>
               <p><%= @job.content %></p>
-            </div>
 
-            <div class="job-show-contacts">
+              <div class="job-show-contacts">
               <h6> Recruiter:
 
               </h6>
@@ -41,6 +40,9 @@
                 <%=  link_to @job.user.profile.name, profile_path(@job.user)%><i class="fa-solid fa-eye">&nbsp; </i>
               </p>
             </div>
+            </div>
+
+
           </div>
         </div>
 
