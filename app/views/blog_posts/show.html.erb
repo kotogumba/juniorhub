@@ -7,4 +7,9 @@
 
 <div class="container">
   <h6>Comments: </h2>
+  <% @blog_post.comments.each do |comment| %>
+    <p> <%=  comment.content %> </p>
+  <% end %>
 </div>
+
+<%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
