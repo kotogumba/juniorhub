@@ -1,9 +1,8 @@
-
-<div class="job-posting" data-controller="edit-job-posting" data-edit-job-posting-target="descriptionbox">
+<div class="job-posting" data-controller="edit-job-posting">
 <%# row is divided in 2 parts: side and main %>
 
+          <%# SIDE SECTION - AVATAR AND KEY POINTS %>
   <div class="side">
-    <%# <img src="https://miro.medium.com/max/640/1*0Rjja_-J-ci27SgPLJ7niQ.webp" class="job-logo"> %>
     <%  if @job.image.attached? %>
       <%= cl_image_tag @job.image.key, class: "job-logo" %>
     <% else %>
@@ -23,14 +22,11 @@
 
     <div type="button" class="apply-button"><%= link_to "Apply", new_job_job_response_path(@job) %>
     </div>
+          <%# MAIN SECTION - JOB SUMMARY AND DESCRIPTION %>
+          <div class="job-details"  >
+            <%= render "job_summary" %>
 
-          <div class="job-details">
-            <div class="job-summary">
-              <h5>Summary</h5>
-              <p><%= @job.summary %></p>
-            </div>
-
-            <div class="job-description" data-edit-job-posting-target="description">
+            <div class="job-description">
 
 
               <h2><%= @job.title %></h2>
@@ -42,7 +38,7 @@
 
               </h6>
               <p>
-                <%=  link_to @job.user.profile.name, profile_path(@job.user) %>
+                <%=  link_to @job.user.profile.name, profile_path(@job.user)%><i class="fa-solid fa-eye">&nbsp; </i>
               </p>
             </div>
           </div>

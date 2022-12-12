@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   get "new_messages", to: "private_messages#new_messages"
   get "read_messages", to: "private_messages#read_messages"
   post "read_messages", to: "private_messages#read_messages"
+
+  patch "jobs/:id", to: "jobs#update_summary"
+  put "jobs/:id", to: "jobs#update_summary"
+
   # Define your job_responses routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

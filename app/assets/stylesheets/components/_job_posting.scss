@@ -44,7 +44,7 @@
 .main .apply-button {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 15px;
 
   /*style button*/
   background-color: $button-dark;
@@ -100,6 +100,11 @@
 }
 
 /* Job Summary */
+
+.job-summary {
+  border-bottom: solid 1px lightgray;
+}
+
 .job-summary, .job-content, .job-description {
   font-family: 'Poppins', sans-serif;
   h5 {
@@ -118,4 +123,35 @@
   a {
     text-decoration: none;
   }
+}
+
+.job-description {
+  margin-top: 15px;
+}
+
+.job-show-contacts a {
+  text-decoration: none !important;
+}
+
+.job-show-contacts h6 {
+  font-weight: bold;
+}
+
+.fa-eye:before {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.fa-pen:before {
+  font-size: 10px;
+}
+
+.fa-pen:hover {
+  color: black;
+}
+
+button {
+  color: lightgrey;
+  border: 0px;
+  background-color: white;
 }
