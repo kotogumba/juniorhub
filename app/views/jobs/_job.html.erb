@@ -12,13 +12,13 @@
     </div>
   </div>
   <div class="card-buttons ">
-    <button type="button" class="btn btn-light job-card-index-more-info "><%= link_to "View Job", job_path(job) if policy(Job).show? %></button>
+    <%= link_to "View Job", job_path(job), class: "btn btn-light job-card-index-more-info" if policy(Job).show? %>
     <%# Logic for buttons %>
     <%# job_response = current_user.job_responses.where(job: job).first %>
     <% if current_user.job_responses.where(job: job).empty? %>
       <% if current_user.jobs.where(id: job.id).empty? %>
         <%# Apply button %>
-        <button type="button" class="btn btn-light job-card-index-apply row"><%= link_to "Apply", job_path(job) if policy(Job).show? %></button>
+      <%= link_to "Apply", job_path(job), class: "btn btn-light job-card-index-apply" if policy(Job).show?  %>
       <% else %>
         <%# Your ad badge %>
         <span class="badge text-bg-warning m-1">Your ad</span>

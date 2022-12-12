@@ -17,7 +17,7 @@
             <% Tag.all.each do |tag|%>
             <div class="form-check tags">
               <input class="form-check-input tag-button" type="radio" name="exampleRadios" id= "<%= tag.name %>" value="option1" checked>
-              <label class="form-check-label" for="<%= tag.name %>" style="<%= 'background-color: #7E73FF; color: white;' if params[:tag_id].to_i == tag.id %>">
+              <label class="form-check-label" for="<%= tag.name %>" style="<%= 'background-color: #042454; color: white;' if params[:tag_id].to_i == tag.id %>">
                   <%= link_to tag.name, jobs_path(tag_id: tag.id) %>
               </label>
             </div>
