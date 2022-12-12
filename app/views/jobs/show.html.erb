@@ -18,10 +18,13 @@
     </div>
   </div>
 
-  <div class="main">
+  <div class="main" data-controller="favorite">
 
     <div type="button" class="apply-button"><%= link_to "Apply", new_job_job_response_path(@job) %>
     </div>
+    <div type="button" class="bookmark-button"><%= link_to "Bookmark", toggle_favorite_job_path(@job), remote: true, method: :post %>
+    </div>
+    <%= link_to "favourite", toggle_favorite_job_path(@job), data: { "turbo-method": :post } %>
           <%# MAIN SECTION - JOB SUMMARY AND DESCRIPTION %>
           <div class="job-details"  >
             <%= render "job_summary", job: @job %>

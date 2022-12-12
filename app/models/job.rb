@@ -1,4 +1,5 @@
 class Job < ApplicationRecord
+  acts_as_favoritable
   validates :title, :content, :location, :summary, :salary, presence: true
   belongs_to :user
   has_many :job_responses, dependent: :destroy
