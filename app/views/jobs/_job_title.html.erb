@@ -1,0 +1,21 @@
+<div data-edit-job-posting-target="title">
+  <div data-edit-job-posting-target="titleinfos">
+    <h2><%= job.title %><button aria-label="Edit title"><i class="fa-solid fa-pen" data-action="click->edit-job-posting#displayFormTitle"></i>
+  </button></h2>
+  </div>
+
+<%= simple_form_for job,
+  html: {
+    class: "d-none",
+    data: {
+      edit_job_posting_target: "formtitle",
+      action: "submit->edit-job-posting#updateTitle"
+    }
+
+  } do |f| %>
+
+    <%= f.input :title %>
+    <%= f.button :submit, "Submit", class:"btn1 mt-3 mb-3"%>
+  <% end %>
+
+</div>
