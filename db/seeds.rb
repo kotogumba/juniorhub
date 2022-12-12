@@ -10,23 +10,45 @@ require 'faker'
 require "open-uri"
 
 # clear database
-puts "Clearing database..."
+Blog.destroy_all
+puts "Blogs cleared."
 JobResponse.destroy_all
+puts "Job responses cleared."
 Profile.destroy_all
+puts "Profiles cleared."
 User.destroy_all
+puts "Users cleared."
 Message.destroy_all
+puts "Messages cleared."
 Chatroom.destroy_all
+puts "Chatrooms cleared."
 JobResponse.destroy_all
+puts "Job responses cleared."
 Job.destroy_all
+puts "Jobs cleared."
 Tag.destroy_all
+puts "Tags cleared."
+Category.destroy_all
+puts "Categories cleared."
 puts "Database cleared."
 
 # array of tags to seed
 
 tags = ["Remote", "Apprenticeship", "CSS", "On-site", "JavaScript", "HTML", "Full-time", "Part-time", "Internship", "Freelance", "Java", "Contract", "Front-end", "Back-end", "Ruby", "Full-stack", "Python"]
+categories = ["Design", "Culture", "Lifestyle", "Science", "Security", "Ruby on Rails", "Python", "JavaScript", "Job hunt", "Interview preparation", "Hardware", "Programming", "Front-end", "Back-end"]
 
 tags.each do |tag|
   Tag.create(name: tag)
+end
+
+categories.each do |category|
+  Category.create(name: category)
+end
+
+1.times do
+  Chatroom.create(
+    name: "General"
+  )
 end
 
 # Create 10 users
@@ -37,6 +59,27 @@ end
     password: Faker::Internet.password,
     admin: false
   )
+end
+
+5.times do
+  blog = Blog.create(
+    title: Faker::Lorem.sentence,
+    user: User.all.sample
+  )
+
+  blog.tags << Tag.all.sample(rand(1..5))
+  blog.categories << Category.all.sample
+  blog.save
+end
+
+Blog.all.each do |blog|
+  3.times do
+    BlogPost.create(
+      title: Faker::Lorem.sentence,
+      content: Faker::Lorem.paragraph,
+      blog: blog
+    )
+  end
 end
 
 User.all.each do |user|
@@ -67,7 +110,7 @@ User.all.each do |user|
   profile.save
 end
 
-# create jobs
+# Create 10 jobs
 20.times do
   job = Job.create(
     title: Faker::Job.title,
@@ -84,10 +127,4 @@ end
   file = URI.open("https://loremflickr.com/320/240/logo")
   job.image.attach(io: file, filename: "nes.png", content_type: "image/png")
   job.save
-end
-
-1.times do
-  Chatroom.create(
-    name: "General"
-  )
 end

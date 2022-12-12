@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:index, :show]
+
   get "new_messages", to: "private_messages#new_messages"
   get "read_messages", to: "private_messages#read_messages"
   post "read_messages", to: "private_messages#read_messages"
