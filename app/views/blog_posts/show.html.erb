@@ -1,4 +1,10 @@
-<%=  @blog_post.title %>
-<%=  @blog_post.content %>
+<div class="container">
+  <h1> <%=  @blog_post.title %> </h1>
+  <p> <%=  @blog_post.content %> </p>
 
-<%=  link_to "Back", blog_blog_posts_path(@blog), class: "btn btn-primary" %>
+  <%=  link_to "Back", blog_blog_posts_path(@blog), class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <h6>Comments: </h2>
+</div>

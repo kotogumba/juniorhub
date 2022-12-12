@@ -1,4 +1,7 @@
-<%=  link_to "New Blog", new_blog_path %>
-<% @blogs.each do |blog| %>
-  <%= link_to blog.title, blog_blog_posts_path(blog) %>
-<% end %>
+<div class="container">
+  <%=  link_to "New Blog", new_blog_path, class: "btn btn-primary" %>
+  <% @blogs.each do |blog| %>
+    <h1> <%=  blog.title %> </h1>
+    <%= link_to "details", blog_path(blog), class: "btn btn-primary" %>
+  <% end %>
+</div>
