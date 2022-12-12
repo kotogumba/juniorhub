@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_09_103150) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_091730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,10 +42,46 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_103150) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "blog_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_blog_posts_on_blog_id"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "blogs_tags", force: :cascade do |t|
+    t.bigint "blog_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_blogs_tags_on_blog_id"
+    t.index ["tag_id"], name: "index_blogs_tags_on_tag_id"
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "blog_post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_post_id"], name: "index_comments_on_blog_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "job_responses", force: :cascade do |t|
@@ -161,6 +197,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_103150) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blog_posts", "blogs"
+  add_foreign_key "blogs", "users"
+  add_foreign_key "blogs_tags", "blogs"
+  add_foreign_key "blogs_tags", "tags"
+  add_foreign_key "comments", "blog_posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "job_responses", "jobs"
   add_foreign_key "job_responses", "users"
   add_foreign_key "job_tags", "jobs"

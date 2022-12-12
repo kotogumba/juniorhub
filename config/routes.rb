@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   resources :job_responses, only: [:show, :new, :update, :destroy]
 
   resources :tags
+  resources :blogs do
+    resources :blog_posts do
+      resources :comments
+    end
+  end
 
   get "new_messages", to: "private_messages#new_messages"
   get "read_messages", to: "private_messages#read_messages"
