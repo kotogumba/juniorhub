@@ -1,9 +1,16 @@
 <div class="container">
-  
+
   <h1> <%=  @blog_post.title %> </h1>
   <p> <%=  @blog_post.content %> </p>
 
   <%=  link_to "Back", blog_blog_posts_path(@blog), class: "btn btn-primary" %>
+</div>
+<div class="container ">
+  <p> Votes: <%=  @blog_post.votes.size %></p>
+  <div class="d-flex flex-row">
+    <%=  button_to "vote", blog_blog_post_votes_path(@blog, @blog_post, value: 1), method: :post, class: "btn btn-success" %>
+    <%=  button_to "vote", blog_blog_post_votes_path(@blog, @blog_post, value: -1), method: :post, class: "btn btn-danger" %>
+  </div>
 </div>
 
 <div class="container">
@@ -12,5 +19,8 @@
     <p> <%=  comment.content %> </p>
   <% end %>
 </div>
+
+
+
 
 <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
