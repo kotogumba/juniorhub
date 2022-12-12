@@ -2,12 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="edit-job-posting"
 export default class extends Controller {
-  static targets = ["summary", "form"]
+  static targets = ["infos","summary", "form"]
+
+  connect () {
+    console.log(this.summaryTarget)
+  }
 
   displayForm() {
-     this.summaryTarget.classList.add("d-none")
+    this.infosTarget.classList.add("d-none")
     this.formTarget.classList.remove("d-none")
   }
+
 
   updateSummary(event) {
     event.preventDefault()

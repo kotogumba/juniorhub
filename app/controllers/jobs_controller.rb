@@ -43,6 +43,10 @@ class JobsController < ApplicationController
 
   def update
     @job.update(job_params)
+    respond_to do |format|
+      format.html { redirect_to job_path(@job) }
+      format.text { render partial: "job_summary", locals: {job: @job}, formats: [:html] }
+    end
   end
 
   def edit_summary
@@ -53,7 +57,7 @@ class JobsController < ApplicationController
     # render :show
     respond_to do |format|
       format.html { redirect_to job_path(@job) }
-      format.text { render partial: "job_summary", formats: [:html] }
+      format.text { render partial: "job_summary", locals: {job: @job}, formats: [:html] }
     end
   end
 

@@ -1,11 +1,10 @@
 <div class="job-summary" data-edit-job-posting-target="summary">
-  <h5>Summary <button aria-label="Edit summary"><i class="fa-solid fa-pen" data-action="click->edit-job-posting#displayForm"></i>
+  <div data-edit-job-posting-target="infos"><h5>Summary <button aria-label="Edit summary"><i class="fa-solid fa-pen" data-action="click->edit-job-posting#displayForm"></i>
   </button></h5>
-  <p><%= @job.summary %></p>
-</div>
-<%# Important to close div here above %>
+  <p><%= job.summary %></p>
+  </div>
 
-<%= simple_form_for @job,
+  <%= simple_form_for job,
   html: {
     class: "d-none",
     data: {
@@ -18,3 +17,4 @@
     <%= f.input :summary %>
     <%= f.button :submit, "Submit", class:"btn1 mt-3 mb-3"%>
   <% end %>
+</div>
