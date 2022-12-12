@@ -1,51 +1,134 @@
 .profile-container{
  display: flex;
  flex-direction: column;
- justify-content: center;
  padding: 50px;
+ background: $background-light;
+ border-radius: 15px;
+ margin: 15px;
+ align-items: center;
+ justify-content: center;
+}
+
+.outer_box{
+  display: flex;
+  flex-direction: row;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+  max-width: 800px;
 }
 
 .first-row{
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 80px;
+  flex-direction: column;
+  padding-left: 30px;
+  border-left: $background-dark-2 solid 15px;
 }
 
 .name {
   padding-right: 80px;
   // width: 600px;
   height: 200px;
-  padding-left: 80px;
-  border-left: $background-dark-2 solid 3px;
+  padding-left: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   //align-items: center;
-  margin-right: 315px;
 }
 
 .name h2{
   font-family: $Home-font-family;
   color: $home-collor-dark;
   margin: 0;
-  margin-top: 20px;
   font-weight: 800;
-  font-size: 60px;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .name h4{
   font-family: $Home-font-family;
   color: $home-collor-dark;
   margin: 0;
-  margin-bottom: 20px;
   font-weight: 200;
-  font-size: 30px;
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.name h6{
+  font-family: $Home-font-family;
+  color: $home-collor-dark;
+  margin: 0;
+  font-weight: 100;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.name p{
+  font-family: $Home-font-family;
+  color: $home-collor-dark;
+  margin: 0;
+  font-weight: 100;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+.second-row{
+  display: flex;
+  flex-direction: column;
+  max-width: 1180px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  //border-radius: 15px;
+  // border: $home-collor-normal solid 1px;
+  padding-left: 60px;
+  //box-shadow: 0px 0px 5px $box-shadow;
+  border-left: $background-dark-2 solid 15px;
+}
+
+// //.column-left{
+  //   //width: 75%;
+  //   display: flex;
+//   flex-direction: column;
+//   //box-shadow: inset 0px 5px 5px $box-shadow;
+//   padding: 10px;
+//   border-radius: 15px;
+//   margin-right: 20px;
+//   //align-items: center;
+//   //text-align: center;
+//   padding-left: 30px;
+//   padding-right: 30px;
+// }
+
+.rigth{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-right{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $background-dark-2;
+  border-radius: 15px;
+  padding: 40px;
+  color: $text-light;
+  text-align: center;
+  box-shadow: 0px 0px 5px $box-shadow;
 }
 
 .avatar-profile-custom{
-  height: 300px;
-  width: 300px;
+  height: 280px;
+  width: 280px;
   box-shadow: 0 20px 5px 5px rgba(0,0,0,0.2);
   animation: animate 7s ease-in-out infinite;
   // border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
@@ -60,52 +143,9 @@
   transition: all 1s ease-in-out;
 }
 
-.second-row{
-  display: flex;
-  flex-direction: row;
-  max-width: 1180px;
-  height: 700px;
-  margin-left: 80px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  //border-radius: 15px;
-  // border: $home-collor-normal solid 1px;
-  padding: 30px;
-  //box-shadow: 0px 0px 5px $box-shadow;
-  border-left: $background-dark-2 solid 3px;
-}
-
-.column-left{
-  width: 75%;
-  display: flex;
-  flex-direction: column;
-  //box-shadow: inset 0px 5px 5px $box-shadow;
-  padding: 10px;
-  border-radius: 15px;
-  margin-right: 20px;
-  //align-items: center;
-  //text-align: center;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.column-right{
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: $background-dark-2;
-  border-radius: 15px;
-  padding: 20px;
-  color: $text-light;
-  text-align: center;
-  box-shadow: 0px 0px 5px $box-shadow;
-}
-
 .info{
   font-family: $Home-font-family;
   color: $background-dark-2;
-  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -132,28 +172,45 @@
   flex-direction: row;
   justify-content: center;
   color: $text-light;
+  font-size: 40px;
+  margin-top:40px;
+  border-top: $home-collor-normal solid 1px;
+  padding-top: 40px;
+  width: 250px;
 }
 
 .skills{
-  padding: 20px;
+  padding-right: 35px;
+  padding-left: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: $Home-font-family;
   color: $home-collor-dark;
-  font-weight: 600;
-  font-size: 25px;
+  font-weight: 500;
+  font-size: 22px;
   color: $text-light;
+  padding-top: 40px;
+  margin-top:40px;
+  border-top: $home-collor-normal solid 1px;
+  width: 250px;
 }
 
 .skill-list{
-  font-weight: 500;
-  font-size: 25px;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.actions{
+  margin-top:40px;
+  padding-top: 40px;
+  border-top: $home-collor-normal solid 1px;
+  margin-bottom: 40px;
+  width: 250px;
 }
 
 .clickable{
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
