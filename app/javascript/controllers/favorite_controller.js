@@ -7,10 +7,10 @@ export default class extends Controller {
   toggleFavorite () {
     this.bookmarkTarget.classList.toggle('red')
 
-    if (this.textTarget.innerHTML === "Add to your favorites") {
-      this.textTarget.innerHTML = "Added";
-    } else {
-      this.textTarget.innerHTML = "Add to your favorites"
-    }
+  //   if (this.textTarget.innerHTML === "Add to your favorites") {
+  //     this.textTarget.innerHTML = "Added";
+  //   } else {
+  //     this.textTarget.innerHTML = "Add to your favorites"
+  //   }
   }
 }
