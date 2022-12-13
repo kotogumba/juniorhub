@@ -2,19 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="favorite"
 export default class extends Controller {
-  static targets = ["bookmark"]
+  static targets = ["bookmark", "text"]
+
+  toggleFavorite () {
+    this.bookmarkTarget.classList.toggle('red')
+
+  //   if (this.textTarget.innerHTML === "Add to your favorites") {
+  //     this.textTarget.innerHTML = "Added";
+  //   } else {
+  //     this.textTarget.innerHTML = "Add to your favorites"
+  //   }
+  }
 }
-
-//   var jobId = '<%= @job.id%>'
-//   function toggleLikeButton(jobId, innerHTML) {
-//     let likeButton = document.querySelector(`.like-icon[data-id='${jobId}']`)
-//     likeButton.classList.toggle('red');
-//   }
-//   toggleLikeButton(jobId);
-// }
-
-
-
-
-// ToggleLikeButton ()
-// thisbookmarkTarget

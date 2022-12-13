@@ -22,7 +22,11 @@
 
     <div><%= link_to "Apply", new_job_job_response_path(@job), class: "btn btn-light job-card-index-apply" if policy(Job).show?%>
     </div>
-    <div data-favorite-target="bookmark" type="button" class="bookmark-button"><%= link_to "bookmark", toggle_favorite_job_path(@job), data: { "turbo-method": :post } %>
+    <div class="bookmark-button">
+      <%= link_to toggle_favorite_job_path(@job), data: { "turbo-method": :post }  do %>
+        <i data-favorite-target="bookmark" data-action="click->favorite#toggleFavorite" class="fa-solid fa-heart <%='red' if current_user.favorited?(@job) %>"></i>
+      <% end %>
+
     </div>
           <%# MAIN SECTION - JOB SUMMARY AND DESCRIPTION %>
           <div class="job-details"  >
