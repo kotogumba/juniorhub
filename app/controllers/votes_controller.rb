@@ -11,9 +11,9 @@ class VotesController < ApplicationController
     @vote.blog_post = BlogPost.find(params[:blog_post_id])
     authorize @vote
     if @vote.save
-      redirect_to blog_blog_post_path(@vote.blog_post.blog, @vote.blog_post)
+      redirect_to blog_blog_post_path(@vote.blog_post.blog, @vote.blog_post), notice: "You voted!"
     else
-      redirect_to blog_blog_post_path(@vote.blog_post.blog, @vote.blog_post)
+      redirect_to blog_blog_post_path(@vote.blog_post.blog, @vote.blog_post), alert: "Error!"
     end
   end
 
@@ -22,7 +22,7 @@ class VotesController < ApplicationController
     authorize @vote
     @vote.value = params[:value]
     @vote.save
-    redirect_to blog_blog_post_path(@vote.blog_post.blog, @vote.blog_post)
+    redirect_to blog_blog_post_path(@vote.blog_post.blog, @vote.blog_post), notice: "Your vote changed!"
   end
 
   def destroy
