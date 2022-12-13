@@ -58,7 +58,7 @@
     </div>
         <%# JOB FAVORITES%>
     <div class="tab-pane fade <%= params[:tab] == 'favorites' ? 'show active' : nil %>" id="v-pills-favorites" role="tabpanel" aria-labelledby="v-pills-favorites-tab" tabindex="0">
-      <h3> My Favorites </h3>
+      <h3> My Favorites Jobs </h3>
       <% @user.all_favorited.each do |job| %>
         <%= render "jobs/job", job: job %>
       <% end %>
