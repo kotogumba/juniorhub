@@ -221,52 +221,53 @@
 }
 
 
-.fab{
+.socials .fab{
   color: $background-dark-2;
-  font-size: 20px;
+  font-size: 35px;
   margin: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  font-size: 35px;
   transition: 0.3s ease;
   color: $text-light;
 }
 
-.fa{
+.socials .fa{
   color: $background-dark-2;
-  font-size: 20px;
+  font-size: 35px;
   margin: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  font-size: 35px;
   transition: 0.3s ease;
   color: $text-light;
 }
 
-.fab:hover{
+.socials .fab:hover{
   color: $background-blue;
-  font-size: 20px;
+  font-size: 25px;
 }
 
-.fa:hover{
+.socials .fa:hover{
   color: $background-blue;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .edit-button{
   font-family: $Home-font-family;
-  background: $home-collor-button;
+  background: transparent;
   padding: 20px;
   border-radius: 50px;
   border: none;
   color: $home-collor-normal;
   font-weight: bold;
+  font-size: 15px;
   margin-top: 20px;
   transition: 0.4 ease;
+  border: 1px $home-collor-normal solid;
 }
 
 .edit-button:hover{
-  font-size: 20px;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 @keyframes animate{
