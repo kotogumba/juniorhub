@@ -10,7 +10,7 @@
 <div class="outer-frame-post">
   <div class="blog-post-title"> <%=  @blog_post.title %> </div>
   <div class="blog-post-banner">
-  
+
   <div class="blog-post-content-container">
 
     <div class="blog-post-content"> <%=  @blog_post.content %>
@@ -57,10 +57,12 @@
 
 
 
-<div class="container border comment-wrapper">
+<div class="container border comment-wrapper" data-controller="insert-in-list">
   <p class="border-bottom">Comments: </p>
-  <% @blog_post.comments.each do |comment| %>
-    <%= render "comments/comment", comment: comment %>
-  <% end %>
+  <div class="comment-list" data-insert-in-list-target="items">
+    <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
+      <%= render "comments/comment", comment: comment %>
+    <% end %>
+  </div>
   <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
 </div>
