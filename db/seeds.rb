@@ -80,11 +80,19 @@ end
 
 Blog.all.each do |blog|
   10.times do
-    BlogPost.create(
+    post =BlogPost.create(
       title: Faker::Lorem.sentence,
       content: Faker::Lorem.paragraph,
       blog: blog
     )
+
+    3.times do
+      Comment.create(
+        content: Faker::Lorem.paragraph,
+        blog_post: post,
+        user: User.all.sample
+      )
+    end
   end
 end
 
