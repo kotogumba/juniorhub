@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_144322) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_162744) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_144322) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "blog_categories", force: :cascade do |t|
+    t.bigint "blog_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_blog_categories_on_blog_id"
+    t.index ["category_id"], name: "index_blog_categories_on_category_id"
+  end
+
   create_table "blog_posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -66,6 +77,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_144322) do
     t.datetime "updated_at", null: false
     t.index ["blog_id"], name: "index_blogs_tags_on_blog_id"
     t.index ["tag_id"], name: "index_blogs_tags_on_tag_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -213,8 +230,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_144322) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "blog_post_id"
+    t.integer "value", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_post_id"], name: "index_votes_on_blog_post_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blog_categories", "blogs"
+  add_foreign_key "blog_categories", "categories"
   add_foreign_key "blog_posts", "blogs"
   add_foreign_key "blogs", "users"
   add_foreign_key "blogs_tags", "blogs"
@@ -234,4 +263,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_144322) do
   add_foreign_key "private_messages", "private_chatrooms"
   add_foreign_key "private_messages", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "votes", "blog_posts"
+  add_foreign_key "votes", "users"
 end

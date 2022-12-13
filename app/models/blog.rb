@@ -4,5 +4,6 @@ class Blog < ApplicationRecord
   has_many :blog_posts, dependent: :destroy
   has_many :blogs_tags, dependent: :destroy
   has_many :tags, through: :blogs_tags
-
+  has_many :blog_categories, dependent: :destroy
+  has_many :categories, through: :blog_categories
 end

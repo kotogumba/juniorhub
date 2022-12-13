@@ -21,8 +21,11 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :blog_posts do
       resources :comments
+      resources :votes
     end
   end
+
+  resources :categories, only: [:index, :show]
 
   get "new_messages", to: "private_messages#new_messages"
   get "read_messages", to: "private_messages#read_messages"

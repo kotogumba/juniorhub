@@ -1,0 +1,13 @@
+<div class="post border">
+      <h1> <%=  blog_post.title %> </h1>
+      <p> <%=  blog_post.content %> </p>
+      <div id="likes" class="d-flex flex-row">
+        <div class="like">
+          <i class="fa-solid fa-heart"></i><%=  blog_post.votes.where(value: 1).size %>
+        </div>
+        <div class="dislike">
+          <i class="fa-solid fa-heart-crack dislike"></i><%=  blog_post.votes.where(value: -1).size %>
+        </div>
+      </div>
+      <p> <%=  link_to "details", blog_blog_post_path(blog_post.blog, blog_post), class: "btn btn-primary" %> </p>
+    </div>
