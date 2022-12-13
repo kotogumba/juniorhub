@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_162744) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_13_142753) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,7 +96,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_162744) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "self_id"
+    t.bigint "parent_id"
     t.index ["blog_post_id"], name: "index_comments_on_blog_post_id"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
+    t.index ["self_id"], name: "index_comments_on_self_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -247,6 +252,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_162744) do
   add_foreign_key "blogs_tags", "blogs"
   add_foreign_key "blogs_tags", "tags"
   add_foreign_key "comments", "blog_posts"
+  add_foreign_key "comments", "comments", column: "parent_id"
+  add_foreign_key "comments", "comments", column: "self_id"
   add_foreign_key "comments", "users"
   add_foreign_key "job_responses", "jobs"
   add_foreign_key "job_responses", "users"

@@ -36,6 +36,11 @@
   border-radius: 5px;
 }
 
+.tab-pane.fade.active.show h3 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 // #v-pills-tabContent-chat .tab-pane {
 //   width: 100%;
 // }
