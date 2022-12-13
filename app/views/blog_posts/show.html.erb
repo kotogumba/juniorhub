@@ -5,6 +5,7 @@
     <p> <%=  @blog_post.content %> </p>
   </div>
   <%=  link_to "Back", blog_blog_posts_path(@blog), class: "btn btn-primary" %>
+  <%=  link_to "Edit", edit_blog_blog_post_path(@blog, @blog_post), class: "btn btn-danger" %>
 </div>
 <div class="container border mb-3">
   <p> Votes total: <%=  @blog_post.votes.size %></p>
