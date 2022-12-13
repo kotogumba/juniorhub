@@ -25,7 +25,7 @@
     <div class="bookmark-button">
       <%= link_to toggle_favorite_job_path(@job), data: { "turbo-method": :post }  do %>
         <i data-favorite-target="bookmark" data-action="click->favorite#toggleFavorite" class="fa-solid fa-heart <%='red' if current_user.favorited?(@job) %>"></i>
-      <% end %><h5 data-favorite-target="text">Add to your favorites</h5>
+      <% end %>
 
     </div>
           <%# MAIN SECTION - JOB SUMMARY AND DESCRIPTION %>
