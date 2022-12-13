@@ -40,34 +40,32 @@
   border-radius: 10px;
   border: 1px solid lightgray;
 }
-.main .apply-button {
+.main .btn.btn-light.job-card-index-apply {
   position: absolute;
   right: 20px;
   top: 15px;
+  background-color: #042454;
+  color: white;
 
   /*style button*/
-  background-color: $button-dark;
-  border-radius: 50px;
-  text-align: center;
-  width: 100px;
-  padding: 5px 20px;
-  transition: background-color .2s,
-  background-position .2s;
-  box-shadow: rgba(62,59,56,0.82) 0 0 0 .125em;
+  // background-color: $button-dark;
+  // border-radius: 50px;
+  // text-align: center;
+  // width: 100px;
+  // padding: 5px 20px;
+  // transition: background-color .2s,
+  // background-position .2s;
+  // box-shadow: rgba(62,59,56,0.82) 0 0 0 .125em;
 
   a {
     text-decoration: none;
-    color: white;
   }
 }
 
-.main .apply-button:hover {
-    background-color: #6C868F;
-    text-decoration: none;
-    color: white;
-  }
-
-
+.btn.btn-light.job-card-index-apply:hover {
+  background-color: white;
+  color: black;
+}
 //* JOB KEY POINTS *//
 .job-key-points {
   font-family: 'Poppins', sans-serif;
