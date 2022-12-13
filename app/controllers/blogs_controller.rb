@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = policy_scope(Blog)
+    @categories = Category.all
   end
 
   def show

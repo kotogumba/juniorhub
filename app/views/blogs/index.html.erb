@@ -7,12 +7,16 @@
   </div>
   <%# Blog category cards with iteration %>
   <div class="blog-category-list">
-    <% @blogs.each do |blog| %>
-      <%= link_to blog_blog_posts_path(blog) do %>
-        <div class="blog-category-card">
-          <h2><%=  blog.title %></h2>
-          <h4><%= blog.blog_posts.count %> Posts - # authors</h4>
-        </div>
+    <% @categories.each do |category| %>
+      <% unless category.blogs == nil %>
+        <% category.blogs.each do |blog| %>
+          <%= link_to blog_blog_posts_path(blog) do %>
+            <div class="blog-category-card">
+              <h2><%=  category.name %></h2>
+              <h4><%= blog.blog_posts.count %> Posts - # authors</h4>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
