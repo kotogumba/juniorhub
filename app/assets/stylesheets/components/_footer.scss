@@ -36,8 +36,7 @@
 }
 
 .footer-button:hover{
-  color: $backgrund-blue;
-  font-size: 16px;
+  color: $background-blue;
 }
 
 .fm{
@@ -56,22 +55,21 @@
   list-style: none;
 }
 
-.fab{
+.fab {
   color: $light-text-color-foot;
   font-size: 20px;
   margin: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  font-size: 35px;
   transition: 0.3s ease;
+  font-size: 30px !important;
 }
 
-.fab:hover{
-  color: $backgrund-blue;
-  font-size: 20px;
+.fab:hover {
+  color: $background-blue;
 }
 
-.footer-copyright{
+.footer-copyright {
   align-items: center;
   margin-bottom: 10px;
   font-weight: 200;
@@ -89,7 +87,6 @@
 
 .h2 {
   color: $light-text-color-foot;
-
   letter-spacing: 3px;
   font-weight: bold;
   font-size: 30px;

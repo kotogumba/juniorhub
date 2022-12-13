@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :job_responses
   has_many :jobs, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_one :vote, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :private_chatrooms_as_sender, class_name: "PrivateChatroom", foreign_key: "user_sender_id", dependent: :destroy
   has_many :private_chatrooms_as_reciever, class_name: "PrivateChatroom", foreign_key: "user_reciever_id", dependent: :destroy
