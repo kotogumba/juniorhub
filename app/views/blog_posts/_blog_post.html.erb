@@ -1,5 +1,6 @@
 <div class="post border">
       <h1> <%=  blog_post.title %> </h1>
+      <%= cl_image_tag blog_post.image.key, heigth: 300, width: 300 if blog_post.image.attached? %>
       <p> <%=  blog_post.content %> </p>
       <div id="likes" class="d-flex flex-row">
         <div class="like">
