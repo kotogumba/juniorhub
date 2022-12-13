@@ -11,12 +11,10 @@ class BlogPostsController < ApplicationController
   end
 
   def new
-
     @blog = Blog.find(params[:blog_id])
     @blog_post = BlogPost.new
     authorize @blog_post
     authorize @blog
-
   end
 
   def create
