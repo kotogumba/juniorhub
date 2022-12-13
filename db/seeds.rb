@@ -42,7 +42,7 @@ puts "Blog features cleared."
 # array of tags to seed
 
 tags = ["Remote", "Apprenticeship", "CSS", "On-site", "JavaScript", "HTML", "Full-time", "Part-time", "Internship", "Freelance", "Java", "Contract", "Front-end", "Back-end", "Ruby", "Full-stack", "Python"]
-categories = ["Design", "Culture", "Lifestyle", "Science", "Security", "Ruby on Rails", "Python", "JavaScript", "Job hunt", "Interview preparation", "Hardware", "Programming", "Front-end", "Back-end"]
+categories = ["Design", "Lifestyle", "Science", "Security", "Python", "JavaScript", "Job hunt", "Interview preparation", "Hardware", "Programming", "Front-end", "Back-end"]
 
 tags.each do |tag|
   Tag.create(name: tag)

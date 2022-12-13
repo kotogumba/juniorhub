@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BlogFilterController from "./blogFilter_controller"
+application.register("blogFilter", BlogFilterController)
+
 import CarouselController from "./carousel_controller"
 application.register("carousel", CarouselController)
 

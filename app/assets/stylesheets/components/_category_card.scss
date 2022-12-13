@@ -1,0 +1,15 @@
+.category-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $background-blue;
+  min-width: 220;
+  min-height: 110;
+}
+
+.category-info h1{
+  font-family: $Home-font-family;
+  font-weight: 200;
+  font-size: 20px;
+  color: $text-light;
+}
