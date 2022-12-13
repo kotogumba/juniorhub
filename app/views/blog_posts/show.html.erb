@@ -35,14 +35,10 @@
 
 
 
-<div class="container border">
-  <h6>Comments: </h2>
+<div class="container border comment-wrapper">
+  <p class="border-bottom">Comments: </p>
   <% @blog_post.comments.each do |comment| %>
-    <p> <%=  comment.content %> </p>
+    <%= render "comments/comment", comment: comment %>
   <% end %>
+  <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
 </div>
-
-
-
-
-<%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>

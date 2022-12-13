@@ -1,0 +1,15 @@
+<div class="comment border-bottom mb-3">
+  <div class="comment-header d-flex flex-row">
+    <% profile = comment.user.profile %>
+    <% if profile.avatar.attached? %>
+      <%= cl_image_tag profile.avatar.key, class: "comment-avatar" %>
+    <% else %>
+      <img src="https://via.placeholder.com/150" class="comment-avatar" alt="Profile picture">
+    <% end %>
+    <div class="header-info">
+      <%=  link_to comment.user.nickname, profile_path(comment.user) %>
+      <p> <%=  comment.created_at.strftime("%m-%e-%y %H:%M") %> </p>
+    </div>
+  </div>
+  <p> <%=  comment.content %> </p>
+</div>
