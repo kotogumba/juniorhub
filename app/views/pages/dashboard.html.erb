@@ -42,7 +42,7 @@
     </div>
     <%# JOB RESPONSE %>
     <div class="tab-pane fade <%= params[:tab] == 'responses' ? 'show active' : nil %>" id="v-pills-requests" role="tabpanel" aria-labelledby="v-pills-requests-tab" tabindex="0">
-      <h3> My requests </h3>
+      <h3> My Requests </h3>
       <% @user.job_responses.each do |job_response| %>
         <%= render "jobs/job", job: job_response.job, job_response: job_response %>
       <% end %>
@@ -58,7 +58,7 @@
     </div>
         <%# JOB FAVORITES%>
     <div class="tab-pane fade <%= params[:tab] == 'favorites' ? 'show active' : nil %>" id="v-pills-favorites" role="tabpanel" aria-labelledby="v-pills-favorites-tab" tabindex="0">
-      <h3> My Favorites Jobs </h3>
+      <h3> My Favorite Jobs </h3>
       <% @user.all_favorited.each do |job| %>
         <%= render "jobs/job", job: job %>
       <% end %>
