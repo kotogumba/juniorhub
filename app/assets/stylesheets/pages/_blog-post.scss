@@ -9,7 +9,7 @@
 .blog-post-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 10px 50px;
+  margin: 20px 70px;
 }
 
 .button-back {
@@ -22,15 +22,98 @@
   border-radius: 50%;
 }
 
-.blog-post-banner {
-  height: 300px;
+.blog-post-image {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .blog-post-title {
   font-size: 36px;
   text-align: center;
+  font-weight: 900;
+  margin-bottom: 30px;
 }
 
-.blog-post-content {
+.votes-container {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 12px 15px 0 15px;
+  margin-bottom: 15px;
+}
 
+.votes-number {
+  font-size: 16px;
+}
+
+.your-vote {
+  display: flex;
+}
+
+.total-likes {
+  display: flex;
+}
+
+.total-dislikes {
+  display: flex;
+}
+
+.like {
+  color: lightgray;
+  font-size: 20px
+}
+
+
+.total-likes {
+  font-size: 24px;
+}
+
+.total-dislikes {
+  font-size: 24px;
+}
+
+.likes {
+  margin-right: 10px;
+}
+
+.likes-text {
+  margin-right: 10px;
+}
+
+.dislikes {
+  margin-right: 10px;
+
+}
+
+.likes-text {
+  font-size: 14px;
+  margin-right:15px;
+  padding-top: 1px;
+  margin-left: 5px;
+  color: black;
+}
+
+.dislikes-text {
+  font-size: 14px;
+  margin-right: 15px;
+  margin-left: 5px;
+  color: black;
+}
+
+
+.fa-thumbs-down{
+  padding-top: 3px;
+}
+
+.fa-thumbs-up:hover {
+  color: black;
+  transform: scale(1.2);
+  transition: 0.3s ease-in-out;
+}
+.fa-thumbs-down:hover {
+  color: black;
+  transform: scale(1.2);
+  transition: 0.3s ease-in-out;
 }
