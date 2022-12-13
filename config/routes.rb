@@ -31,9 +31,11 @@ Rails.application.routes.draw do
   get "read_messages", to: "private_messages#read_messages"
   post "read_messages", to: "private_messages#read_messages"
 
-  patch "jobs/:id", to: "jobs#update_summary"
-  put "jobs/:id", to: "jobs#update_summary"
-
+  resources :jobs, only: [:index, :show] do
+    member do
+      post 'toggle_favorite', to: "jobs#toggle_favorite"
+    end
+  end
   # Define your job_responses routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -30,6 +30,10 @@ class JobPolicy < ApplicationPolicy
     # need to create new job to see if I can update
   end
 
+  def toggle_favorite?
+    true
+  end
+
   def destroy?
     record.user == user
   end

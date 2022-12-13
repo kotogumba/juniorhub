@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :toggle_favorite]
 
   def index
     @jobs = policy_scope(Job)
@@ -73,6 +73,11 @@ class JobsController < ApplicationController
         format.html { redirect_to job_path(@job) }
       end
     end
+  end
+
+  def toggle_favorite
+    current_user.favorited?(@job)  ?
+    current_user.unfavorite(@job) : current_user.favorite(@job)
   end
 
   def destroy

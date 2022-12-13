@@ -16,6 +16,8 @@ Category.destroy_all
 puts "Categories cleared."
 Comment.destroy_all
 puts "Comments cleared."
+Tag.destroy_all
+puts "Tags cleared."
 
 puts "Blog features cleared."
 
@@ -33,8 +35,7 @@ puts "Blog features cleared."
 # puts "Job responses cleared."
 # Job.destroy_all
 # puts "Jobs cleared."
-# Tag.destroy_all
-# puts "Tags cleared."
+
 
 # puts "Database cleared."
 
