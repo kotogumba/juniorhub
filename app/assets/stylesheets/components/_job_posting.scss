@@ -43,7 +43,7 @@
 .main .btn.btn-light.job-card-index-apply {
   position: absolute;
   right: 20px;
-  top: 15px;
+  top: 5px;
   background-color: #042454;
   color: white;
 
@@ -152,4 +152,15 @@ button {
   color: lightgrey;
   border: 0px;
   background-color: white;
+}
+
+/* class for toggle bookmark button */
+.red {
+  color: red;
+}
+
+.bookmark-button {
+  position: absolute;
+  right: 20px;
+  top: 60px;
 }
