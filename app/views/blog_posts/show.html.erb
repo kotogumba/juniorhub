@@ -1,8 +1,9 @@
-<div class="container border mb-3">
 
-  <h1> <%=  @blog_post.title %> </h1>
-  <p> <%=  @blog_post.content %> </p>
-
+<div class="outer-frame-post">
+  <div class="blog-post-banner">
+    <h1> <%=  @blog_post.title %> </h1>
+    <p> <%=  @blog_post.content %> </p>
+  </div>
   <%=  link_to "Back", blog_blog_posts_path(@blog), class: "btn btn-primary" %>
 </div>
 <div class="container border mb-3">
