@@ -18,11 +18,17 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.blog_post = BlogPost.find(params[:blog_post_id])
     @blog = Blog.find(params[:blog_id])
+    @blog_post = BlogPost.find(params[:blog_post_id])
     authorize @comment
-    if @comment.save
-      redirect_to blog_blog_post_path(@blog, @comment.blog_post)
-    else
-      redirect_to blog_blog_post_path(@blog, @comment.blog_post)
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to blog_blog_post_path(@blog, @comment.blog_post) }
+        format.json
+      else
+        format.html {redirect_to blog_blog_post_path(@blog, @comment.blog_post)}
+        format.json
+      end
     end
   end
 
@@ -47,6 +53,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :parent_id)
   end
 end
