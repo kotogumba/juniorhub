@@ -18,9 +18,11 @@
     </div>
   </div>
 
-  <div class="main">
+  <div class="main" data-controller="favorite">
 
-    <div type="button" class="apply-button"><%= link_to "Apply", new_job_job_response_path(@job) %>
+    <div><%= link_to "Apply", new_job_job_response_path(@job), class: "btn btn-light job-card-index-apply" if policy(Job).show?%>
+    </div>
+    <div data-favorite-target="bookmark" type="button" class="bookmark-button"><%= link_to "bookmark", toggle_favorite_job_path(@job), data: { "turbo-method": :post } %>
     </div>
           <%# MAIN SECTION - JOB SUMMARY AND DESCRIPTION %>
           <div class="job-details"  >
@@ -36,7 +38,9 @@
 
               </h6>
               <p>
-                <%=  link_to @job.user.profile.name, profile_path(@job.user)%><i class="fa-solid fa-eye">&nbsp; </i>
+                <%=  link_to @job.user.profile.name, profile_path(@job.user)%><%= link_to profile_path(@job.user) do %>
+                <i class="fa-solid fa-eye">&nbsp;</i>
+                <% end %>
               </p>
             </div>
             </div>
