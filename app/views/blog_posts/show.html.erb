@@ -9,9 +9,15 @@
 
 <div class="outer-frame-post">
   <div class="blog-post-title"> <%=  @blog_post.title %> </div>
+
   <div class="blog-post-image">
     <%= cl_image_tag @blog_post.image.key if @blog_post.image.attached? %>
   </div>
+
+  <div class="blog-post-banner">
+
+  <div class="blog-post-content-container">
+
 
 
   <div class="blog-post-content-container">
@@ -62,10 +68,13 @@
 
 
 
-  <div class="container border comment-wrapper">
-    <p class="border-bottom">Comments: </p>
-    <% @blog_post.comments.each do |comment| %>
+<div class="container border comment-wrapper" data-controller="insert-in-list">
+  <p class="border-bottom">Comments: </p>
+  <div class="comment-list" data-insert-in-list-target="items">
+    <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
       <%= render "comments/comment", comment: comment %>
     <% end %>
-    <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
   </div>
+  <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
+</div>
+

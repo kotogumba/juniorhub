@@ -13,8 +13,14 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import EditJobPostingController from "./edit_job_posting_controller"
 application.register("edit-job-posting", EditJobPostingController)
 
+import FavoriteController from "./favorite_controller"
+application.register("favorite", FavoriteController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import InsertInListController from "./insert_in_list_controller"
+application.register("insert-in-list", InsertInListController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
@@ -30,3 +36,11 @@ application.register("private-chatroom-subscription", PrivateChatroomSubscriptio
 
 import ReadMessageController from "./read_message_controller"
 application.register("read-message", ReadMessageController)
+
+
+import ReplyController from "./reply_controller"
+application.register("reply", ReplyController)
+
+import FavoriteController from "./favorite_controller"
+application.register("favorite", FavoriteController)
+
