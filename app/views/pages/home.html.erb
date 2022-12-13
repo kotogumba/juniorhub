@@ -3,8 +3,8 @@
   <div class="video-back">
     <%= video_tag "people.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
     <div class="brand-action">
-      <h1>JuniorHub</h1>
-      <h4>Accelerate the start of your career in tech</h4>
+      <%# <h1>JuniorHub</h1> %>
+      <h1>Accelerate the start of your career in tech</h1>
       <button>
         <% if user_signed_in? %>
           <%= link_to "Find the perfect job", jobs_path, class: "button-text" %>

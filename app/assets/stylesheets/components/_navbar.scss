@@ -13,12 +13,10 @@ nav {
   min-height: 70px;
 }
 
-.logo {
-  color: $light-text-color-nav;
-  letter-spacing: 3px;
-  font-size: 20px;
-  font-weight: 900;
-
+.JH-logo {
+  height: 50px;
+  margin-left: 50px;
+  margin-top: 10px;
 }
 
 .logo h4 {
@@ -36,10 +34,10 @@ nav {
 }
 
 .nav-link {
-  color: $light-text-color-nav;
+  color: white;
   text-decoration: none;
-  letter-spacing: 3px;
-  font-size: 14px;
+  letter-spacing: 1px;
+  font-size: 15px;
   transition: 0.3s ease;
 }
 

@@ -1,10 +1,36 @@
-.outer-frame-post{
+.outer-frame-post {
+  margin: 0px 200px 30px 200px;
   display: flex;
   flex-direction: column;
-  background: $background-light;
+  background: white;
   padding: 20px;
 }
 
-.blog-post-banner{
+.blog-post-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 50px;
+}
+
+.button-back {
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.button-edit {
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.blog-post-banner {
   height: 300px;
+}
+
+.blog-post-title {
+  font-size: 36px;
+  text-align: center;
+}
+
+.blog-post-content {
+
 }
