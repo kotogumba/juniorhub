@@ -18,6 +18,10 @@
 
 
     <p>[33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p> </div>
+
+    <h1> <%=  @blog_post.title %> </h1>
+    <%= cl_image_tag @blog_post.image.key, heigth: 300, width: 300 if @blog_post.image.attached? %>
+    <p> <%=  @blog_post.content %> </p>
   </div>
 
 
@@ -52,15 +56,11 @@
 
 
 
-  <div class="container border">
-    <h6>Comments: </h2>
-    <% @blog_post.comments.each do |comment| %>
-      <p> <%=  comment.content %> </p>
-    <% end %>
-  </div>
 
-
-
-
+<div class="container border comment-wrapper">
+  <p class="border-bottom">Comments: </p>
+  <% @blog_post.comments.each do |comment| %>
+    <%= render "comments/comment", comment: comment %>
+  <% end %>
   <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
 </div>

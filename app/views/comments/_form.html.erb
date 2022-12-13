@@ -1,6 +1,6 @@
 <div class="container">
   <%=  simple_form_for [blog, blog_post, comment] do |f| %>
-    <%= f.input :content %>
-    <%= f.button :submit, "Submit", class:"btn1 mt-3 mb-3"%>
+    <%= f.input :content, label: false, placeholder: "Your comments", class:"form-control" %>
+    <%= f.button :submit, "Submit", class:"btn btn-dark"%>
   <% end %>
 </div>

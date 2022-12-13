@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = policy_scope(Blog)
+    @categories = Category.all
   end
 
   def show
@@ -39,6 +40,7 @@ class BlogsController < ApplicationController
 
   def update
     @blog.update(blog_params)
+    redirect_to blog_path(@blog)
   end
 
   def destroy
@@ -54,6 +56,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title)
+    params.require(:blog).permit(:title, :image)
   end
 end

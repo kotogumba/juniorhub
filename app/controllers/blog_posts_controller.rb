@@ -11,12 +11,10 @@ class BlogPostsController < ApplicationController
   end
 
   def new
-
     @blog = Blog.find(params[:blog_id])
     @blog_post = BlogPost.new
     authorize @blog_post
     authorize @blog
-
   end
 
   def create
@@ -40,6 +38,7 @@ class BlogPostsController < ApplicationController
 
   def update
     @blog_post.update(blog_post_params)
+    redirect_to blog_blog_post_path(@blog_post.blog, @blog_post)
   end
 
   def destroy
@@ -56,6 +55,6 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :content)
+    params.require(:blog_post).permit(:title, :content, :image)
   end
 end
