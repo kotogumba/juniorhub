@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["form", "link"]
 
   connect() {
-    this.hideForm()
+    console.log("reply controller")
   }
 
   show(event) {

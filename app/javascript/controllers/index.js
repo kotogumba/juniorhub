@@ -37,10 +37,6 @@ application.register("private-chatroom-subscription", PrivateChatroomSubscriptio
 import ReadMessageController from "./read_message_controller"
 application.register("read-message", ReadMessageController)
 
-
 import ReplyController from "./reply_controller"
 application.register("reply", ReplyController)
-
-import FavoriteController from "./favorite_controller"
-application.register("favorite", FavoriteController)
 
