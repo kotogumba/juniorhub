@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BlogFilterController from "./blogFilter_controller"
+application.register("blogFilter", BlogFilterController)
+
 import CarouselController from "./carousel_controller"
 application.register("carousel", CarouselController)
 
@@ -12,6 +15,9 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import EditJobPostingController from "./edit_job_posting_controller"
 application.register("edit-job-posting", EditJobPostingController)
+
+import FavoriteController from "./favorite_controller"
+application.register("favorite", FavoriteController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

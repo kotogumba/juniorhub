@@ -1,23 +1,54 @@
-<div class="outer-frame">
+<div class="outer-frame" data-controller="blogFilter">
   <div>
     <%=  link_to "+", new_blog_path, class:"new-button" %>
   </div>
   <div class="blog-category-banner">
-    <h1>User Blogs</h1>
+    <h1>User Blog Posts</h1>
   </div>
+  <form>
+    <div class="blog-nav">
+      <div class="category-search">
+        <input class="search-field" name="query" type="search" placeholder="..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
+        <%# <div class="search-field">
+          ...
+        </div> %>
+        <button class="search-button" type="submit">
+          Search
+        </button>
+      </div>
+      <div class="filter-button" data-action="click->blogFilter#show">
+        Filter
+      </div>
+    </div>
+    <div class="category-filter" data-blogFilter-target="filter">
+      <% @categories.each do |category| %>
+        <%= render "blogs/category_card", category: category %>
+      <% end %>
+    </div>
+  </form>
   <%# Blog category cards with iteration %>
   <div class="blog-category-list">
-    <% @blogs.each do |blog| %>
-      <%= link_to blog_blog_posts_path(blog) do %>
-        <% if  blog.image.attached? %>
-          <div class="blog-category-card" style="background-image: url(<%= cl_image_path blog.image.key %>)">
-            <h2><%=  blog.title %></h2>
-            <h4><%= blog.blog_posts.count %> Posts - # authors</h4>
+    <% @blog_posts.each do |post| %>
+      <%= link_to blog_blog_post_path(post.blog, post) do %>
+        <% if  post.image.attached? %>
+          <div class="blog-category-card">
+            <div class="article-img">
+              <%= cl_image_tag post.image.key, class:"art-img" %>
+            </div>
+            <div class="post-info">
+              <h2><%=  post.title %></h2>
+              <h4>by <%= post.blog.user.nickname %> - <%= post.created_at.strftime(" %B %e, %Y") %></h4>
+            </div>
           </div>
         <% else %>
           <div class="blog-category-card">
-            <h2><%=  blog.title %></h2>
-            <h4><%= blog.blog_posts.count %> Posts - # authors</h4>
+            <div class="article-img">
+              <%= image_tag "logo_placeholder.png", class:"art-img"%>
+            </div>
+            <div class="post-info">
+              <h2><%=  post.title %></h2>
+              <h4>by <%= post.blog.user.nickname %> - <%= post.created_at.strftime(" %B %e, %Y") %></h4>
+            </div>
           </div>
         <% end %>
       <% end %>
