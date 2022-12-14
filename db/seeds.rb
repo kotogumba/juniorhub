@@ -10,12 +10,13 @@ require 'faker'
 require "open-uri"
 
 # clear database
+Comment.destroy_all
+puts "Comments cleared."
 Blog.destroy_all
 puts "Blogs cleared."
 Category.destroy_all
 puts "Categories cleared."
-Comment.destroy_all
-puts "Comments cleared."
+
 Tag.destroy_all
 puts "Tags cleared."
 
@@ -75,17 +76,19 @@ end
   )
 
   blog.tags << Tag.all.sample(rand(1..5))
-  blog.categories << Category.all.sample
+  blog.categories << Category.all.sample(rand(1..5))
   blog.save
 end
 
 Blog.all.each do |blog|
   10.times do
-    post =BlogPost.create(
+    post = BlogPost.create(
       title: Faker::Lorem.sentence,
       content: Faker::Lorem.paragraph,
       blog: blog
     )
+    post.categories << Category.all.sample(rand(1..5))
+    post.save
 
     3.times do
       Comment.create(
