@@ -63,4 +63,5 @@
         <%= render "comments/comment", comment: comment %>
       <% end %>
     </div>
+    <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
   </div>
