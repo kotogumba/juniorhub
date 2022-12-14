@@ -38,7 +38,7 @@
       <div class="category-filter">
         <% @categories.each_with_index do |category, index| %>
           <% image = category_images[index] %>
-          <%= render "blogs/category_card", category: category, image: image %>
+          <%= render "blogs/category_card", category: category, image: image, index: index %>
         <% end %>
       </div>
     </div>
