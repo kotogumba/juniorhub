@@ -76,7 +76,7 @@ end
   )
 
   blog.tags << Tag.all.sample(rand(1..5))
-  blog.categories << Category.all.sample(1)
+  blog.categories << Category.all.sample(rand(1..5))
   blog.save
 end
 
@@ -87,7 +87,7 @@ Blog.all.each do |blog|
       content: Faker::Lorem.paragraph,
       blog: blog
     )
-    post.categories << Category.all.sample(1)
+    post.categories << Category.all.sample(rand(1..5))
     post.save
 
     3.times do
