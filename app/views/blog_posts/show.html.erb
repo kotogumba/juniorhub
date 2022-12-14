@@ -55,7 +55,7 @@
 </div>
 
   <div class="comment-wrapper-js" data-controller="comments">
-    <button class="comment-button"><a href="#" data-comments-target="link" data-action="click->comments#show"> Comments <i class="fa-solid fa-angle-down"></i></a></button>
+    <a href="#" data-comments-target="link" data-action="click->comments#show" class="btn comment-button"> Comments <i class="fa-solid fa-angle-down"></i></a>
     <div class="container border comment-wrapper d-none" data-controller="insert-in-list" data-comments-target="comm">
       <div class="comment-list" data-insert-in-list-target="items">
         <% @blog_post.comments.where(parent_id: nil).each do |comment| %>

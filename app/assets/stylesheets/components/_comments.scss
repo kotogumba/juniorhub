@@ -11,8 +11,7 @@
   margin-right: 72%;
   padding: 10px;
   margin-bottom: 50px;
-  border: 1px solid black;
-  border-radius: 15px;
+  border-radius: 30px;
 }
 
 .comment-button:hover {
@@ -20,16 +19,19 @@
   margin-right: 72%;
   padding: 10px;
   margin-bottom: 50px;
+  border: 1px solid black;
 }
 
 a:hover {
   color: black;
 }
+.comment-list {
+  padding: 15px;
+}
 
 .comment {
   margin-bottom: 20px;
-  padding: 10px;
-
+  padding: 15px;
   background-color: white;
   border: 1px solid #E0E0E0;
   border-radius: 5px;
@@ -74,4 +76,29 @@ a:hover {
 
 .sub-comment .comment{
   border-left: 3px solid #E0E0E0;
+}
+
+.reply-button {
+  border-radius: 30px;
+}
+
+.reply-button:hover {
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+#comment_content {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.btn.btn-dark {
+  border-radius: 30px;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
+.btn.btn-dark:hover {
+  border-radius: 30px;
+  border: 1px solid black;
 }

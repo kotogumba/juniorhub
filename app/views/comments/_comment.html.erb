@@ -13,7 +13,7 @@
   </div>
   <p> <%=  comment.content %> </p>
   <div data-controller="reply">
-    <a href="#" data-reply-target="link" data-action="click->reply#show">reply</a>
+    <a href="#" data-reply-target="link" data-action="click->reply#show" class="btn reply-button">Reply</a>
     <div class="comment-form d-none" data-reply-target="form">
       <% blog =  comment.blog_post.blog %>
       <% blog_post = comment.blog_post %>
