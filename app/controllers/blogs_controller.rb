@@ -5,6 +5,13 @@ class BlogsController < ApplicationController
     @blogs = policy_scope(Blog)
     @categories = Category.all
     @blog_posts = BlogPost.all
+    if params[:query].present?
+      @query = params[:query]
+      @blog_posts = BlogPost.search_by_title(@query)
+    else
+      @blog_posts = @blog_posts.where(blog: @blog)
+      @blog_posts = BlogPost.all
+    end
   end
 
   def show
