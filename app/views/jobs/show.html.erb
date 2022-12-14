@@ -20,7 +20,7 @@
 
   <div class="main" data-controller="favorite">
 
-    <div><%= link_to "Apply", new_job_job_response_path(@job), class: "btn btn-light job-card-index-apply" if policy(Job).show?%>
+    <div><%= link_to "Apply", new_job_job_response_path(@job), class: "btn btn-light job-card-apply" if policy(Job).show?%>
     </div>
     <div class="delete-button">  <%= button_to "Delete", @job, method: :destroy %>
      </div>
