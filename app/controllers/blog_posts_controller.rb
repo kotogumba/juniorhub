@@ -32,7 +32,7 @@ class BlogPostsController < ApplicationController
       end
     end
     if @blog_post.save
-      redirect_to blog_path(@blog_post.blog)
+      redirect_to blogs_path # (@blog_post.blog) added s to blogs
     else
       render :new
     end
