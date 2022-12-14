@@ -47,15 +47,7 @@
   background-color: #042454;
   color: white;
 
-  /*style button*/
-  // background-color: $button-dark;
-  // border-radius: 50px;
-  // text-align: center;
-  // width: 100px;
-  // padding: 5px 20px;
-  // transition: background-color .2s,
-  // background-position .2s;
-  // box-shadow: rgba(62,59,56,0.82) 0 0 0 .125em;
+
 
   a {
     text-decoration: none;
@@ -66,6 +58,17 @@
   background-color: white;
   color: black;
 }
+
+//* DELETE BUTTON *//
+
+.delete-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 10px;
+
+}
+
 //* JOB KEY POINTS *//
 .job-key-points {
   font-family: 'Poppins', sans-serif;
@@ -97,10 +100,15 @@
   color: #828282;
 }
 
+.language {
+  margin-left: 0px;
+}
+
 /* Job Summary */
 
 .job-summary {
   border-bottom: solid 1px lightgray;
+  padding: 30px 50px 10px 10px;
 }
 
 .job-summary, .job-content, .job-description {
@@ -123,8 +131,10 @@
   }
 }
 
+/* JOB DESCRIPTION */
 .job-description {
   margin-top: 15px;
+  padding: 10px 10px 10px 10px;
 }
 
 .job-show-contacts a {
@@ -152,7 +162,9 @@ button {
   color: lightgrey;
   border: 0px;
   background-color: white;
+  border-radius: 10px;
 }
+
 
 /* class for toggle bookmark button */
 .red {
