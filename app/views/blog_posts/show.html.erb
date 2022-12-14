@@ -1,5 +1,5 @@
 <div class="blog-post-buttons">
-  <%=  link_to blog_blog_posts_path(@blog), class: "btn button-back" do %>
+  <%=  link_to blogs_path, class: "btn button-back" do %>
       <i class="fa-solid fa-chevron-left"></i>
   <% end %>
   <%=  link_to edit_blog_blog_post_path(@blog, @blog_post), class: "btn button-edit" do %>
@@ -77,4 +77,3 @@
   </div>
   <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
 </div>
-
