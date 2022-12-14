@@ -1,6 +1,6 @@
 <div data-edit-job-posting-target="content">
   <div data-edit-job-posting-target="contentinfos">
-    <p><%= @job.content %><button aria-label="Edit content"><i class="fa-solid fa-pen" data-action="click->edit-job-posting#displayFormContent"></i>
+    <p><%= @job.content.html_safe %><button aria-label="Edit content"><i class="fa-solid fa-pen" data-action="click->edit-job-posting#displayFormContent"></i>
   </button></p>
   </div>
 
