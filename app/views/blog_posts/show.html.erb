@@ -9,14 +9,17 @@
 </div>
 
 <div class="outer-frame-post">
-  <div class="blog-post-title"> <%=  @blog_post.title %> </div>
-
+  <div class="blog-post-title">
+    <%=  @blog_post.title %>
+  </div>
   <div class="blog-post-image">
     <%= cl_image_tag @blog_post.image.key if @blog_post.image.attached? %>
   </div>
 
   <div class="blog-post-content-container">
-    <div class="blog-post-content"> <%=  @blog_post.content.html_safe %></div>
+    <div class="blog-post-content">
+      <%=  @blog_post.content.html_safe %>
+    </div>
   </div>
 
   <div class="votes-container">
@@ -34,28 +37,31 @@
   </div>
     <div class="total-likes-show">
         <i class="fa-solid fa-thumbs-up like2-show"></i>
-        <div class="like2-text"> <%=  @blog_post.votes.where(value: 1).size %> </div>
+        <div class="like2-text">
+          <%=  @blog_post.votes.where(value: 1).size %>
+        </div>
       </div>
       <% end %>
         <%=  button_to blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: -1), method: :patch, class: "dislike" do %>
         <div class="total-dislikes-show">
           <i class="fa-solid fa-thumbs-down dislike2-show"></i>
-          <div class="dislike2-text"> <%=  @blog_post.votes.where(value: -1).size %> </div>
+          <div class="dislike2-text">
+            <%=  @blog_post.votes.where(value: -1).size %>
+          </div>
         <% end %>
       <% end %>
     </div>
   </div>
+</div>
 
-</div>
-<div class="comment-wrapper-js" data-controller="comments">
-  <a href="#" data-comments-target="link" data-action="click->comments#show" class="m-3"> Comments </a>
-  <div class="container border comment-wrapper d-none" data-controller="insert-in-list" data-comments-target="comm">
-    <p class="border-bottom">Comments: </p>
-    <div class="comment-list" data-insert-in-list-target="items">
-      <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
+  <div class="comment-wrapper-js" data-controller="comments">
+    <button class="comment-button"><a href="#" data-comments-target="link" data-action="click->comments#show"> Comments <i class="fa-solid fa-angle-down"></i></a></button>
+    <div class="container border comment-wrapper d-none" data-controller="insert-in-list" data-comments-target="comm">
+      <div class="comment-list" data-insert-in-list-target="items">
+        <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
+          <%= render "comments/comment", comment: comment %>
+        <% end %>
+      </div>
+      <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
     </div>
-    <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
   </div>
-</div>

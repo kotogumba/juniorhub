@@ -6,6 +6,26 @@
   border-radius: 5px;
 }
 
+.comment-button {
+  margin-left: 20%;
+  margin-right: 72%;
+  padding: 10px;
+  margin-bottom: 50px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.comment-button:hover {
+  margin-left: 20%;
+  margin-right: 72%;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+a:hover {
+  color: black;
+}
+
 .comment {
   margin-bottom: 20px;
   padding: 10px;
