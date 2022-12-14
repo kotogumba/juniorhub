@@ -1,7 +1,9 @@
 
-<div class="category-card" tabindex="<%= index %>" style="background:linear-gradient(90deg, rgba(1,9,59,0.7101123595505618) 0%, rgba(3,33,73,0.7415730337078652) 95%), url('<%= image %>'); background-size: cover;">
+<%= link_to blogs_path(query: category.name) do %>
+  <div class="category-card" tabindex="<%= index %>" style="background:linear-gradient(90deg, rgba(1,9,59,0.7101123595505618) 0%, rgba(3,33,73,0.7415730337078652) 95%), url('<%= image %>'); background-size: cover;">
   <div class="category-info">
     <%#= image_tag 'https://images.pexels.com/photos/5952651/pexels-photo-5952651.jpeg?auto=compress&cs=tinysrgb&w=600' %>
     <h1> <%= category.name %></h1>
   </div>
 </div>
+<% end %>

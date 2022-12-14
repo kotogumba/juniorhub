@@ -1,7 +1,7 @@
 .outer-frame{
   display: flex;
   flex-direction: column;
-  background: $background-dark-2;
+  background: $background-light;
 }
 
 .blog-category-banner{
@@ -39,10 +39,10 @@
 }
 
 .category-search{
-  height: 40px;
+  height: 42px;
   border-radius: 25px;
   min-width: 60%;
-  border: 1px $background-light solid;
+  border: 2px $background-dark-2 solid;
   font-family: $Home-font-family;
   align-items: center;
   justify-content: flex-end;
@@ -57,27 +57,27 @@
   font-family: $Home-font-family;
   font-weight: 100;
   font-size: 20px;
-  color: $text-light;
+  color: $text-dark;
   padding-left: 5px;
   padding-right: 5px;
 }
 
 .search-button{
   height: 36px;
-  border: 1px $background-light solid;
+  border: 2px $background-dark-2 solid;
   width: 25%;
   margin: 0;
-  margin-right: 2px;
+  margin-right: 1px;
   font-family: $Home-font-family;
   font-weight: 100;
   font-size: 20px;
   color: $text-light;
   border-radius: 25px;
-  background: none;
+  background: linear-gradient(90deg, rgba(1,9,59,0.7101123595505618) 0%, rgba(3,33,73,0.7415730337078652) 95%);
 }
 
 .search-button:hover{
-  background: rgba(255, 255, 255, 0.2);
+  background: $background-blue;
   cursor: pointer;
 }
 
@@ -91,16 +91,17 @@
   padding-left: 5px;
   padding-right: 5px;
   width: 10%;
-  border: 1px $background-light solid;
+  border: 2px $background-dark-2 solid;
   border-radius: 25px;
   align-items: center;
   justify-content: center;
   margin-left: 20px;
   transition: 0.3s ease;
+  background: linear-gradient(90deg, rgba(1,9,59,0.7101123595505618) 0%, rgba(3,33,73,0.7415730337078652) 95%);
 }
 
 .filter-button:hover{
-  background: rgba(255, 255, 255, 0.2);
+  background: $background-blue;
   cursor: pointer;
 }
 
@@ -113,7 +114,7 @@
   display: none;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  background: $background-dark-2;
+  background: $background-light;
   height: 500px;
   margin-left: 20px;
   margin-right: 20px;
@@ -126,7 +127,7 @@
   flex-direction: column;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  background: $background-dark-2;
+  background: $background-light;
   margin-top: 20px;
   height: 500px;
   margin-left: 20px;
@@ -141,7 +142,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  background: $background-dark-2;
+  background: $background-light;
   height: 500px;
   margin-left: 20px;
   margin-right: 20px;
@@ -178,6 +179,8 @@
   flex-direction: row;
   //max-width: 1200px;
   width: 1000px;
+  box-shadow:  20px 20px 40px #cacaca,
+             -20px -20px 40px #f6f6f6;
 }
 
 .article-img{
@@ -236,7 +239,7 @@
 
 .search-field{
   background: transparent;
-  color: $text-light;
+  color: $text-dark;
   border: none;
 }
 
@@ -246,5 +249,5 @@
 }
 
 .search-field:hover{
-  color: $text-light;
+  color: $text-dark;
 }

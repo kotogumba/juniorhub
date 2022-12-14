@@ -8,4 +8,14 @@ class BlogPost < ApplicationRecord
   has_many :blog_post_categories, dependent: :destroy
   has_many :categories, through: :blog_post_categories
 
+  include PgSearch::Model
+  pg_search_scope :search_by_title,
+    against: [ :title ],
+    associated_against: {
+      # blog: [:.user.nickname],
+      categories: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
