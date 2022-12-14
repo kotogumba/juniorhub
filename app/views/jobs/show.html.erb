@@ -23,7 +23,7 @@
     <div><%= link_to "Apply", new_job_job_response_path(@job), class: "btn btn-light job-card-index-apply" if policy(Job).show?%>
     </div>
     <div class="delete-button">  <%= button_to "Delete", @job, method: :destroy %>
-     </div>
+    </div>
     <div class="bookmark-button">
       <%= link_to toggle_favorite_job_path(@job), data: { "turbo-method": :post }  do %>
         <i data-favorite-target="bookmark" data-action="click->favorite#toggleFavorite" class="fa-solid fa-heart <%='red' if current_user.favorited?(@job) %>"></i>
