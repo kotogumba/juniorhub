@@ -79,36 +79,36 @@ User.all.each do |user|
   blog.save
 end
 
-10.times do
-  blog = Blog.create(
-    title: Faker::Lorem.sentence,
-    user: User.all.sample
-  )
+# 10.times do
+#   blog = Blog.create(
+#     title: Faker::Lorem.sentence,
+#     user: User.all.sample
+#   )
 
-  blog.tags << Tag.all.sample(rand(1..5))
-  blog.categories << Category.all.sample(rand(1..5))
-  blog.save
-end
+#   blog.tags << Tag.all.sample(rand(1..5))
+#   blog.categories << Category.all.sample(rand(1..5))
+#   blog.save
+# end
 
-Blog.all.each do |blog|
-  10.times do
-    post = BlogPost.create(
-      title: Faker::Lorem.sentence,
-      content: Faker::Lorem.paragraph,
-      blog: blog
-    )
-    post.categories << Category.all.sample(rand(1..5))
-    post.save
+# Blog.all.each do |blog|
+#   10.times do
+#     post = BlogPost.create(
+#       title: Faker::Lorem.sentence,
+#       content: Faker::Lorem.paragraph,
+#       blog: blog
+#     )
+#     post.categories << Category.all.sample(rand(1..5))
+#     post.save
 
-    3.times do
-      Comment.create(
-        content: Faker::Lorem.paragraph,
-        blog_post: post,
-        user: User.all.sample
-      )
-    end
-  end
-end
+#     3.times do
+#       Comment.create(
+#         content: Faker::Lorem.paragraph,
+#         blog_post: post,
+#         user: User.all.sample
+#       )
+#     end
+#   end
+# end
 
 # User.all.each do |user|
 #   profile = user.build_profile(
