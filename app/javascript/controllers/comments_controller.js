@@ -20,9 +20,11 @@ export default class extends Controller {
 
   hideForm() {
     this.commTarget.classList.add("d-none")
+    this.linkTarget.innerHTML = "Show comments"
   }
 
   showForm() {
     this.commTarget.classList.remove("d-none")
+    this.linkTarget.innerHTML = "Hide comments"
   }
 }
