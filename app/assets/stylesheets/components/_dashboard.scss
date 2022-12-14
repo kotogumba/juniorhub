@@ -22,10 +22,22 @@
 // .tab-content {
 //   width: 100%;
 // }
+#v-pills-tabContent {
+  height: 100%;
+  width: 100%;
+  background-color: #f5f5f5;
+}
 
 #v-pills-tab-chat {
   height: 100%;
+  width: 20%;
   background-color: #f5f5f5;
+}
+
+#v-pills-tabContent-chat {
+  height: 100%;
+  width: 80%;
+  background-color: white;
 }
 
 .tip {
@@ -41,9 +53,9 @@
   font-weight: bold;
 }
 
-// #v-pills-tabContent-chat .tab-pane {
-//   width: 100%;
-// }
+#v-pills-tabContent-chat .tab-pane {
+  width: 100%;
+}
 
 // #v-pills-messages #v-pills-tab-chat {
 
