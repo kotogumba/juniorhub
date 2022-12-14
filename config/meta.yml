@@ -1,5 +1,5 @@
 meta_product_name: "JuniorHub"
-meta_title: "JuniorHub - place for junior developers"
+meta_title: "JuniorHub - Place for junior developers"
 meta_description: "Here you can find your first job"
 meta_image: "https://eugeneyan.com/assets/og_image/writing-and-coding.jpg" # should exist in `app/assets/images/`
 twitter_account: "@juniorhub"   # required for Twitter Cards
