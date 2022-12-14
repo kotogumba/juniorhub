@@ -7,11 +7,12 @@
 }
 
 .comment-button {
+  background-color: white !important;
   margin-left: 20%;
   margin-right: 72%;
   padding: 10px;
   margin-bottom: 50px;
-  border-radius: 30px;
+  border-radius: 30px !important;
 }
 
 .comment-button:hover {
@@ -21,6 +22,7 @@
   margin-bottom: 50px;
   border: 1px solid black;
 }
+
 
 a:hover {
   color: black;
