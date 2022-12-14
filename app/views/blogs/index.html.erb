@@ -1,13 +1,11 @@
 <div class="outer-frame" data-controller="blogFilter">
-
   <div class="inner-button">
-    <%=  link_to "+", new_blog_blog_post_path(Blog.first, BlogPost.new), class:"new-button" %>
-
+    <%=  link_to "+", new_blog_blog_post_path(current_user.blogs.first, BlogPost.new), class:"new-button" %>
   </div>
   <div class="blog-category-banner">
     <h1>User Blog Posts</h1>
   </div>
-  <form>
+  <form class="blog-form">
     <div class="blog-nav">
       <div class="category-search">
         <input class="search-field" name="query" type="search" placeholder="..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
@@ -38,7 +36,7 @@
       <div class="category-filter">
         <% @categories.each_with_index do |category, index| %>
           <% image = category_images[index] %>
-          <%= render "blogs/category_card", category: category, image: image %>
+          <%= render "blogs/category_card", category: category, image: image, index: index %>
         <% end %>
       </div>
     </div>

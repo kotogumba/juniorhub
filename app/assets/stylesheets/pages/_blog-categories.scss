@@ -21,7 +21,7 @@
   font-weight: 900;
 }
 
-form{
+.blog-form{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,17 +234,17 @@ form{
   scale: 1.1;
 }
 
-input{
+.search-field{
   background: transparent;
   color: $text-light;
   border: none;
 }
 
-input:focus-visible{
+.search-field:focus-visible{
   border: none;
   outline: none;
 }
 
-input:hover{
+.search-field:hover{
   color: $text-light;
 }
