@@ -40,26 +40,26 @@
   border-radius: 10px;
   border: 1px solid lightgray;
 }
-.main .btn.btn-light.job-card-apply {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  background-color: #042454;
-  color: white;
-
-
-
-  a {
-    text-decoration: none;
-  }
+.main .btn.btn-light.job-card-index-apply {
+position: absolute;
+right: 20px;
+top: 0px;
+//   background-color: #042454;
+//   color: white;
 }
 
-.btn.btn-light.job-card-apply:hover {
-  background-color: white;
-  color: black;
-  border-radius: 15px;
-  width: 70px;
-}
+
+//   a {
+//     text-decoration: none;
+//   }
+// }
+
+// .btn.btn-light.job-card-apply:hover {
+//   background-color: white;
+//   color: black;
+//   border-radius: 15px;
+//   width: 70px;
+// }
 
 //* DELETE BUTTON *//
 
