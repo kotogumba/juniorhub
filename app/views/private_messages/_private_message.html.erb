@@ -1,4 +1,4 @@
-<div id="message-<%= message.id %>" class="full-message">
+<div id="message-<%= message.id %>" class="full-message<%='-user' if message.user == current_user %>">
   <small>
     <strong><%= link_to "#{message.user.nickname}", profile_path(message.user) %></strong>
 
