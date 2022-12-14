@@ -23,7 +23,7 @@
     <div><%= link_to "Apply", new_job_job_response_path(@job), class: "btn btn-light job-card-index-apply" if policy(Job).show?%>
     </div>
 
-    <div class="delete-button">  <%= button_to "Delete", @job, method: :destroy  if policy(@job).destroy?  %>
+    <div class="delete-button">  <%= button_to "Delete", @job, method: :delete if policy(@job).destroy?%>
      </div>
 
     <div class="bookmark-button">
