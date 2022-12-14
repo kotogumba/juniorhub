@@ -26,6 +26,11 @@ class BlogPostsController < ApplicationController
         @blog_post.tags << Tag.find(tag)
       end
     end
+    if params[:blog_post][:categories].present?
+      params[:blog_post][:categories].each do |category|
+        @blog_post.categories << Category.find(category)
+      end
+    end
     if @blog_post.save
       redirect_to blog_path(@blog_post.blog)
     else
