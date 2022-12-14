@@ -1,3 +1,4 @@
+
 <div class="blog-post-buttons">
   <%=  link_to blogs_path, class: "btn button-back" do %>
       <i class="fa-solid fa-chevron-left"></i>
@@ -14,66 +15,47 @@
     <%= cl_image_tag @blog_post.image.key if @blog_post.image.attached? %>
   </div>
 
-  <div class="blog-post-banner">
-
   <div class="blog-post-content-container">
-
-
-
-  <div class="blog-post-content-container">
-    <div class="blog-post-content"> <%=  @blog_post.content %>
-      <p> [32] Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum[d] exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? [D]Quis autem vel eum i[r]ure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>
-
-
-      <p>[33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-    </div>
+    <div class="blog-post-content"> <%=  @blog_post.content.html_safe %></div>
   </div>
 
-
-
-
-
-
   <div class="votes-container">
-
-
-      <%# <p> User vote: <%=  @blog_post.votes.where(user: current_user).first.value if @blog_post.votes.where(user: current_user).size > 0 %></p>
-    </div>
     <div class="your-vote">
       <% if @blog_post.votes.where(user: current_user).size == 0 %>
-        <%=  button_to blog_blog_post_votes_path(@blog, @blog_post, value: 1), method: :post, class: "like" do %>
+        <%=  button_to blog_blog_post_votes_path(@blog, @blog_post, value: 1), method: :post, class: "like1-show" do %>
           <i class="fa-solid fa-thumbs-up"></i>
-        <% end %>
-        <%=  button_to blog_blog_post_votes_path(@blog, @blog_post, value: -1), method: :post, class: "dislike" do %>
+      <% end %>
+        <%=  button_to blog_blog_post_votes_path(@blog, @blog_post, value: -1), method: :post, class: "dislike1-show" do %>
           <i class="fa-solid fa-thumbs-down"></i>
         <% end %>
       <% else %>
         <%# user can update vote with method patch %>
         <%=  button_to blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: 1), method: :patch, class: "like" do %>
-        <div class="total-likes">
-          <i class="fa-solid fa-thumbs-up likes-symbol"></i>
-          <div class="likes-text"> <%=  @blog_post.votes.where(value: 1).size %> </div>
-        </div>
-        <% end %>
+  </div>
+    <div class="total-likes-show">
+        <i class="fa-solid fa-thumbs-up like2-show"></i>
+        <div class="like2-text"> <%=  @blog_post.votes.where(value: 1).size %> </div>
+      </div>
+      <% end %>
         <%=  button_to blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: -1), method: :patch, class: "dislike" do %>
-        <div class="total-dislikes">
-          <i class="fa-solid fa-thumbs-down dislikes-symbol"></i>
-          <div class="dislikes-text"> <%=  @blog_post.votes.where(value: -1).size %> </div>
-
+        <div class="total-dislikes-show">
+          <i class="fa-solid fa-thumbs-down dislike2-show"></i>
+          <div class="dislike2-text"> <%=  @blog_post.votes.where(value: -1).size %> </div>
         <% end %>
       <% end %>
     </div>
   </div>
 
-
-
-
-<div class="container border comment-wrapper" data-controller="insert-in-list">
-  <p class="border-bottom">Comments: </p>
-  <div class="comment-list" data-insert-in-list-target="items">
-    <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
-      <%= render "comments/comment", comment: comment %>
-    <% end %>
+</div>
+<div class="comment-wrapper-js" data-controller="comments">
+  <a href="#" data-comments-target="link" data-action="click->comments#show" class="m-3"> Comments </a>
+  <div class="container border comment-wrapper d-none" data-controller="insert-in-list" data-comments-target="comm">
+    <p class="border-bottom">Comments: </p>
+    <div class="comment-list" data-insert-in-list-target="items">
+      <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+    </div>
+    <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
   </div>
-  <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
 </div>
