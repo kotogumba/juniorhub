@@ -1,7 +1,7 @@
 .comment-wrapper {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #F8F8F8;
+  // background-color: #F8F8F8;
   border: 1px solid #E0E0E0;
   border-radius: 5px;
 }
@@ -9,9 +9,9 @@
 .comment {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #F8F8F8;
-  border: 1px solid #E0E0E0;
-  border-radius: 5px;
+  // background-color: #F8F8F8;
+  // border: 1px solid #E0E0E0;
+  // border-radius: 5px;
 }
 
 .comment-avatar {
@@ -43,4 +43,14 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
+}
+
+// sub-comment
+.sub-comment {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.sub-comment .comment{
+  border-left: 3px solid #E0E0E0;
 }

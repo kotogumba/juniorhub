@@ -1,6 +1,6 @@
 <div class="outer-frame" data-controller="blogFilter">
   <div>
-    <%=  link_to "+", new_blog_path, class:"new-button" %>
+    <%=  link_to "+", new_blog_blog_post_path(Blog.first, BlogPost.new), class:"new-button" %>
   </div>
   <div class="blog-category-banner">
     <h1>User Blog Posts</h1>
