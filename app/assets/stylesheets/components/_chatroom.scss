@@ -106,8 +106,12 @@
   width: 50%;
 }
 
-.message-sent {
+.full-message-user {
+  width: 50%;
+  align-self: flex-end;
+}
 
+.message-sent {
   background: rgb(242, 245, 211);
   color: #333;
   padding: 10px 15px;
@@ -120,8 +124,6 @@
   padding: 10px 15px;
   border-radius: 10px 10px 10px 0;
   align-self: right;
-  margin-left: 50px;
-
 }
 
 .message-received {
