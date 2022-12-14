@@ -24,16 +24,6 @@
   margin: 20px 0;
 }
 
-.search-button {
-  border-radius: 30px;
-  width: 100%;
-}
-
-.search-button:hover {
-  background-color: #042454;
-  color: white
-}
-
 .tags {
   display: inline-block;
 }
@@ -63,10 +53,19 @@
   all: unset;
 }
 
-.search-button {
+.search-button-filter {
   display: flex;
   justify-content: center;
   margin-left: 0 !important;
   border-radius: 30px !important;
   margin-top: 10px;
+}
+.search-button-filter {
+  border-radius: 30px;
+  width: 100%;
+}
+
+.search-button-filter:hover {
+  background-color: #042454;
+  color: white
 }

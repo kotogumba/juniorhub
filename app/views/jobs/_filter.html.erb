@@ -12,7 +12,6 @@
       <div class="search-form">
         <form class="input-group rounded">
           <input class="form-control rounded input-field-search" name="query" type="search" placeholder="Company, skill ..." autocomplete="off" aria-label="Search" value="<%= params[:query] %> ">
-
           <div class="filter-tags">
             <% Tag.all.each do |tag|%>
             <div class="form-check tags">
@@ -23,7 +22,7 @@
             </div>
             <% end %>
           </div>
-        <button class="input-group-text border-0 search-button" type="submit">Search</button>
+        <button class="input-group-text border-0 search-button-filter" type="submit">Search</button>
       </form>
     </div>
   </div>
