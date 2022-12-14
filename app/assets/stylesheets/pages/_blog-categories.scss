@@ -6,7 +6,8 @@
 
 .blog-category-banner{
   height: 250px;
-  background: $home-collor-button;
+  background: linear-gradient(90deg, rgba(1,9,59,0.7101123595505618) 0%, rgba(3,33,73,0.7415730337078652) 95%), url("https://images.pexels.com/photos/796603/pexels-photo-796603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,6 +21,12 @@
   font-weight: 900;
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .blog-nav{
   display: flex;
   flex-direction: row;
@@ -28,6 +35,7 @@
   height: 60px;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 1200px;
 }
 
 .category-search{
@@ -101,20 +109,21 @@
   cursor: pointer;
 }
 
-.category-filter{
+.outer-filter-box{
   display: none;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   background: $background-dark-2;
-  margin-top: 20px;
   height: 500px;
   margin-left: 20px;
   margin-right: 20px;
   transition: 1s all;
+  margin-bottom: 20px;
 }
 
-.category-filter.visible{
-  display: grid;
+.outer-filter-box.visible{
+  display: flex;
+  flex-direction: column;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   background: $background-dark-2;
@@ -123,7 +132,35 @@
   margin-left: 20px;
   margin-right: 20px;
   transition: 1s all;
+  width: 1000px;
+  justify-content: center;
+  align-items: center;
 }
+
+.category-filter{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  background: $background-dark-2;
+  height: 500px;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: 1s all;
+  width: 1000px;
+}
+
+// .category-filter.visible{
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-gap: 20px;
+//   background: $background-dark-2;
+//   margin-top: 20px;
+//   height: 500px;
+//   margin-left: 20px;
+//   margin-right: 20px;
+//   transition: 1s all;
+//   width: 1000px;
+// }
 
 .blog-category-list{
   display: flex;
@@ -188,6 +225,7 @@
   box-shadow: 5px 5px 5px $video-overlay;
   transition: 0.3 ease;
   border: 1px $background-light solid;
+  padding-top: 3px;
 }
 
 .new-button:hover{

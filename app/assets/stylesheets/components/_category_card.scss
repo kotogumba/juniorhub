@@ -5,6 +5,7 @@
   background: $background-blue;
   min-width: 220;
   min-height: 110;
+  transition: 0.4s ease-in-out;
 }
 
 .category-info h1{
@@ -12,4 +13,8 @@
   font-weight: 200;
   font-size: 20px;
   color: $text-light;
+}
+
+.category-card:hover{
+  transform: scale(0.9);
 }

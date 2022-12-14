@@ -13,6 +13,9 @@ application.register("carousel", CarouselController)
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
+import CommentsController from "./comments_controller"
+application.register("comments", CommentsController)
+
 import EditJobPostingController from "./edit_job_posting_controller"
 application.register("edit-job-posting", EditJobPostingController)
 
@@ -42,4 +45,3 @@ application.register("read-message", ReadMessageController)
 
 import ReplyController from "./reply_controller"
 application.register("reply", ReplyController)
-

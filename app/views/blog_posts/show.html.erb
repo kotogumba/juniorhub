@@ -46,16 +46,16 @@
     </div>
   </div>
 
-
-
-    <div class="container border comment-wrapper" data-controller="insert-in-list">
-      <p class="border-bottom comments">Comments </p>
-      <div class="comment-list" data-insert-in-list-target="items">
-        <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
-          <%= render "comments/comment", comment: comment %>
-        <% end %>
-      </div>
-      <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
+</div>
+<div class="comment-wrapper-js" data-controller="comments">
+  <a href="#" data-comments-target="link" data-action="click->comments#show" class="m-3"> Comments </a>
+  <div class="container border comment-wrapper d-none" data-controller="insert-in-list" data-comments-target="comm">
+    <p class="border-bottom">Comments: </p>
+    <div class="comment-list" data-insert-in-list-target="items">
+      <% @blog_post.comments.where(parent_id: nil).each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
     </div>
-
+    <%= render "comments/form", blog: @blog, blog_post: @blog_post, comment: Comment.new %>
+  </div>
 </div>

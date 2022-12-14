@@ -1,0 +1,5 @@
+meta_product_name: "JuniorHub"
+meta_title: "JuniorHub - place for junior developers"
+meta_description: "Here you can find your first job"
+meta_image: "blob.svg" # should exist in `app/assets/images/`
+twitter_account: "@juniorhub"   # required for Twitter Cards
