@@ -34,7 +34,7 @@
       <% else %>
         <%# user can update vote with method patch %>
         <%=  button_to blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: 1), method: :patch, class: "like" do %>
-  </div>
+      </div>
     <div class="total-likes-show">
         <i class="fa-solid fa-thumbs-up like2-show"></i>
         <div class="like2-text">
