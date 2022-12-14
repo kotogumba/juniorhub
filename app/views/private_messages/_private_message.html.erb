@@ -1,10 +1,10 @@
-<div id="message-<%= message.id %>">
+<div id="message-<%= message.id %>" class="full-message">
   <small>
     <strong><%= link_to "#{message.user.nickname}", profile_path(message.user) %></strong>
 
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <div class="message-sent">
+  <div class="message-sent<%='-user' if message.user == current_user %>">
     <p><%= message.content %></p>
   </div>
 </div>
