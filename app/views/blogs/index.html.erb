@@ -1,6 +1,8 @@
 <div class="outer-frame" data-controller="blogFilter">
+
   <div class="inner-button">
-    <%=  link_to "+", new_blog_path, class:"new-button" %>
+    <%=  link_to "+", new_blog_blog_post_path(Blog.first, BlogPost.new), class:"new-button" %>
+
   </div>
   <div class="blog-category-banner">
     <h1>User Blog Posts</h1>
@@ -36,7 +38,7 @@
       <div class="category-filter">
         <% @categories.each_with_index do |category, index| %>
           <% image = category_images[index] %>
-          <%= render "blogs/category_card", category: category, image: image %>
+          <%= render "blogs/category_card", category: category, image: image, index: index %>
         <% end %>
       </div>
     </div>
