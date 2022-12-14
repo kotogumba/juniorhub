@@ -102,11 +102,26 @@
   margin-bottom: 20px;
 }
 
+.full-message {
+  width: 50%;
+}
+
 .message-sent {
+
+  background: rgb(242, 245, 211);
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 10px 10px 10px 0;
+}
+
+.message-sent-user {
   background: #ddd;
   color: #333;
   padding: 10px 15px;
   border-radius: 10px 10px 10px 0;
+  align-self: right;
+  margin-left: 50px;
+
 }
 
 .message-received {
