@@ -1,5 +1,5 @@
 <div class="outer-frame" data-controller="blogFilter">
-  <div>
+  <div class="inner-button">
     <%=  link_to "+", new_blog_path, class:"new-button" %>
   </div>
   <div class="blog-category-banner">
@@ -20,10 +20,25 @@
         Filter
       </div>
     </div>
-    <div class="category-filter" data-blogFilter-target="filter">
-      <% @categories.each do |category| %>
-        <%= render "blogs/category_card", category: category %>
-      <% end %>
+    <div class="outer-filter-box" data-blogFilter-target="filter">
+      <% category_images = ["https://images.pexels.com/photos/1509534/pexels-photo-1509534.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/132477/pexels-photo-132477.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1181712/pexels-photo-1181712.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/5952651/pexels-photo-5952651.jpeg?auto=compress&cs=tinysrgb&w=600"] %>
+      <div class="category-filter">
+        <% @categories.each_with_index do |category, index| %>
+          <% image = category_images[index] %>
+          <%= render "blogs/category_card", category: category, image: image %>
+        <% end %>
+      </div>
     </div>
   </form>
   <%# Blog category cards with iteration %>
