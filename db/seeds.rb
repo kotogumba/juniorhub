@@ -68,6 +68,16 @@ end
 #     admin: false
 #   )
 # end
+User.all.each do |user|
+  blog = Blog.create(
+    title: Faker::Lorem.sentence,
+    user: user
+  )
+
+  blog.tags << Tag.all.sample(rand(1..5))
+  blog.categories << Category.all.sample(rand(1..5))
+  blog.save
+end
 
 10.times do
   blog = Blog.create(
