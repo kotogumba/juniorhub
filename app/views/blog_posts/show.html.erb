@@ -21,34 +21,37 @@
 
   <div class="votes-container">
     <div class="your-vote">
+      <%# if user not voted yet %>
       <% if @blog_post.votes.where(user: current_user).size == 0 %>
         <%=  button_to blog_blog_post_votes_path(@blog, @blog_post, value: 1), method: :post, class: "like1-show" do %>
           <i class="fa-solid fa-thumbs-up"></i>
-      <% end %>
+        <% end %>
         <%=  button_to blog_blog_post_votes_path(@blog, @blog_post, value: -1), method: :post, class: "dislike1-show" do %>
           <i class="fa-solid fa-thumbs-down"></i>
         <% end %>
       <% else %>
         <%# user can update vote with method patch %>
         <%=  button_to blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: 1), method: :patch, class: "like" do %>
-  </div>
-    <div class="total-likes-show">
-        <i class="fa-solid fa-thumbs-up like2-show"></i>
-        <div class="like2-text"> <%=  @blog_post.votes.where(value: 1).size %> </div>
-      </div>
-      <% end %>
+          <div class="total-likes-show">
+            <i class="fa-solid fa-thumbs-up like2-show"></i>
+            <div class="like2-text"> <%=  @blog_post.votes.where(value: 1).size %> </div>
+          </div>
+        <% end %>
         <%=  button_to blog_blog_post_vote_path(@blog, @blog_post, @blog_post.votes.where(user: current_user).first, value: -1), method: :patch, class: "dislike" do %>
-        <div class="total-dislikes-show">
-          <i class="fa-solid fa-thumbs-down dislike2-show"></i>
-          <div class="dislike2-text"> <%=  @blog_post.votes.where(value: -1).size %> </div>
+          <div class="total-dislikes-show">
+            <i class="fa-solid fa-thumbs-down dislike2-show"></i>
+            <div class="dislike2-text"> <%=  @blog_post.votes.where(value: -1).size %> </div>
+          </div>
         <% end %>
       <% end %>
     </div>
   </div>
 
 </div>
-<div class="comment-wrapper-js" data-controller="comments">
-  <a href="#" data-comments-target="link" data-action="click->comments#show" class="m-3"> Comments </a>
+<div class="comment-wrapper-js d-flex flex-column" data-controller="comments">
+  <div class="container comment-link mb-3">
+    <a href="#" data-comments-target="link" data-action="click->comments#show" class="m-3"> show comments </a>
+  </div>
   <div class="container border comment-wrapper d-none" data-controller="insert-in-list" data-comments-target="comm">
     <p class="border-bottom">Comments: </p>
     <div class="comment-list" data-insert-in-list-target="items">
