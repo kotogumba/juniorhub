@@ -1,8 +1,18 @@
+.job-response-container {
+  width: 80%
+}
+
+.job-response-container .job-card-index {
+  margin-right: 0;
+}
+
 .flat-card {
-  width: 600px;
+  width: calc(100% - 50px);
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 20px;
+  margin-left: 50px;
+  background-color: white;
 }
 
 .flat-card-profile-picture {
