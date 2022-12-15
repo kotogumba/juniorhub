@@ -34,4 +34,9 @@ class User < ApplicationRecord
     end
     new_messages
   end
+
+  def new_messages_from_user(user_id)
+    messages = new_messages
+    messages.select { |message| message.user_id == user_id }
+  end
 end
