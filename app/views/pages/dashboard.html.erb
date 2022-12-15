@@ -17,24 +17,143 @@
   </div>
   <div class="tab-content" id="v-pills-tabContent">
     <div class="tab-pane fade <%= params[:tab].nil? ? 'show active' : nil %>" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
-      <h3> Welcome to your dashboard <%= @user.profile.first_name %> ! </h3>
-      <p> Here are some tips for junior developers: </p>
-      <div class="tip">
-        <p>1. Learn the basics of software development, such as algorithms, data structures, and design patterns, before diving into a specific programming language or framework.</p>
+      <div class="dashboard-outer-frame">
+        <h3> Welcome to your dashboard <%= @user.profile.first_name %> ! </h3>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="dashboard-home-cards">
+                <h4>Here you can:</h4>
+                <div class="tip">
+                  <p>Create and edit your public profile to complete your account.</p>
+                  <p>Conviniently see the jobs you applied for and view the status.</p>
+                  <p>Find the jobs you have saved for later in case you want to apply.</p>
+                  <p>Receive new messages and write friends and recruiters in one place.</p>
+                  <p>Quickly check and manage jobs you have posted to see who applied.</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="dashboard-home-cards">
+                <h4> Tips to become a better developer from one of our latest articles: </h4>
+                <div class="tip">
+                  <p>1. Learn the basics of software development, such as algorithms, data structures, and design patterns, before diving into a specific programming language or framework.</p>
+                </div>
+                <div class="tip">
+                  <p>2. Practice writing code on a regular basis, whether by working on personal projects or contributing to open source projects. This will help you improve your skills and gain experience.</p>
+                </div>
+                <div class="tip">
+                  <p>3. Collaborate with other developers, whether through online communities or in-person meetups. This will help you learn from others and get feedback on your work.</p>
+                </div>
+                <div class="tip">
+                  <p>4. Stay up to date with the latest developments in the tech industry. This can help you understand the direction the industry is heading and identify opportunities for growth.</p>
+                </div>
+                <div class="tip">
+                  <p>5. Don't be afraid to ask questions. There's no such thing as a stupid question, and asking for help or clarification can save you a lot of time and frustration in the long run.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         <%# Carousel %>
+        <div class="carousel-box-2">
+          <h3>New Jobs</h3>
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%# Job card start %>
+              <div class="job-cardA">
+                <div class="job-card-text">
+                  <div class="company_details">
+                    <% if Job.all.last.image.attached? %>
+                      <%= cl_image_tag Job.all.last.image.key, class: "logo" %>
+                    <% else %>
+                      <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+                    <% end %>
+                    <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+                    <h6><%= Job.all[-1].company_name %></h6>
+                  </div>
+                  <div>
+                    <h4><%= Job.all.last.title %></h4>
+                  </div>
+                  <div>
+                    <h5>Location: <%= Job.all.last.location %></h5>
+                  </div>
+                  <div>
+                    <h5>Start Date: <%= Job.all.last.created_at.strftime(" %B %e %Y") %></h5>
+                  </div>
+                </div>
+              </div>
+              <%# Job card end %>
+            </div>
+            <div class="carousel-item">
+              <%# Job card start %>
+              <div class="job-cardB">
+                <div class="job-card-text">
+                  <div class="company_details">
+                    <% if Job.all[-2].image.attached? %>
+                      <%= cl_image_tag Job.all[-2].image.key, class: "logo" %>
+                    <% else %>
+                      <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+                    <% end %>
+                    <%# <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+                    <h6><%= Job.all[-2].company_name %></h6>
+                  </div>
+                  <div>
+                    <h4><%= Job.all[-2].title %></h4>
+                  </div>
+                  <div>
+                    <h5>Location: <%= Job.all[-2].location %></h5>
+                  </div>
+                  <div>
+                    <h5>Start Date: <%= Job.all[-2].created_at.strftime(" %B %e, %Y") %></h5>
+                  </div>
+                </div>
+              </div>
+              <%# Job card end %>
+            </div>
+            <div class="carousel-item">
+              <%# Job card start %>
+              <div class="job-cardC">
+                <div class="job-card-text">
+                  <div class="company_details">
+                    <% if Job.all[-3].image.attached? %>
+                      <%= cl_image_tag Job.all[-3].image.key, class: "logo" %>
+                    <% else %>
+                      <%= image_tag "logo_placeholder.png", class:"logo", alt:"logo" %>
+                    <% end %>
+                    <h6><%= Job.all[-3].company_name %></h6>
+                  </div>
+                  <div>
+                    <h4><%= Job.all[-3].title %></h4>
+                  </div>
+                  <div>
+                    <h5>Location: <%= Job.all[-3].location %></h5>
+                  </div>
+                  <div>
+                    <h5>Start Date: <%= Job.all[-3].created_at.strftime(" %B %e, %Y") %></h5>
+                  </div>
+                </div>
+              </div>
+              <%# Job card end %>
+            </div>
+          </div>
+          <button id="prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button id="next" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        </div>
       </div>
-      <div class="tip">
-        <p>2. Practice writing code on a regular basis, whether by working on personal projects or contributing to open source projects. This will help you improve your skills and gain experience.</p>
-      </div>
-      <div class="tip">
-        <p>3. Collaborate with other developers, whether through online communities or in-person meetups. This will help you learn from others and get feedback on your work.</p>
-      </div>
-      <div class="tip">
-        <p>4. Stay up to date with the latest developments in the tech industry. This can help you understand the direction the industry is heading and identify opportunities for growth.</p>
-      </div>
-      <div class="tip">
-        <p>5. Don't be afraid to ask questions. There's no such thing as a stupid question, and asking for help or clarification can save you a lot of time and frustration in the long run.</p>
-      </div>
-
     </div>
     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
       <%= render "/profiles/profile", profile: @user.profile %>
