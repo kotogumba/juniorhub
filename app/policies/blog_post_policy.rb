@@ -17,7 +17,7 @@ class BlogPostPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.blog.user == user
     # TODO delete line above and uncomment line below
     # record.user == user
     # record: the restaurant passed to the `authorize` method in controller
@@ -31,6 +31,6 @@ class BlogPostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.blog.user == user
   end
 end

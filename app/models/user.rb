@@ -4,6 +4,7 @@ class User < ApplicationRecord
   acts_as_favoritor
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :nickname, presence: true, uniqueness: true, length: { minimum: 3, maximum: 20 }
   has_many :job_responses
   has_many :jobs, dependent: :destroy
   has_one :profile, dependent: :destroy
