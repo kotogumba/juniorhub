@@ -1,5 +1,8 @@
 <div class="outer-frame" data-controller="blogFilter">
   <div class="inner-button">
+    <% if current_user.blogs.empty? %>
+      <% Blog.create(user: current_user, title: "My Blog") %>
+    <% end %>
     <%=  link_to "+", new_blog_blog_post_path(current_user.blogs.first, BlogPost.new), class:"new-button" %>
   </div>
   <div class="blog-category-banner">
