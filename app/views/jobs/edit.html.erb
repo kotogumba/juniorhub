@@ -1,5 +1,6 @@
 <%= simple_form_for @job do |f| %>
   <%= f.input :company_name %>
+  <%= f.input :image, as: :file %>
   <%= f.input :title %>
   <%= f.input :location %>
   <%= f.input :summary %>

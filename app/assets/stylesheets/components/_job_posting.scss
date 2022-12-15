@@ -61,7 +61,7 @@ top: 0px;
 //   width: 70px;
 // }
 
-//* DELETE BUTTON *//
+//* DELETE x EDIT BUTTON *//
 
 .delete-button {
   position: absolute;
@@ -69,6 +69,15 @@ top: 0px;
   right: 10px;
   border-radius: 10px;
 
+}
+
+.btn.edit-job-button {
+  position: absolute;
+  bottom: 10px;
+  right: 70px;
+  border-radius: 10px;
+  padding: 1px 6px;
+  background-color: rgb(236, 235, 235);
 }
 
 //* JOB KEY POINTS *//
