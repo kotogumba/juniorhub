@@ -9,8 +9,8 @@
     <button class="nav-link <%= params[:tab] == 'messages' ? 'active' : nil %> position-relative" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="<%= params[:tab] == 'messages' ? 'true' : 'false' %>">
       <i class="fa-regular fa-message"></i>
       <% new_messages =  current_user.new_messages.nil? ? 0 : current_user.new_messages.count  %>
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <%= new_messages > 0 ? nil: 'd-none'%>" data-new-message-target="container" >
-        <span data-new-message-target="badge" ><%= new_messages %></span>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <%= new_messages > 0 ? nil: 'd-none'%>" data-new-message-target="container" data-new-message-id-value="main badge">
+        <span data-new-message-target="badge" data-new-message-id-value="main badge"><%= new_messages %></span>
         <span class="visually-hidden">unread messages</span>
       </span>
     </button>
@@ -206,13 +206,18 @@
                     <% end %>
                     <%# USERS LIST %>
                     <li>
-                      <button class="nav-link d-flex flex-row align-items-center <%= friend.id == params[:id].to_i ? 'active' : nil %>" data-controller="read-message" data-read-message-target="name" data-read-message-id-value="<%=friend.id%>" data-read-message-private-chatroom-id-value="<%=chatroom.id%>" data-action="read-message#readMessage" id="v-pills-<%=friend.id%>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%=friend.id%>" type="button" role="tab" aria-controls="v-pills-<%=friend.id%>" aria-selected="<%= friend.id == params[:id] ? 'true' : 'false' %>">
+                      <button class="nav-link d-flex flex-row align-items-center <%= friend.id == params[:id].to_i ? 'active' : nil %>" data-controller="read-message" data-read-message-target="name" data-read-message-id-value="<%=friend.id%>" data-read-message-private-chatroom-id-value="<%=chatroom.id%>" data-action="read-message#readMessage" id="v-pills-<%=friend.id%>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%=friend.id%>" type="button" role="tab" aria-controls="v-pills-<%=friend.id%>" aria-selected="<%= friend.id == params[:id] ? 'true' : 'false' %>" style="position: relative;">
                         <% if friend.profile.avatar.attached? %>
                           <div class="avatar-message flex-shrink-0"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path friend.profile.avatar.key %>'"></div>
                         <% end %>
                         <div>
                           <%= friend.nickname %>
                         </div>
+                        <% new_messages =  current_user.new_messages.nil? ? 0 : current_user.new_messages_from_user(friend.id).count  %>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <%= new_messages > 0 ? nil: 'd-none'%>" data-new-message-target="container" data-new-message-id-value="<%=friend.id%>">
+                          <span data-new-message-target="badge"  data-new-message-id-value="<%=friend.id%>"><%= new_messages %></span>
+                          <span class="visually-hidden">unread messages</span>
+                        </span>
                       </button>
                     </li>
                   <% end %>
