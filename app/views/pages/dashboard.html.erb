@@ -47,12 +47,14 @@
       <% end %>
     </div>
     <div class="tab-pane fade" id="v-pills-response" role="tabpanel" aria-labelledby="v-pills-response-tab" tabindex="0">
-      <h3> My job vacancy income </h3>
+      <h3> Your job ads </h3>
       <% @user.jobs.each do |job| %>
-        <%= render  "jobs/job", job: job %>
-        <% job.job_responses.each do |job_response| %>
-          <%= render "job_responses/job_response", job_response: job_response %>
-        <% end %>
+        <div class="job-response-container mb-3">
+          <%= render  "jobs/job", job: job %>
+          <% job.job_responses.each do |job_response| %>
+            <%= render "job_responses/job_response", job_response: job_response %>
+          <% end %>
+        </div>
       <% end %>
     </div>
         <%# JOB FAVORITES%>
