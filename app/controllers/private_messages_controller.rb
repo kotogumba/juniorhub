@@ -42,6 +42,14 @@ class PrivateMessagesController < ApplicationController
     MessageBadgeChannel.broadcast_to(current_user, current_user.new_messages)
   end
 
+  def destroy
+    @private_message = PrivateMessage.find(params[:id])
+    @private_chatroom = @private_message.private_chatroom
+    authorize @private_message
+    @private_message.destroy
+    redirect_to "/dashboard?tab=messages"
+  end
+
   private
 
   def message_params

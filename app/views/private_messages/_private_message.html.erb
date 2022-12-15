@@ -7,4 +7,11 @@
   <div class="message-sent<%='-user' if message.user == current_user %>">
     <p><%= message.content %></p>
   </div>
+
+  <%# if message.user == current_user %>
+    <%#= button_to "Delete", private_chatroom_private_message_path(message.private_chatroom, message), method: :delete, class: "btn btn-outline-dark btn-sm", style: "--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .75rem;" %>
+  <%# end %>
+  <%= button_to private_chatroom_private_message_path(message.private_chatroom, message), method: :delete do %>
+    <i class="fa-regular fa-circle-xmark"></i>
+  <% end %>
 </div>
