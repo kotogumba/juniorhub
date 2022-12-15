@@ -7,19 +7,18 @@
   <div class="wrapper-card-profile-content d-flex flex-row justify-content-between">
     <div class="info">
       <h1 class="flat-card-name"><%= profile.name %> <%= link_to "View profile", profile_path(profile.user), class: "btn btn-light btn-sm" %></h1>
-    </div>
-    <div class="flat-card-actions d-flex flex-row align-self-end m-0">
-      <%= button_to job_response_path(job_response, status: 'accepted'), method: :patch, class: "btn btn-success"  do %>
-        <i class="fa-solid fa-check"></i>
-      <% end %>
-      <%= button_to job_response_path(job_response, status: 'declined'), method: :patch, class: "btn btn-danger" do %>
-        <i class="fa-solid fa-times"></i>
-      <% end %>
-      <%# button_to delete with awesome font icon %>
-      <%= button_to job_response_path(job_response), method: :delete, class: "btn btn-warning" do %>
-        <i class="fa-solid fa-trash"></i>
-      <% end %>
 
     </div>
+  </div>
+  <div class="response-buttons d-flex flex-row">
+    <%= button_to job_response_path(job_response, status: 'accepted'), method: :patch, class: "btn btn-outline-dark btn-sm me-1"  do %>
+      <i class="fa-solid fa-check"></i>
+    <% end %>
+    <%= button_to job_response_path(job_response, status: 'declined'), method: :patch, class: "btn btn-outline-dark btn-sm me-1"  do %>
+      <i class="fa-solid fa-times"></i>
+    <% end %>
+    <%= button_to job_response_path(job_response), method: :delete, class: "btn btn-outline-dark btn-sm", style: "--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .75rem;" do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
   </div>
 </div>
