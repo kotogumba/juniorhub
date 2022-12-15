@@ -23,8 +23,11 @@
     <div><%= link_to "Apply", new_job_job_response_path(@job), class: "btn btn-light job-card-index-apply" if policy(Job).show?%>
     </div>
 
-    <div class="delete-button">  <%= button_to "Delete", @job, method: :delete %>
-     </div>
+    <div class="delete-button">  <%= button_to "Delete", @job, method: :delete if policy(@job).destroy?%>
+    </div>
+    <div><%= link_to "Edit", edit_job_path(@job), class: "btn edit-job-button" if policy(Job).edit?%>
+    </div>
+
 
     <div class="bookmark-button">
       <%= link_to toggle_favorite_job_path(@job), data: { "turbo-method": :post }  do %>
@@ -33,7 +36,9 @@
 
     </div>
           <%# MAIN SECTION - JOB SUMMARY AND DESCRIPTION %>
-          <div class="job-details"  >
+          <div class="job-details">
+
+            <div class="company-name"><%= @job.company_name %></div>
             <%= render "job_summary", job: @job %>
 
             <div class="job-description">
