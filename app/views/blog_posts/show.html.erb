@@ -8,8 +8,10 @@
   <%=  link_to profile_path(@blog.user), class: "btn button-edit" do %>
       <i class="fa-solid fa-user"></i>
   <% end %>
-  <%=  link_to edit_blog_blog_post_path(@blog, @blog_post), class: "btn button-edit" do %>
-      <i class="fa-solid fa-pencil"></i>
+  <%  if policy(@blog_post).edit?%>
+    <%=  link_to edit_blog_blog_post_path(@blog, @blog_post), class: "btn button-edit" do %>
+        <i class="fa-solid fa-pencil"></i>
+    <% end %>
   <% end %>
 </div>
 
