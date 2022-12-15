@@ -11,7 +11,7 @@
   </div>
   <div class="message-form">
     <%= simple_form_for [private_chatroom, private_message],
-      html: { data: { action: "turbo:submit-end->private-chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+      html: { data: { action: "turbo:submit-end->private-chatroom-subscription#resetForm" }, class: "d-flex", autocomplete: 'off' } do |f|
     %>
       <%= f.input :content,
         label: false,
