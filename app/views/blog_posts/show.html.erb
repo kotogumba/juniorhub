@@ -3,6 +3,11 @@
   <%=  link_to blogs_path, class: "btn button-back" do %>
       <i class="fa-solid fa-chevron-left"></i>
   <% end %>
+  <div class="blog-meta"><%= @blog_post.created_at.strftime(" %B %e, %Y") %></div>
+  <div class="blog-meta"><%= @blog.user.nickname %></div>
+  <%=  link_to profile_path(@blog.user), class: "btn button-edit" do %>
+      <i class="fa-solid fa-user"></i>
+  <% end %>
   <%=  link_to edit_blog_blog_post_path(@blog, @blog_post), class: "btn button-edit" do %>
       <i class="fa-solid fa-pencil"></i>
   <% end %>

@@ -162,3 +162,12 @@
     margin-bottom: 20px;
   }
 }
+
+.blog-meta{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: $Home-font-family;
+  font-weight: 100;
+}
