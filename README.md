@@ -1,1 +1,8 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Web application with a lot of feautures
+- Landing page
+- index page for job posts with search
+- job show page with application and cv uploading 
+- all users profiles page
+- profile show page
+- dashboard with chat and notifications, favorite tab
+- blogs feature with comments and likes

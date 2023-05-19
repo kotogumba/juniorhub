@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   get "dashboard", to: "pages#dashboard"
   resources :private_chatrooms, only: [:show, :new, :create] do
-    resources :private_messages, only: :create
+    resources :private_messages, only: [:create, :destroy]
   end
 
   resources :jobs do
