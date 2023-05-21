@@ -62,7 +62,7 @@ end
 # Create 10 users
 10.times do
   User.create!(
-    nickname: Faker::Name.name,
+    nickname: Faker::Name.name.truncate(19),
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     admin: false
